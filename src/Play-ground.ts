@@ -36,12 +36,12 @@ export class PlayGround extends LitElement {
        -->
       <wl-title level="4">Your Custom component</wl-title>
       <wl-divider></wl-divider>
-      <!-- <ft-google-pay
+      <ft-google-pay
         @payment-processed=${this.printLog}
         @error=${this.printLog}
         .clientId=${'#hgvk86bvghhjbhGYvbjVH*75%Uyhfvbj98'}
-        .transactionData=${null}
-      ></ft-google-pay> -->
+        .transactionData=${this.transactionData}
+      ></ft-google-pay>
 
       <wl-title level="4">
         Componemt inherit from - 'weightless' Component Library</wl-title

@@ -20,3 +20,5 @@
 /out-tsc/
 
 storybook-static
+
+*firebase*

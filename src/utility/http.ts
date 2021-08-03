@@ -4,7 +4,7 @@ const requestConfig = (config?: RequestInit): RequestInit => {
   let configuration: RequestInit = {
     method: 'GET',
     headers: {
-      'Content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
   };
 
@@ -34,6 +34,8 @@ export const httpRequest = async <T, U>(
     reqConfig.body = JSON.stringify(body);
   }
 
+  console.log(reqConfig);
+
   const response: Response = await fetch(path, reqConfig);
   if (!response.ok) {
     const err = new Error(JSON.stringify(response));
@@ -54,24 +56,24 @@ export const getRequest = async <U>(
 
 export const postRequest = async <T, U>(
   path: string,
-  config?: RequestInit,
-  body?: T
+  body?: T,
+  config?: RequestInit
 ): Promise<U> => {
   return httpRequest(path, { ...config, method: 'POST' }, body);
 };
 
 export const putRequest = async <T, U>(
   path: string,
-  config?: RequestInit,
-  body?: T
+  body?: T,
+  config?: RequestInit
 ): Promise<U> => {
   return httpRequest(path, { ...config, method: 'PUT' }, body);
 };
 
 export const patchRequest = async <T, U>(
   path: string,
-  config?: RequestInit,
-  body?: T
+  body?: T,
+  config?: RequestInit
 ): Promise<U> => {
   return httpRequest(path, { ...config, method: 'PATCH' }, body);
 };

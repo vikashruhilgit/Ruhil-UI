@@ -1,6 +1,6 @@
 import { html, LitElement, property, state } from 'lit-element';
 import { eventObj } from '../../utility/util.js';
-import { fakeRequest } from '../../utility/http.js';
+import { postRequest } from '../../utility/http.js';
 import { gpayStyle } from './gpayStyle.js';
 
 declare global {
@@ -96,10 +96,10 @@ export class GooglePay extends LitElement {
     type: 'PAYMENT_GATEWAY',
     parameters: {
       gateway: 'globalpayments',
-      gatewayMerchantId: 'exampleGatewayMerchantId',
+      gatewayMerchantId: '888000103376',
     },
-  }; */
-
+  };
+ */
   /**
    * Describe your site's support for the CARD payment method and its required
    * fields
@@ -226,10 +226,10 @@ export class GooglePay extends LitElement {
     return this;
   } */
 
-  _registredMerchantInfo = {
+  /* _registredMerchantInfo = {
     merchantName: 'Example Merchant',
     merchantId: '01234567890123456789',
-  };
+  }; */
 
   _googleMerchantInfo = {
     // @todo a merchant ID is available for a production environment after approval by Google
@@ -237,6 +237,8 @@ export class GooglePay extends LitElement {
     merchantId: '01234567890123456789',
     merchantName: 'Firstech',
   };
+
+  _registredMerchantInfo = this._googleMerchantInfo;
 
   _getGooglePaymentsClient = () => {
     if (this._paymentsClient === null) {
@@ -282,7 +284,7 @@ export class GooglePay extends LitElement {
     paymentsClient
       .loadPaymentData(paymentDataRequest)
       .then((val: any) => {
-        console.log(val, 'check the use of this');
+        console.log('--loadPaymentData called--');
       })
       .catch((err: Error) => {
         this._errorHandler({
@@ -323,7 +325,7 @@ export class GooglePay extends LitElement {
             transactionState: 'SUCCESS',
           });
         })
-        .catch(() => {
+        .catch((e: any) => {
           const err = {
             transactionState: 'ERROR',
             error: {
@@ -331,6 +333,7 @@ export class GooglePay extends LitElement {
               message: 'Insufficient funds',
               reason: 'PAYMENT_DATA_INVALID',
             },
+            detail: e,
           };
           resolve(err);
           // Things to do after un-successfull transaction from gateway
@@ -345,27 +348,43 @@ export class GooglePay extends LitElement {
 
   _processPayment(paymentData: any) {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // show returned data in developer console for debugging
-        // console.log(paymentData);
-        // @todo pass payment token to your gateway to process payment
-        const paymentToken =
-          paymentData.paymentMethodData.tokenizationData.token;
-
-        // const encryptedMessage = JSON.parse(JSON.parse(paymentToken).signedMessage).encryptedMessage;
-
-        /* get payment responce from service wrapper
-         * or service handler.
-         */
-
-        fakeRequest()
-          .then((res: any) => {
-            resolve(res);
-          })
-          .catch((e: any) => {
-            reject(e);
-          });
-      }, 3000);
+      // setTimeout(() => {
+      //   // show returned data in developer console for debugging
+      //   // console.log(paymentData);
+      //   // @todo pass payment token to your gateway to process payment
+      //   const paymentToken =
+      //     paymentData.paymentMethodData.tokenizationData.token;
+      //   const encryptedMessage = JSON.parse(
+      //     JSON.parse(paymentToken).signedMessage
+      //   ).encryptedMessage;
+      //   /* get payment responce from service wrapper
+      //    * or service handler.
+      //    */
+      //   console.log(paymentData, 'paymentData');
+      //   console.log(paymentToken, 'paymentToken');
+      //   console.log(JSON.parse(paymentToken).signedMessage, 'signedMessage');
+      //   console.log(encryptedMessage, 'encryptedMessage');
+      //   fakeRequest()
+      //     .then((res: any) => {
+      //       resolve(res);
+      //     })
+      //     .catch((e: any) => {
+      //       reject(e);
+      //     });
+      // }, 3000);
+      postRequest('http://localhost:5000/GPay', {
+        paymentData: paymentData,
+        transactionData: this.transactionData,
+      })
+        .then((res: any) => {
+          if (res.status === 'FAIL') {
+            reject(res);
+          }
+          resolve(res);
+        })
+        .catch((e: any) => {
+          reject(e);
+        });
     });
   }
 
