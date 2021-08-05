@@ -1,5 +1,6 @@
 import { html, LitElement, property, state } from 'lit-element';
 import { eventObj } from '../../utility/util.js';
+import { postRequest } from '../../utility/http.js';
 import { gpayStyle } from './gpayStyle.js';
 
 declare global {
@@ -33,12 +34,13 @@ export class GooglePay extends LitElement {
   @property({ type: String }) clientId = '#698bvghhjbhGYvbjVH*75%Uyhfvbj98';
   @property({ type: Object }) transactionData: TransactionData | null = null;
   @property({ type: String }) redirectUrl = '';
-
   @state()
   private _error: GError = {
     status: false,
     msg: '',
   };
+
+  // _button: HTMLElement | null = null;
 
   _paymentsClient: any = null;
   _iframe: any;
@@ -153,6 +155,15 @@ export class GooglePay extends LitElement {
     }
   };
 
+  /* _addButtonClickEvent = () => {
+    if (this._button)
+      this._button.removeEventListener(
+        'click',
+        this._onGooglePaymentButtonClicked
+      );
+    this._button?.addEventListener('click', this._onGooglePaymentButtonClicked);
+  }; */
+
   _getClientInfo = (clientId: string) => {
     setTimeout(() => {
       /* fakeRequest()
@@ -176,43 +187,31 @@ export class GooglePay extends LitElement {
       'BNpvYANJS6oqUtOVokdm5pzJDGnQred/k66TUdlQs+lsZriZLIFxZZAFuIvoSefLgSZCvxhgn/sOP5Q10jUfip8=';
   };
 
+  /*
+
+  // Do some cleaning here if require.
+
+  disconnectedCallback() {
+    this._paymentsClient = null;
+    const el = this.shadowRoot?.getElementById('google-pay');
+    console.log(el);
+
+    if (el) {
+      el.innerHTML = ''
+    }
+  } */
+
   _gererateIframe = () => {
     this._iframe = document.createElement('IFRAME');
     this._iframe.setAttribute('src', 'http://localhost:8080/');
-    this._iframe.setAttribute('height', '0');
-    this._iframe.setAttribute('width', '0');
+    this._iframe.setAttribute('height', '200');
+    this._iframe.setAttribute('width', '200');
     document.body.appendChild(this._iframe);
   };
 
   _msgListener = () => {
     window.onmessage = (e: any) => {
       console.log(e);
-      if (e.origin.includes('http://localhost:8080')) {
-        if (e.data.payload.SaleResponse.status === 'PASS') {
-          const err = {
-            transactionState: 'ERROR',
-            error: {
-              intent: 'PAYMENT_AUTHORIZATION',
-              message: 'Insufficient funds',
-              reason: 'PAYMENT_DATA_INVALID',
-            },
-            data: e.data,
-          };
-          // Things to do after un-successfull transaction from gateway
-          this._errorHandler({
-            status: true,
-            msg: 'refer detail error',
-            detailError: err,
-          });
-        } else {
-          this.dispatchEvent(
-            eventObj('payment-processed', {
-              data: e.data,
-              staus: 'payment done, response from service wrapper.',
-            })
-          );
-        }
-      }
     };
   };
 
@@ -238,6 +237,11 @@ export class GooglePay extends LitElement {
       allowedPaymentMethods: [this._baseCardPaymentMethod],
     });
   };
+
+  // use this for gettingthis out of the shodow root.
+  /* createRenderRoot() {
+    return this;
+  } */
 
   /* _registredMerchantInfo = {
     merchantName: 'Example Merchant',
@@ -269,7 +273,16 @@ export class GooglePay extends LitElement {
 
   _addGooglePayButton = () => {
     const paymentsClient = this._getGooglePaymentsClient();
+    /*
+    const button = paymentsClient.createButton({
+      onClick: this._onGooglePaymentButtonClicked,
+    });
 
+    this._button = paymentsClient.createButton();
+    if (this._tokenizationSpecification.parameters.publicKey) {
+      this._addButtonClickEvent();
+    }
+    */
     const button = paymentsClient.createButton({
       onClick: this._onGooglePaymentButtonClicked,
     });
@@ -314,17 +327,95 @@ export class GooglePay extends LitElement {
   };
 
   _onPaymentAuthorized = (paymentData: any) => {
-    this._iframe.contentWindow.postMessage(
-      {
-        action: 'gpayload',
-        payload: {
-          paymentData: paymentData,
-          transactionData: this.transactionData,
-        },
-      },
-      'http://localhost:8080/'
-    );
+    return new Promise(resolve => {
+      // handle the response
+      this._processPayment(paymentData)
+        .then(paymentData => {
+          // Things to do after successfull transaction from gateway
+          this.dispatchEvent(
+            eventObj('payment-processed', {
+              paymentToken: paymentData,
+              staus: 'payment done, response from service wrapper.',
+            })
+          );
+          resolve({
+            transactionState: 'SUCCESS',
+          });
+        })
+        .catch((e: any) => {
+          const err = {
+            transactionState: 'ERROR',
+            error: {
+              intent: 'PAYMENT_AUTHORIZATION',
+              message: 'Insufficient funds',
+              reason: 'PAYMENT_DATA_INVALID',
+            },
+            detail: e,
+          };
+          resolve(err);
+          // Things to do after un-successfull transaction from gateway
+          this._errorHandler({
+            status: true,
+            msg: 'refer detail error',
+            detailError: err,
+          });
+        });
+    });
   };
+
+  _processPayment(paymentData: any) {
+    return new Promise((resolve, reject) => {
+      // setTimeout(() => {
+      //   // show returned data in developer console for debugging
+      //   // console.log(paymentData);
+      //   // @todo pass payment token to your gateway to process payment
+      //   const paymentToken =
+      //     paymentData.paymentMethodData.tokenizationData.token;
+      //   const encryptedMessage = JSON.parse(
+      //     JSON.parse(paymentToken).signedMessage
+      //   ).encryptedMessage;
+      //   /* get payment responce from service wrapper
+      //    * or service handler.
+      //    */
+      //   console.log(paymentData, 'paymentData');
+      //   console.log(paymentToken, 'paymentToken');
+      //   console.log(JSON.parse(paymentToken).signedMessage, 'signedMessage');
+      //   console.log(encryptedMessage, 'encryptedMessage');
+      //   fakeRequest()
+      //     .then((res: any) => {
+      //       resolve(res);
+      //     })
+      //     .catch((e: any) => {
+      //       reject(e);
+      //     });
+      // }, 3000);
+
+      this._iframe.contentWindow.postMessage(
+        {
+          action: 'gpayload',
+          payload: {
+            paymentData: paymentData,
+            transactionData: this.transactionData,
+          },
+        },
+        'http://localhost:8080/'
+      );
+
+      postRequest('http://localhost:5000/GPay', {
+        paymentData: paymentData,
+        transactionData: this.transactionData,
+      })
+        .then((res: any) => {
+          if (res.status === 'FAIL') {
+            reject(res);
+          }
+          resolve(res);
+        })
+        .catch((e: any) => {
+          reject(e);
+        });
+    });
+  }
 
   _errorHandler = (err: GError) => {
     this._error = {
