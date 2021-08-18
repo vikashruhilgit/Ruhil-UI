@@ -1,1 +1,1 @@
-export { App } from './src/component/App.js';
+export * from './firstech-ui.js';

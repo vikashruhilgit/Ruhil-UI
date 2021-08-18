@@ -1,5 +1,4 @@
-export const eventObj = (event: string, detail: any) => {
-  return new CustomEvent(event, {
-    detail: detail,
+export const eventObj = (event: string, detail: any) =>
+  new CustomEvent(event, {
+    detail,
   });
-};

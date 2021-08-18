@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html } from 'lit-element';
 import 'weightless/button';
 import 'weightless/divider';
 import 'weightless/title';
@@ -6,6 +6,7 @@ import '@material/mwc-button';
 
 export class PlayGround extends LitElement {
   printLog = (t: any) => {
+    // eslint-disable-next-line no-console
     console.log(t);
   };
 

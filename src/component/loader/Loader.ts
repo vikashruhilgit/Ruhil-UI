@@ -3,7 +3,9 @@ import { styleMap } from 'lit-html/directives/style-map';
 
 export class Loader extends LitElement {
   @property({ type: String }) count = '1';
+
   @property({ type: Array }) classes = [];
+
   @property({ type: Object }) styleOverrides: { [k: string]: any } = {};
 
   static styles = css`
@@ -67,22 +69,19 @@ export class Loader extends LitElement {
   @state() items: string[] = [];
 
   firstUpdated() {
-    this.items = new Array(parseInt(this.count)).fill('');
-    console.log(this.items);
+    this.items = new Array(parseInt(this.count, 10)).fill('');
   }
 
   renderLoaderItems(items: string[]) {
     return items.map(
       () => html` <span
-        class=${'cb-loader ' + this.classes.join(' ')}
+        class=${`cb-loader ${this.classes.join(' ')}`}
         style=${styleMap(this.styleOverrides)}
       ></span>`
     );
   }
 
   render() {
-    console.log(this.items);
-
     return html` ${this.renderLoaderItems(this.items)} `;
   }
 }
