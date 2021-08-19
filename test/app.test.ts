@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import { App } from '../src/component/App.js';
-import '../firstech-ui.js';
+import { App } from '../src/component/App';
+import '../firstech-ui';
 
 describe('App', () => {
   let element: App;

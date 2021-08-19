@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import { html, LitElement, property, state } from 'lit-element';
-import { eventObj } from '../../utility/util.js';
-import { postRequest } from '../../utility/http.js';
-import { gpayStyle } from './gpayStyle.js';
+import { eventObj } from '../../utility/util';
+import { postRequest } from '../../utility/http';
+
+import Styles from './styles.scss';
 
 declare global {
   interface Window {
@@ -450,10 +451,9 @@ export class GooglePay extends LitElement {
   > `;
 
   render = () => html`
-    <style>
-      ${gpayStyle}
-    </style>
     <div id="google-pay"></div>
     ${this._error.status ? null : null}
   `;
+
+  static styles = Styles;
 }

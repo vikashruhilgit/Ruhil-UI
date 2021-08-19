@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
-    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
-    "build": "yarn run clean && rollup -c",
-    "prepublish": "tsc",
+    "start": "yarn clean && webpack --watch --config webpack.dev.config.js && wds",
+    "build": "yarn clean && webpack --config webpack.dev.config.js",
+    "build:prod": "yarn format && clean && webpack --config webpack.prod.config.js",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "test": "tsc && wtr --coverage",
@@ -38,42 +38,27 @@
     "@web/dev-server": "^0.1.17",
     "@web/dev-server-storybook": "^0.3.5",
     "@web/test-runner": "^0.12.20",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "concurrently": "^5.3.0",
+    "css-loader": "^6.2.0",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^7.2.0",
+    "extract-loader": "^5.1.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
+    "lit": "^2.0.0-rc.2",
+    "lit-scss-loader": "^1.1.0",
     "prettier": "^2.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-sass": "^1.2.4",
     "rollup-plugin-typescript2": "^0.30.0",
+    "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.5",
     "tslib": "^2.3.0",
-    "typescript": "^4.3.5"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-      "@open-wc/eslint-config",
-      "eslint-config-prettier"
-    ],
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "rules": {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error"
-      ],
-      "import/no-unresolved": "off",
-      "import/extensions": [
-        "error",
-        "always",
-        {
-          "ignorePackages": true
-        }
-      ]
-    }
+    "typescript": "^4.3.5",
+    "webpack": "^5.51.0",
+    "webpack-cli": "^4.8.0"
   },
   "license": "MIT",
   "author": "Vikash Ruhil",

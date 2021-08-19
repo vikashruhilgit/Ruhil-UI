@@ -1,1 +1,1 @@
-export * from './firstech-ui.js';
+export * from './firstech-ui';

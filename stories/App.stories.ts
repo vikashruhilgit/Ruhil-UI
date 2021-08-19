@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit-html';
-import '../firstech-ui.js';
+import '../firstech-ui';
 
 export default {
   title: 'Firstech UI/Component/App',

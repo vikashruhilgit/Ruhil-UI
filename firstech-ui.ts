@@ -1,10 +1,10 @@
-import { prefix } from './config.js';
+import { prefix } from './config';
 
-import { App } from './src/component/App.js';
-import { Test } from './src/component/Test.js';
-import { GooglePay } from './src/component/gpay/GooglePay.js';
-import { PlayGround } from './src/Play-ground.js';
-import { Loader } from './src/component/loader/Loader.js';
+import { App } from './src/component/App';
+import { Test } from './src/component/Test';
+import { GooglePay } from './src/component/gpay/GooglePay';
+import { PlayGround } from './src/Play-ground';
+import { Loader } from './src/component/loader/Loader';
 
 window.customElements.define(`${prefix}-test`, Test);
 window.customElements.define(`${prefix}-app`, App);
