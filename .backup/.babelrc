@@ -1,0 +1,16 @@
+{
+  "presets": [
+      "@babel/typescript"
+  ],
+  "plugins": [
+    "babel-plugin-transform-typescript-metadata",
+      [
+        "@babel/plugin-proposal-decorators",
+      { "legacy": true } 
+      ],
+      "@babel/proposal-class-properties",
+      "@babel/proposal-object-rest-spread"
+  ]
+}
+
+// yarn babel ./src --out-dir lib --extensions ".ts,.tsx"
