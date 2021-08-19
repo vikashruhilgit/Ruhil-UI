@@ -29,5 +29,5 @@
     "noEmit": false
   },
   "include": ["**/*.ts"],
-  "exclude": ["**/node_modules", "**/build", "**/dist", "**/*.md", "**/rollup.config.js", "**/*.test.*", "**/*.stories.*"]
+  "exclude": ["**/node_modules", "**/build", "**/dist", "**/*.md", "**/rollup.config.js", "**/*.test.*"]
 }
