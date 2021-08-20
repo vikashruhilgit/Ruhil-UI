@@ -49,7 +49,6 @@ const Template: Story<ArgTypes> = ({
     totalPriceLabel: 'Total',
   },
 }: ArgTypes) => html`
-  </ft-test>
   <ft-google-pay
     @payment-processed=${printLog}
     @error=${printLog}
