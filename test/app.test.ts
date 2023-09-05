@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import { App } from '../src/component/App';
+import { App } from '../src/App';
 import '../firstech-ui';
 
 describe('App', () => {

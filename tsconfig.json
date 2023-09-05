@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2018",
     "outDir": "./dist",
-    "lib": [
-      "esnext.array",
-      "dom",
-      "dom.iterable",
-      "es2017"
-    ],
+    "lib": ["esnext.array", "dom", "dom.iterable", "es2017"],
     "allowJs": true,
     "declaration": true,
     "skipLibCheck": true,
@@ -28,6 +23,5 @@
     "incremental": true,
     "noEmit": false
   },
-  "include": ["**/*.ts"],
-  "exclude": ["**/node_modules", "**/build", "**/dist", "**/*.md", "**/rollup.config.js", "**/*.test.*"]
+  "include": ["src/**/*.ts"]
 }

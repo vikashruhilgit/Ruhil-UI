@@ -1,5 +1,7 @@
-import { html, LitElement, property, css, state } from 'lit-element';
-import { styleMap } from 'lit-html/directives/style-map';
+import { html, LitElement, css } from 'lit';
+import { property } from 'lit/decorators.js';
+
+import { styleMap } from 'lit/directives/style-map.js';
 
 export class Loader extends LitElement {
   @property({ type: String }) count = '1';
@@ -39,9 +41,10 @@ export class Loader extends LitElement {
       box-sizing: border-box;
     }
 
-    .cb-loader.square-small {
-      width: 50px;
-      height: 50px;
+    .cb-loader.square {
+      width: 40px;
+      height: 40px;
+      margin: 10px;
     }
 
     .cb-loader.circle {
@@ -51,6 +54,10 @@ export class Loader extends LitElement {
       border-radius: 50%;
     }
     .cb-loader.circle.small {
+      width: 25px;
+      height: 25px;
+    }
+    .cb-loader.square.small {
       width: 25px;
       height: 25px;
     }
@@ -66,12 +73,6 @@ export class Loader extends LitElement {
     }
   `;
 
-  @state() items: string[] = [];
-
-  firstUpdated() {
-    this.items = new Array(parseInt(this.count, 10)).fill('');
-  }
-
   renderLoaderItems(items: string[]) {
     return items.map(
       () => html` <span
@@ -82,6 +83,7 @@ export class Loader extends LitElement {
   }
 
   render() {
-    return html` ${this.renderLoaderItems(this.items)} `;
+    const items = new Array(parseInt(this.count, 10)).fill('');
+    return html` ${this.renderLoaderItems(items)} `;
   }
 }

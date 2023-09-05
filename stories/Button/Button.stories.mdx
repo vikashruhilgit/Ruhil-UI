@@ -1,0 +1,451 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Button/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Button `<ft-button>`
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-button--button&args=raised:true"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-button icon="code" label="Hello i'm a Button" raised=""></ft-button>
+```
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        Leading icon. Overrides <code>icon</code> property. Use{' '}
+        <code>label</code> or the <code>icon</code> property to set the{' '}
+        <code>aria-label</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>trailingIcon</code>
+      </td>
+      <td>
+        Icon to show <em>after</em> the label. Overrides{' '}
+        <code>trailingIcon</code> property. Use <code>label</code> or the{' '}
+        <code>trailingIcon</code> property to set the <code>aria-label</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <em>default</em>
+      </td>
+      <td>
+        Default content to display between both icons and after label.{' '}
+        <strong>NOTE:</strong> It is highly recommended to set the{' '}
+        <code>label</code> property instead of projecting text as it will also
+        set the <code>aria-label</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>aria-haspopup</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+      <td>
+        Indicates the availability and type of an interactive popup element,
+        such as menu or dialog, that can be triggered by the button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Icon to display, and <code>aria-label</code> value when{' '}
+        <code>label</code> is not defined.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Label to display for the button, and <code>aria-label</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>raised</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Creates a contained button that is elevated above the surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>unelevated</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Creates a contained button that is flush with the surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>outlined</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Creates an outlined button that is flush with the surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>dense</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Makes the button text and container slightly smaller.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Disabled buttons cannot be interacted with and have no visual
+        interaction effect.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>trailingIcon</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, <code>icon</code> will be displayed{' '}
+        <em>after</em> <code>label</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>expandContent</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, the space after the label and before any
+        trailing icon, where default slotted content is rendered, is expanded to
+        fit the available space inside the button.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-button-horizontal-padding</code>
+      </td>
+      <td>
+        filled: <code>16px</code> outlined: <code>15px</code> default:{' '}
+        <code>8px</code>
+      </td>
+      <td>
+        Left and right padding of the button label (for outlined buttons the
+        outline width is automatically subtracted).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-outline-width</code>
+      </td>
+      <td>
+        <code>1px</code>
+      </td>
+      <td>
+        <code>width</code> of the outline of an outlined button and attempts to
+        keep the component size constant.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-outline-color</code>
+      </td>
+      <td></td>
+      <td>Color of the outline of an outlined element.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-disabled-fill-color</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0,0,0,0.12)</code>
+      </td>
+      <td>Background fill color of a disabled raised or unelevated button.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-disabled-ink-color</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0,0,0,0.37)</code>
+      </td>
+      <td>
+        Text color of a disabled button as well as the outline color of a
+        disabled outlined button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-disabled-outline-color</code>
+      </td>
+      <td></td>
+      <td>Sets the color of the outline of a disabled outlined button.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-raised-box-shadow</code>
+      </td>
+      <td>mdc elevation 2</td>
+      <td>Sets the box shadow of the raised button.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-raised-box-shadow-hover</code>
+      </td>
+      <td>mdc elevation 4</td>
+      <td>Sets the box shadow of the raised button when focused or hovered.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-raised-box-shadow-focus</code>
+      </td>
+      <td>
+        <code>--mdc-button-raised-box-shadow-hover</code>
+      </td>
+      <td>
+        Sets the box shadow of the raised button when focused. Note, if button
+        is both focused and hovered, then hover will override focus box-shadow.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-raised-box-shadow-active</code>
+      </td>
+      <td>mdc elevation 8</td>
+      <td>Sets the box shadow of the raised button when active.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-button-raised-box-shadow-disabled</code>
+      </td>
+      <td>mdc elevation 0</td>
+      <td>Sets the box shadow of the raised button when disabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>
+        Color of a flat or outlined button. Background color of a raised button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-primary</code>
+      </td>
+      <td>Text color of a raised button.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>Font to use for the icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-button-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the button label.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Elevation values
+
+<table>
+  <thead>
+    <tr>
+      <th>Elevation Level</th>
+      <th>CSS Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>2</code>
+      </td>
+      <td>
+        <code>
+          0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0,
+          0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>4</code>
+      </td>
+      <td>
+        <code>
+          0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0,
+          0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>8</code>
+      </td>
+      <td>
+        <code>
+          0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0,
+          0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>0</code>
+      </td>
+      <td>
+        <code>
+          0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0,
+          0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- The usage of this "Component" is intentional to enable react-syntax-highlighter's own highlighter
+
+export const Component = () => {
+  return <SyntaxHighlighter />;
+};
+-->
+
+<!-- [Go to specific documentation page](?path=/docs/firstech-ui-component-icon--icon)
+
+<Source id="firstech-ui-component-navigation--default"></Source> -->

@@ -1,0 +1,1 @@
+{"version":3,"file":"Divider.js","sourceRoot":"","sources":["../../../../src/component/divider/Divider.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,oBAAoB,CAAC;AAE7C,MAAM,OAAO,SAAU,SAAQ,OAAO;CAAG","sourcesContent":["import { Divider } from 'weightless/divider';\n\nexport class MyDivider extends Divider {}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Radio.js","sourceRoot":"","sources":["../../../../../src/component/form-component/radio/Radio.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,qBAAqB,CAAC;AAE5C,MAAM,OAAO,OAAQ,SAAQ,KAAK;CAAG","sourcesContent":["import { Radio } from '@material/mwc-radio';\n\nexport class MyRadio extends Radio {}\n"]}

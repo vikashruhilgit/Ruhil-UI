@@ -1,0 +1,372 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Drawer/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Drawer `<ft-drawer>`
+
+<p>
+  The Navigation Drawer is used to organize access to destinations and other
+  functionality on an app.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-drawer--standard" height="100px" />
+</Canvas>
+
+```html
+<ft-drawer>
+  <div>
+    <p>Drawer Content!</p>
+  </div>
+  <div slot="appContent">
+    <ft-top-app-bar>
+      <div slot="title">Title</div>
+    </ft-top-app-bar>
+    <div>
+      <p>Main Content!</p>
+    </div>
+  </div>
+</ft-drawer>
+```
+
+<p>
+  <strong>NOTE:</strong> When using an inline-drawer (i.e. non-modal drawer)
+  with a
+  <a href="https://github.com/material-components/material-web/tree/master/packages/top-app-bar">
+    <code>top-app-bar</code>
+  </a>
+  , the app-bar is shifted to the right unlike the body content since its position
+  is fixed. This may cause issues with action items on the <code>
+    top-app-bar
+  </code> to be shifted off screen. To remedy this, you should readjust the size
+  of the
+  <code>top-app-bar</code> based on the width of the drawer when the drawer is
+  open. Here is an example of how to do this:
+</p>
+
+```css
+ft-drawer[open] top-app-bar {
+  /* Default width of drawer is 256px. See CSS Custom Properties below */
+  --mdc-top-app-bar-width: calc(100% - var(--mdc-drawer-width, 256px));
+}
+```
+
+### Standard with Header
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-drawer--standard-with-header"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-drawer hasHeader>
+  <span slot="title">Drawer Title</span>
+  <span slot="subtitle">subtitle</span>
+  <div>
+    <p>Drawer content!</p>
+  </div>
+  <div slot="appContent">
+    <ft-top-app-bar>
+      <div slot="title">Title</div>
+    </ft-top-app-bar>
+    <div>
+      <p>Main Content!</p>
+    </div>
+  </div>
+</ft-drawer>
+```
+
+### Dismissible
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-drawer--dismissible" height="100px" />
+</Canvas>
+
+```html
+<ft-drawer hasHeader type="dismissible">
+  <span slot="title">Drawer Title</span>
+  <span slot="subtitle">subtitle</span>
+  <div>
+    <p>Drawer content!</p>
+    <ft-icon-button icon="gesture"></ft-icon-button>
+    <ft-icon-button icon="gavel"></ft-icon-button>
+  </div>
+  <div slot="appContent">
+    <ft-top-app-bar>
+      <ft-icon-button slot="navigationIcon" icon="menu"></ft-icon-button>
+      <div slot="title">Title</div>
+    </ft-top-app-bar>
+    <div>
+      <p>Main Content!</p>
+    </div>
+  </div>
+</ft-drawer>
+<script>
+  const drawer = document.getElementsByTagName('ft-drawer')[0];
+  if (drawer) {
+    const container = drawer.parentNode;
+    container.addEventListener('MDCTopAppBar:nav', () => {
+      drawer.open = !drawer.open;
+    });
+  }
+</script>
+```
+
+### Modal
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-drawer--with-modal" height="100px" />
+</Canvas>
+
+```html
+<ft-drawer hasHeader type="modal">
+  <span slot="title">Drawer Title</span>
+  <span slot="subtitle">subtitle</span>
+  <div>
+    <p>Drawer content!</p>
+    <ft-icon-button icon="gesture"></ft-icon-button>
+    <ft-icon-button icon="gavel"></ft-icon-button>
+  </div>
+  <div slot="appContent">
+    <ft-top-app-bar>
+      <ft-icon-button slot="navigationIcon" icon="menu"></ft-icon-button>
+      <div slot="title">Title</div>
+    </ft-top-app-bar>
+    <div>
+      <p>Main Content!</p>
+    </div>
+  </div>
+</ft-drawer>
+<script>
+  const drawer = document.getElementsByTagName('ft-drawer')[0];
+  if (drawer) {
+    const container = drawer.parentNode;
+    container.addEventListener('MDCTopAppBar:nav', () => {
+      drawer.open = !drawer.open;
+    });
+  }
+</script>
+```
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>title</code>
+      </td>
+      <td>
+        Header title to display in the drawer when <code>hasHeader</code> is
+        true.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>subtitle</code>
+      </td>
+      <td>
+        Header subtitle to display in the drawer when <code>hasHeader</code> is
+        true.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>header</code>
+      </td>
+      <td>Additional header elements to display in the drawer.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>appContent</code>
+      </td>
+      <td>
+        Elements to display in the "app content" to the right of, or under, the
+        drawer.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <em>default</em>
+      </td>
+      <td>Elements to display under the header in drawer.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>open</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Whether the dialog is open</td>
+    </tr>
+    <tr>
+      <td>
+        <code>hasHeader</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, displays the <code>title</code>,
+        <code>subtitle</code>, and <code>header</code> slots.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>type</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>
+        When set to <code>'dismissible'</code>, overlays the drawer on the
+        content. When set to <code>'modal'</code>, also adds a scrim when the
+        drawer is open. When set to empty string, it is inlined with the page
+        and displaces app content.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>MDCDrawer:opened</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>Fired when the drawer opens.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>MDCDrawer:closed</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>Fired when the drawer closes.</td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-drawer-width</code>
+      </td>
+      <td>
+        <code>256px</code>
+      </td>
+      <td>Width of the side drawer when opened.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-surface</code>
+      </td>
+      <td>The background color of the drawer.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-headline6-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the drawer's title.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-body2-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the drawer's subtitle.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-subtitle2-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the drawer's list items.</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

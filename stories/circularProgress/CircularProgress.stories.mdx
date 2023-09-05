@@ -1,0 +1,259 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Circular-Progress/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Circular Progress `<ft-circular-progress>`
+
+<p>
+  Progress indicators express an unspecified wait time or display the length of
+  a process.
+</p>
+<p>
+  The four color circular progress indicator rotates between four colors in
+  indeterminate mode.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Determinate
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-circular-progress--determinate"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-circular-progress-four-color
+  progress="0.7"
+></ft-circular-progress-four-color>
+```
+
+### Indeterminate
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-circular-progress--indeterminate"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-circular-progress-four-color
+  indeterminate
+></ft-circular-progress-four-color>
+```
+
+### Styled
+
+<p>
+  The four-color Circular Progress Indicator does not specify the value of the
+  four colors by default. These colors may be specified as follows:
+</p>
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-circular-progress--styled" height="100px" />
+</Canvas>
+
+```html
+<style>
+  ft-circular-progress-four-color {
+    --mdc-circular-progress-bar-color-1: #2196f3;
+    --mdc-circular-progress-bar-color-2: #e91e63;
+    --mdc-circular-progress-bar-color-3: #ffc107;
+    --mdc-circular-progress-bar-color-4: #03dac5;
+  }
+</style>
+<ft-circular-progress-four-color
+  indeterminate
+></ft-circular-progress-four-color>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>indeterminate</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Sets the circular-progress into its indeterminate state.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>progress</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Sets the progress bar's value. Value should be between [0, 1].</td>
+    </tr>
+    <tr>
+      <td>
+        <code>density</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>
+        Sets the progress indicator's sizing based on density scale. Minimum
+        value is <code>-8</code>. Each unit change in density scale corresponds
+        to 4px change in side dimensions. The stroke width adjusts
+        automatically.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>closed</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Sets the progress indicator to the closed state. Sets content opacity to
+        0. Typically should be set to true when loading has finished.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>open() =&gt; void</code>
+      </td>
+      <td>
+        Sets <code>CircularProgress.closed</code> to <code>false</code>;
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>close() =&gt; void</code>
+      </td>
+      <td>
+        Sets <code>CircularProgress.closed</code> to <code>true</code>;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-circular-progress-bar-color-1</code>
+      </td>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Sets the first of the four rotating colors.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-circular-progress-bar-color-2</code>
+      </td>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Sets the second of the four rotating colors.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-circular-progress-bar-color-3</code>
+      </td>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Sets the third of the four rotating colors.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-circular-progress-bar-color-4</code>
+      </td>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Sets the last of the four rotating colors.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-circular-progress-track-color</code>
+      </td>
+      <td>transparent</td>
+      <td>Sets the track color of the determinate progress bar.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>
+        Sets the color of determinate progress bar. If the indeterminate four
+        colors are unset, sets the color for indeterminate state as well.
+      </td>
+    </tr>
+  </tbody>
+</table>

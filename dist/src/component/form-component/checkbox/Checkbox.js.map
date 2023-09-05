@@ -1,0 +1,1 @@
+{"version":3,"file":"Checkbox.js","sourceRoot":"","sources":["../../../../../src/component/form-component/checkbox/Checkbox.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,wBAAwB,CAAC;AAElD,MAAM,OAAO,UAAW,SAAQ,QAAQ;CAAG","sourcesContent":["import { Checkbox } from '@material/mwc-checkbox';\n\nexport class MyCheckbox extends Checkbox {}\n"]}

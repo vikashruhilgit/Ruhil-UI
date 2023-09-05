@@ -1,0 +1,283 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Form Component/Slider/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Slider `<ft-slider>`
+
+<p>Sliders allow users to make selections from a range of values.</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Continuous
+
+```html
+<ft-slider value="25" min="10" max="50"></ft-slider>
+```
+
+### Discrete
+
+```html
+<ft-slider discrete withTickMarks step="5" max="50" value="10"> </ft-slider>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Current value of the slider.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>valueEnd</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>
+        Proxy of <code>value</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>min</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Value representing the minimum allowed value.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>max</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Value representing the maximum allowed value.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Disables the slider, preventing interaction.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>step</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>1</code>
+      </td>
+      <td>Step for value quantization.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>discrete</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Displays a numeric value label upon pressing the thumb which allows the
+        user to select an exact value.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>withTickMarks</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>
+        Displays tick marks which represent predetermind values to which the
+        user can move the slider. <strong>NOTE:</strong> the slider must be{' '}
+        <code>discrete</code> to display tick marks, and to function correctly,
+        there must be an integer amount of total steps within the range. i.e.{' '}
+        <code>(max - min) % step === 0</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>valueToValueIndicatorTransform(value: number) =&gt; string</code>
+      </td>
+      <td>
+        Override this method to transform the value of a given knob to the text
+        that should be displayed in the value indicator of a discrete slider.
+        Additionally, this will set the <code>aria-valuetext</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>layout(skipUpdateUI = false) =&gt; Promise&lt;void&gt;</code>
+      </td>
+      <td>
+        Recomputes the dimensions and re-lays out the component. This should be
+        called if the dimensions of the slider itself or any of its parent
+        elements change programmatically (it is called automatically on
+        pointerdown). The skipUpdateUI parameter determines whether the UI
+        should be updated alongside the internal clientRect model.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>input</code>
+      </td>
+      <td>
+        <code>value: number, thumb: Thumb</code>*
+      </td>
+      <td>
+        Fired when the value changes due to user input. Similar to the{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event"
+          rel="nofollow"
+        >
+          <code>input</code> event of the native{' '}
+          <code>&lt;input type="range"&gt;</code> element
+        </a>
+        , the <code>input</code> event will not fire when <code>value</code> is modified
+        via JavaScript.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>change</code>
+      </td>
+      <td>
+        <code>value: number, thumb: Thumb</code>*
+      </td>
+      <td>
+        Fired when the value changes and the user has finished interacting with
+        the slider. Similar to the{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event"
+          rel="nofollow"
+        >
+          <code>change</code> event of the native{' '}
+          <code>&lt;input type="range"&gt;</code> element
+        </a>
+        , the <code>change</code> event will not fire when <code>value</code> is
+        modified via JavaScript.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>
+        Sets the color of the knob and filled track when slider is active.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-primary</code>
+      </td>
+      <td>Sets the color of the text in the pin.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-surface</code>
+      </td>
+      <td>
+        Sets the color of the knob and filled track when slider is disabled.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-subtitle2-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of slider's value indicators.</td>
+    </tr>
+  </tbody>
+</table>

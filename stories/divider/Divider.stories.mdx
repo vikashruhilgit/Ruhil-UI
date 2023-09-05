@@ -1,0 +1,118 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Divider/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Divider `<ft-divider>`
+
+Thin line that groups content in lists and layouts.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Basic
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-divider--divider" height="50px" />
+</Canvas>
+
+```html
+<ft-divider></ft-divider>
+```
+
+### Vertical
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-divider--vertical" height="50px" />
+</Canvas>
+
+```html
+<ft-divider vertical></ft-divider>
+```
+
+### Styled
+
+```html
+<style>
+  ft-divider {
+    --divider-color: red;
+    --divider-size: 1px;
+    height: 100px;
+  }
+</style>
+<ft-divider></ft-divider>
+```
+
+## API
+
+### Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>role</code>
+      </td>
+      <td>
+        <code>role</code>
+      </td>
+      <td>
+        <code>AriaRole</code>
+      </td>
+      <td>"separator"</td>
+      <td>Role of the backdrop.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>vertical</code>
+      </td>
+      <td>
+        <code>vertical</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>false</td>
+      <td>Makes the divider vertical.</td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--divider-color</code>
+      </td>
+      <td>Color of the divider</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--divider-size</code>
+      </td>
+      <td>Width or height of the divider</td>
+    </tr>
+  </tbody>
+</table>

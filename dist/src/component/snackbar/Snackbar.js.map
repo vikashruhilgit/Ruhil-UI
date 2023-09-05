@@ -1,0 +1,1 @@
+{"version":3,"file":"Snackbar.js","sourceRoot":"","sources":["../../../../src/component/snackbar/Snackbar.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,wBAAwB,CAAC;AAElD,MAAM,OAAO,UAAW,SAAQ,QAAQ;CAAG","sourcesContent":["import { Snackbar } from '@material/mwc-snackbar';\n\nexport class MySnackbar extends Snackbar {}\n"]}

@@ -1,0 +1,768 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Dialog/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Dialog `<ft-dialog>`
+
+Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Uasge
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-dialog--dialog" height="100px" />
+</Canvas>
+
+### alert
+
+```html
+<ft-dialog open>
+  <div>Discard draft?</div>
+  <ft-button slot="primaryAction" dialogAction="discard"> Discard </ft-button>
+  <ft-button slot="secondaryAction" dialogAction="cancel"> Cancel </ft-button>
+</ft-dialog>
+```
+
+### Confirmation
+
+```html
+<style>
+  ft-dialog div {
+    flex-direction: column;
+  }
+  ft-dialog div,
+  ft-radio {
+    display: flex;
+  }
+</style>
+
+<ft-dialog heading="Phone Ringtone" open>
+  <div>
+    <ft-formfield label="Never Gonna Give You Up">
+      <ft-radio id="a1" name="a" checked></ft-radio>
+    </ft-formfield>
+    <ft-formfield label="Hot Cross Buns">
+      <ft-radio name="a"></ft-radio>
+    </ft-formfield>
+    <ft-formfield label="None">
+      <ft-radio name="a"></ft-radio>
+    </ft-formfield>
+  </div>
+  <ft-button dialogAction="ok" slot="primaryAction"> ok </ft-button>
+  <ft-button dialogAction="cancel" slot="secondaryAction"> cancel </ft-button>
+</ft-dialog>
+```
+
+### Styled
+
+```html
+<style>
+  .styled {
+    --mdc-shape-medium: 0px;
+
+    /* color buttons */
+    --mdc-theme-primary: #344955;
+  }
+</style>
+
+<ft-dialog heading="Styled" class="styled" open>
+  <div>
+    In this dialog we have changed the button color and removed the border
+    radius.
+  </div>
+  <ft-button slot="primaryAction" dialogAction="close">
+    This button is bluish!
+  </ft-button>
+</ft-dialog>
+```
+
+### Stacked
+
+```html
+<ft-dialog heading="Stacked" stacked>
+  <div>
+    This is what happens when you set the stacked property on ft-dialog. Notice
+    that the primary action is now on top.
+  </div>
+  <ft-button slot="primaryAction" dialogAction="close"> Primary </ft-button>
+  <ft-button slot="secondaryAction" dialogAction="close"> Secondary </ft-button>
+</ft-dialog>
+```
+
+### Prevent Scrim Clicks
+
+```html
+<ft-dialog scrimClickAction="">
+  <div>
+    This will prevent a click outside of the dialog from closing the dialog.
+  </div>
+  <ft-button slot="primaryAction" dialogAction="close"> Discard </ft-button>
+  <ft-button slot="secondaryAction" dialogAction="close"> Cancel </ft-button>
+</ft-dialog>
+```
+
+### Prevent Escape Key Action
+
+```html
+<ft-dialog escapeKeyAction="">
+  <div>This will prevent the escape key from closing the dialog.</div>
+  <ft-button slot="primaryAction" dialogAction="close"> Primary </ft-button>
+  <ft-button slot="secondaryAction" dialogAction="close"> Secondary </ft-button>
+</ft-dialog>
+```
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <em>default</em>
+      </td>
+      <td>Primary content area. May contain a list, a form, or prose.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>primaryAction</code>
+      </td>
+      <td>Footer area containing the dialog's primary action button.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>secondaryAction</code>
+      </td>
+      <td>Footer area containing the dialog's secondary action button.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>open</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Whether the dialog should open.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>hideActions</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Hides the actions footer of the dialog. Needed to remove excess padding
+        when no actions are slotted in.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>stacked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Whether to stack the action buttons.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>heading</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Heading text of the dialog.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>scrimClickAction</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <em>Default: 'close'</em> – Action to be emitted with the{' '}
+        <code>closing</code> and <code>closed</code> events when the dialog
+        closes because the scrim was clicked (see{' '}
+        <a href="#actions">actions section</a>). Setting this attribute to an
+        empty string <code>""</code> will prevent clicks outside the dialog from
+        closing the dialog.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>escapeKeyAction</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <em>Default: 'close'</em> – Action to be emitted with the{' '}
+        <code>closing</code> and <code>closed</code> events when the dialog
+        closes because the escape key was pressed (see{' '}
+        <a href="#actions">actions section</a>). Setting this attribute to an
+        empty string <code>""</code> will prevent the escape key from closing
+        the dialog.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>defaultAction</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <em>Default: 'close'</em> – Action to be emitted with the{' '}
+        <code>closing</code> and <code>closed</code> events when{' '}
+        <code>&lt;ft-dialog&gt;.open</code> is toggled (see{' '}
+        <a href="#actions">actions section</a>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>actionAttribute</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <em>Default: 'dialogAction'</em> – Attribute to read in light dom of
+        dialog for closing action value (see{' '}
+        <a href="#actions">actions section</a>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>initialFocusAttribute</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <em>Default: 'dialogInitialFocus'</em> – Attribute to search for in
+        light dom for initial focus on dialog open.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>forceLayout() =&gt; void</code>
+      </td>
+      <td>
+        Forces dialog to relayout (animation frame time). May be required if
+        dialog size is incorrect or if stacked layout has not been triggered
+        correctly.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>focus() =&gt; void</code>
+      </td>
+      <td>
+        Focuses on the initial focus element if defined (see{' '}
+        <a href="#focus">focus section</a>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>blur() =&gt; void</code>
+      </td>
+      <td>Blurs the active element.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>show() =&gt; void</code>
+      </td>
+      <td>Opens the dialog.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>close() =&gt; void</code>
+      </td>
+      <td>Closes the dialog.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Listeners
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>click</code>
+      </td>
+      <td>root element</td>
+      <td>Detects if clicked target is a dialog action.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>resize</code>
+      </td>
+      <td>
+        <code>window </code>
+      </td>
+      <td>Performs dialog layout (passive).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>orientationchange</code>
+      </td>
+      <td>
+        <code>window</code>
+      </td>
+      <td>Performs dialog layout (passive).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>keydown</code>
+      </td>
+      <td>
+        <code>ft-dialog</code>
+      </td>
+      <td>Listens for the enter key to click the default button (passive).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>keydown</code>
+      </td>
+      <td>
+        <code>document</code>
+      </td>
+      <td>
+        Listens for the escape key to close the dialog (see{' '}
+        <a href="#properties">
+          <code>escapeKeyAction</code>
+        </a>
+        ).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>opening</code>
+      </td>
+      <td>
+        <code>ft-dialog</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>Fired when the dialog is beginning to open.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>opened</code>
+      </td>
+      <td>
+        <code>ft-dialog</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>Fired once the dialog is finished opening (after animation).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>closing</code>
+      </td>
+      <td>
+        <code>ft-dialog</code>
+      </td>
+      <td>
+        <code>action: string</code>
+      </td>
+      <td>
+        Fired when the dialog is is beginning to close. Detail is the action
+        that closed the dialog (see <a href="#actions">actions section</a>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>closed</code>
+      </td>
+      <td>
+        <code>ft-dialog</code>
+      </td>
+      <td>
+        <code>action: string</code>
+      </td>
+      <td>
+        Fired once the dialog is finished closing (after animation). Detail is
+        the action that closed the dialog (see{' '}
+        <a href="#actions">actions section</a>).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-dialog-scrim-color</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.32)</code>
+      </td>
+      <td>
+        Color of the scrim. (<strong>Note:</strong> setting alpha to 0 will
+        still make scrim clickable but transparent).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-heading-ink-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.87)</code>
+      </td>
+      <td>Color of the heading text.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-content-ink-color</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.6)</code>
+      </td>
+      <td>
+        Color applied to the projected content. (<strong>Note:</strong> it may
+        also be possible to style the content via the light DOM since it is not
+        encapsulated in a shadow root).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-scroll-divider-color</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.12)</code>
+      </td>
+      <td>Color of the dividers present when dialog is scrollable.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-min-width</code>
+      </td>
+      <td>
+        <code>280px</code>
+      </td>
+      <td>min-width ofthe dialog surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-max-width</code>
+      </td>
+      <td>
+        <code>560px</code>
+      </td>
+      <td>
+        max-width of the dialog surface. (<strong>Note:</strong> if max-width is
+        &lt; <code>560px</code>, there is a visual jank bug that will occur
+        causing the max width to be <code>560px</code> when the window is sized
+        to &lt;= than <code>560px</code>).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-max-height</code>
+      </td>
+      <td>
+        <code>calc(100% - 32px)</code>
+      </td>
+      <td>Max height of the dialog surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-box-shadow</code>
+      </td>
+      <td>mdc elevation 24</td>
+      <td>Sets the box shadow of the dialog.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-dialog-z-index</code>
+      </td>
+      <td>
+        <code>7</code>
+      </td>
+      <td>
+        Sets the <code>z-index</code> of the dialog and scrim.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Elevation values
+
+<table>
+  <thead>
+    <tr>
+      <th>Elevation Level</th>
+      <th>CSS Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>24</code>
+      </td>
+      <td>
+        <code>
+          0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0,
+          0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-surface</code>
+      </td>
+      <td>Color of the dialog surface's background.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-shape-medium</code>
+      </td>
+      <td>Corner radius of the dialog surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-body1-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the dialog's text.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-headline6-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the action buttons.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Actions
+
+<p>
+  Actions close the dialog on click. You can define an action by slotting an
+  element with the <code>dialogAction="..."</code> string attribute. The name of
+  the attribute can be customized by the
+  <a href="#propertiesattributes">
+    <code>actionAttribute</code> property
+  </a>. When a clickable element with the <code>dialogAction</code> attribute is
+  clicked, <code>ft-dialog</code> will get the value of the attribute and fire the{' '}
+  <code>closing</code> and subsequent <code>closed</code> events with a detail of{' '}
+</p>
+
+```js
+{action: <clickedElement.getAttribute('dialogAction')>}
+```
+
+#### Example
+
+```html
+<ft-dialog open>
+  <div>
+    <div>
+      This is my content. Here is an actionable button:
+      <button dialogAction="contentButton">button 1</button>
+    </div>
+    <div>
+      This is my content. Here is a diabled actionable button:
+      <button disabled dialogAction="disabledContentButton">button 2</button>
+    </div>
+  </div>
+  <ft-button slot="primaryAction" dialogAction="ok">ok</ft-button>
+  <ft-button slot="secondaryAction">cancel</ft-button>
+</ft-dialog>
+```
+
+In this example we have 3 actionable elements: `<button dialogAction="contentButton">button 1</button>`
+
+```html
+<button disabled dialogAction="disabledContentButton">button 2</button>
+```
+
+```html
+<ft-button slot="primaryAction" dialogAction="ok">ok</ft-button>
+```
+
+<ul>
+  <li>
+    Clicking button 1 will close the dialog and fire a <code>closing</code> and
+    subsequently a <code>closed</code> event with a detail of
+    <code>action: 'contentButton'</code>.
+  </li>
+  <li>Clicking button 2 will not close the dialog since it is disabled</li>
+  <li>
+    Clicking the cancel <code>mwc-button</code> will not close the dialog as it
+    does not have a <code>dialogAction</code> attribute set on it.
+  </li>
+  <li>
+    Clicking the ok <code>mwc-button</code> will close the dialog and fire a
+    <code>closing</code> and subsequently a <code>closed</code> event with a
+    detail of <code>action: 'ok'</code>.
+  </li>
+  <li>
+    Setting <code>document.querySelector('mwc-dialog').open = false;</code> will
+    close the dialog and fire a <code>closing</code> and subsequently a
+    <code>closed</code> event with a detail of
+    <code>action: 'close'</code> (action is configurable via
+    <a href="#propertiesattributes">
+      <code>defaultAction</code> property
+    </a>
+    ).
+  </li>
+</ul>
+
+### Focus
+
+<p>
+  Initial focus can be set on an element with the
+  <code>dialogInitialFocus</code> boolean attribute (configurable via the
+  <a href="#propertiesattributes">
+    <code>initialFocusAttribute</code> property
+  </a>
+  ).
+</p>
+
+#### example
+
+```html
+<mwc-dialog heading="Initial Focus" open>
+  <div>
+    In this example we set "dialogInitialFocus" on the mwc-textfield. When this
+    dialog opens, it is auto-focused.
+  </div>
+  <mwc-textfield label="i am auto-focused" dialogInitialFocus> </mwc-textfield>
+  <mwc-button slot="primaryAction" dialogAction="close"> Primary </mwc-button>
+  <mwc-button slot="secondaryAction" dialogAction="close">
+    Secondary
+  </mwc-button>
+</mwc-dialog>
+```
+
+<p>
+  In this example we set <code>dialogInitialFocus</code> on the{' '}
+  <code>mwc-textfield</code>, so
+  <code>mwc-textfield.focus()</code> will be called on the button. This attribute
+  can also be set on anything in the light DOM of <code>mwc-dialog</code> or the
+  light dom of the flattened, distributed nodes including the primary and secondary
+  actions. Only one element designated with this attribute will be focused.
+</p>
+
+<p>
+  Calling <code>focus()</code> on the <code>mwc-dialog</code> itself will call{' '}
+  <code>focus()</code> on any
+  <code>dialogInitialFocus</code> element in the light DOM of <code>
+    mwc-dialog
+  </code>.
+</p>
+
+<p>
+  Calling <code>blur()</code> on the <code>mwc-dialog</code> will attempt to
+  blur the
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/activeElement"
+    rel="nofollow"
+  >
+    <code>activeElement</code>
+  </a>
+  of the shadow root of <code>mwc-dialog</code> or the
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/API/Node/getRootNode"
+    rel="nofollow"
+  >
+    root node
+  </a>
+  of the dialog.
+</p>

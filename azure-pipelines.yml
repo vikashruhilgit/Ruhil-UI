@@ -1,0 +1,59 @@
+trigger:
+  - master
+  - develop
+  - feature/*
+pr:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: 'STATIC_WEBAPP_TOKENS'
+
+stages:
+  - stage: "build"
+    displayName: "Build App"
+    jobs:
+      - job:
+        displayName: "Build Storybook"
+        steps:
+          - script: |
+              npm install --global yarn
+            displayName: Installing Yarn
+          - task: Yarn@3
+            inputs:
+              projectDirectory: 'src'
+              arguments: '--verbose'
+          - script: |
+              yarn build
+            displayName: Install packages and build
+          - task: Npm@1
+            displayName: Publish to Artifact Feed
+            inputs:
+              command: publish
+              publishRegistry: useFeed
+              publishFeed: NPM-Package-Feed
+  # - stage: "test"
+  #   displayName: "Build App"
+  #   jobs:
+  #     - job:
+  #       displayName: "Run Tests"
+  #       steps:
+  #         - script: |
+  #             yarn test
+  - stage: "deploy"
+    displayName: "Deploy Storybook App"
+    jobs:
+      - job:
+        displayName: "Build and deploy"
+        steps:
+          - checkout: self
+            submodules: true
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: '/'
+              api_location: 'api'
+              output_location: '/storybook-static'
+              app_build_command: 'yarn sb:build'
+              azure_static_web_apps_api_token: $(dev_ftcomponents_token)

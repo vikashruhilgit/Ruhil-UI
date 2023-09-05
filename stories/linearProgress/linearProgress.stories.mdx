@@ -1,0 +1,245 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Linear-Progress/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Linear Progress `<ft-linear-progress>`
+
+Progress indicators express an unspecified wait time or display the length of a process.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Determinate
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-linear-progress--determinate"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-linear-progress progress="0.5"></ft-linear-progress>
+```
+
+### Indeterminate
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-linear-progress--indeterminate"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-linear-progress indeterminate></ft-linear-progress>
+```
+
+### Determinate buffer
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-linear-progress--determinate-buffer"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-linear-progress progress="0.25" buffer="0.5"></ft-linear-progress>
+```
+
+### Reversed
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-linear-progress--reversed" height="100px" />
+</Canvas>
+
+```html
+<ft-linear-progress reverse progress="0.25" buffer="0.5"> </ft-linear-progress>
+```
+
+### Styled
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-linear-progress--styled" height="100px" />
+</Canvas>
+
+```html
+<style>
+  ft-linear-progress {
+    --mdc-theme-primary: red;
+    --mdc-linear-progress-buffer-color: orange;
+    /* Note: all that was changed from default was "fill='orange'" */
+    --mdc-linear-progress-buffering-dots-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='orange'/%3E%3C/svg%3E");
+  }
+</style>
+<ft-linear-progress progress="0.25" buffer="0.5"></ft-linear-progress>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>indeterminate</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Sets the linear-progress into its indeterminate state.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>progress</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>
+        Sets the primary progress bar's value. Value should be between [0, 1].
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>buffer</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>1</code>
+      </td>
+      <td>
+        Sets the buffer progress bar's value. Value should be between [0, 1].
+        Setting this value to be less than 1 will reveal moving, buffering dots.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>reverse</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Reverses the direction of the linear progress indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>closed</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Sets the progress indicator to the closed state. Sets content opactiy to
+        0. Typically should be set to true when loading has finished.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-linear-progress-buffer-color</code>
+      </td>
+      <td>
+        {' '}
+        <code>#E6E6E6</code>
+      </td>
+      <td>
+        Sets the color of the buffer progress bar.<p></p> <strong>
+          NOTE:
+        </strong> to change the color of the buffering dots, you must do so in the
+        image of <code>--mdc-linear-progress-buffering-dots-image</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-linear-progress-buffering-dots-image</code>
+      </td>
+      <td>
+        <code>url("&lt;svg data url&gt;")</code> (see below for value)
+      </td>
+      <td>
+        Sets the image to use as the buffering dots. This pattern is then
+        repeated horizontally and animated.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  Default value for <code>--mdc-linear-progress-buffering-dots-image</code>:
+</p>
+
+```js
+data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23e6e6e6'/%3E%3C/svg%3E
+```
+
+<p>
+  If you paste that data url into your browser you can see and inspect the SVG.
+  You may also notice that it is simply a colored circle with some transparent
+  space to its right. If you would like to change the color of the circle, you
+  can simply change the <code>fill="%23e6e6e6"</code> to any valid color
+  property (n.b. <code>%23</code> is the url-encoded equivalent of{' '}
+  <code>#</code>).
+</p>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Sets the color of primary progress bar.</td>
+    </tr>
+  </tbody>
+</table>

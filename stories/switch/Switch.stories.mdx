@@ -1,0 +1,204 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Form Component/Switch/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Switch `<ft-switch>`
+
+<p>
+  Switches toggle the state of a single setting on or off. They are the
+  preferred way to adjust settings on mobile.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-switch--standard" height="100px" />
+</Canvas>
+
+```html
+<ft-switch></ft-switch>
+```
+
+### Selected by default
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-switch--selected-by-default"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-switch selected></ft-switch>
+```
+
+### Disabled
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-switch--disabled" height="100px" />
+</Canvas>
+
+```html
+<ft-switch disabled></ft-switch> <ft-switch selected disabled></ft-switch>
+```
+
+### Styled
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-switch--styled" height="100px" />
+</Canvas>
+
+```html
+<style>
+  ft-switch {
+    --mdc-switch-selected-handle-color: teal;
+    --mdc-switch-selected-track-color: lightseagreen;
+    /* ... additional states (hover/focus/pressed) + state-layer element */
+    --mdc-switch-unselected-handle-color: goldenrod;
+    --mdc-switch-unselected-track-color: palegoldenrod;
+    --mdc-switch-unselected-icon-color: black;
+    /* ... additional states (hover/focus/pressed) + state-layer element */
+  }
+</style>
+<ft-switch></ft-switch>
+<ft-switch selected></ft-switch>
+```
+
+### With Form Field
+
+<p>
+  Most applications should use
+  <code>&lt;ft-formfield&gt;</code>
+  to associate an interactive label with the switch.
+</p>
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-switch--with-form-field"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-formfield label="Airplane mode">
+  <ft-switch selected></ft-switch>
+</ft-formfield>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>selected</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>If true, the switch is on. If false, the switch is off.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Indicates whether or not the switch is disabled.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>name</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>""</code>
+      </td>
+      <td>The form name of the switch.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>"on"</code>
+      </td>
+      <td>The value of the switch to submit in a form when selected.</td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<p>
+  The switch may be customized using the <code>theme()</code> mixin to emit
+  custom properties. The <code>theme()</code> mixin can be used for simple and
+  complex theming, such as density.
+</p>
+
+```css
+mwc-switch {
+  --mdc-switch-selected-handle-color: #00897b;
+  --mdc-switch-selected-track-color: #4db6ac;
+}
+
+mwc-switch.dense {
+  --mdc-switch-state-layer-size: 44px;
+}
+```
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Selected handle and ripple color.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-primary</code>
+      </td>
+      <td>Selected and unselected icon colors.</td>
+    </tr>
+  </tbody>
+</table>

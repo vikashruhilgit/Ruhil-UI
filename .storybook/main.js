@@ -1,15 +1,7 @@
-const path = require('path');
-
 module.exports = {
   stories: [
-    '../stories/*.stories.mdx',
-    '../stories/*.stories.@(js|jsx|ts|tsx)',
+    '../stories/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
-  addons: [
-    path.resolve('./.storybook/my-preset'),
-    '@storybook/addon-essentials',
-  ],
-  core: {
-    builder: 'webpack5',
-  },
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
 };

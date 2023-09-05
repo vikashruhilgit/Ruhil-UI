@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import { html, LitElement, property, state } from 'lit-element';
+import { html, LitElement } from 'lit';
+import { state } from 'lit/decorators.js';
 import { eventObj } from '../../utility/util';
-import { postRequest } from '../../utility/http';
 
-import Styles from './styles.scss';
+import { styles } from './googlePay.css';
 
 declare global {
   interface Window {
@@ -30,24 +30,47 @@ interface GError {
   detailError?: any;
 }
 
+export interface GPayConfig {
+  publicKey: string;
+  customerkey: string;
+  environment?: 'TEST' | 'PRODUCTION';
+  buttonColor?: 'black' | 'white';
+  buttonLocale?: string;
+  type?: 'AUTH' | 'PAYMENT';
+}
+
+const initialConfig: GPayConfig = {
+  publicKey: '',
+  customerkey: '',
+  environment: 'TEST',
+  buttonColor: 'black',
+  buttonLocale: 'en',
+  type: 'AUTH',
+};
+
+type PromiseType = () => Promise<unknown>;
+
 export class GooglePay extends LitElement {
-  @property({ type: String }) clientId = '#698bvghhjbhGYvbjVH*75%Uyhfvbj98';
-
-  @property({ type: Object }) transactionData: TransactionData | null = null;
-
-  @property({ type: String }) redirectUrl = '';
-
   @state()
   private _error: GError = {
     status: false,
     msg: '',
   };
 
-  // _button: HTMLElement | null = null;
+  private _config: GPayConfig = initialConfig;
 
-  _paymentsClient: any = null;
+  private _transactionData: TransactionData | null = null;
+
+  private _paymentsClient: any = null;
 
   _iframe: any;
+
+  private _onPaymentAuthorized: PromiseType = () =>
+    new Promise(resolve => {
+      resolve({
+        transactionState: 'SUCCESS',
+      });
+    });
 
   /**
    * Define the version of the Google Pay API referenced when creating your
@@ -92,8 +115,6 @@ export class GooglePay extends LitElement {
     parameters: {
       protocolVersion: 'ECv2',
       publicKey: '',
-      /* publicKey:
-        'BNpvYANJS6oqUtOVokdm5pzJDGnQred/k66TUdlQs+lsZriZLIFxZZAFuIvoSefLgSZCvxhgn/sOP5Q10jUfip8=', */
     },
   };
 
@@ -130,17 +151,17 @@ export class GooglePay extends LitElement {
     tokenizationSpecification: this._tokenizationSpecification,
   };
 
-  firstUpdated = () => {
-    if (!this.clientId) {
-      this._errorHandler({
-        status: true,
-        msg: 'missing clientId',
-      });
-    } else {
-      this._getClientInfo(this.clientId);
-    }
-    // this._gererateIframe();
-    // this._msgListener();
+  renderGpay = (
+    config: GPayConfig,
+    transactionData: TransactionData,
+    paymentCallback: PromiseType
+  ) => {
+    this._config = {
+      ...config,
+    };
+    this._transactionData = transactionData;
+    this._onPaymentAuthorized = paymentCallback;
+    this._getClientInfo(this._config);
   };
 
   _checkAndLoadGooglePayButton = () => {
@@ -160,67 +181,17 @@ export class GooglePay extends LitElement {
     }
   };
 
-  /* _addButtonClickEvent = () => {
-    if (this._button)
-      this._button.removeEventListener(
-        'click',
-        this._onGooglePaymentButtonClicked
-      );
-    this._button?.addEventListener('click', this._onGooglePaymentButtonClicked);
-  }; */
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _getClientInfo = (clientId: string) => {
-    setTimeout(() => {
-      /* fakeRequest()
-        .then((clientInfo: any) => { */
-      this._setClientData({});
-      this._checkAndLoadGooglePayButton();
-      /* })
-        .catch((err: Error) => {
-          this._errorHandler({
-            status: true,
-            msg: err.message,
-            detailError: err,
-          });
-        }); */
-    }, 10);
+  _getClientInfo = (config: GPayConfig) => {
+    this._setClientData(config);
+    this._checkAndLoadGooglePayButton();
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _setClientData = (clientInfo: any) => {
+  _setClientData = (config: GPayConfig) => {
     // console.log(clientInfo);
-    this._tokenizationSpecification.parameters.publicKey =
-      'BNpvYANJS6oqUtOVokdm5pzJDGnQred/k66TUdlQs+lsZriZLIFxZZAFuIvoSefLgSZCvxhgn/sOP5Q10jUfip8=';
+    this._tokenizationSpecification.parameters.publicKey = config.publicKey;
   };
-
-  /*
-
-  // Do some cleaning here if require.
-
-  disconnectedCallback() {
-    this._paymentsClient = null;
-    const el = this.shadowRoot?.getElementById('google-pay');
-    console.log(el);
-
-    if (el) {
-      el.innerHTML = ''
-    }
-  } */
-
-  /* _gererateIframe = () => {
-    this._iframe = document.createElement('IFRAME');
-    this._iframe.setAttribute('src', 'http://localhost:8080/');
-    this._iframe.setAttribute('height', '200');
-    this._iframe.setAttribute('width', '200');
-    document.body.appendChild(this._iframe);
-  }; */
-
-  /* _msgListener = () => {
-    window.onmessage = (e: any) => {
-      console.log(e);
-    };
-  }; */
 
   _onGooglePayLoaded = () => {
     const _paymentsClient = this._getGooglePaymentsClient();
@@ -235,7 +206,6 @@ export class GooglePay extends LitElement {
       })
       .catch((err: any) => {
         // show error in developer console for debugging
-
         console.error(err);
       });
   };
@@ -259,20 +229,27 @@ export class GooglePay extends LitElement {
     // @todo a merchant ID is available for a production environment after approval by Google
     // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
     merchantId: '01234567890123456789',
-    merchantName: 'Firstech',
+    merchantName: '',
   };
 
-  _registredMerchantInfo = this._googleMerchantInfo;
+  // eslint-disable-next-line arrow-body-style
+  _getRegistredMerchantInfo = (merchantName: string) => {
+    return { ...this._googleMerchantInfo, merchantName };
+  };
 
   _getGooglePaymentsClient = () => {
     if (this._paymentsClient === null) {
-      this._paymentsClient = new window.google.payments.api.PaymentsClient({
-        environment: 'TEST', // PRODUCTION
-        merchantInfo: this._registredMerchantInfo,
-        paymentDataCallbacks: {
+      let paymentDataCallbacks = null;
+      if (this._config.type === 'PAYMENT') {
+        paymentDataCallbacks = {
           onPaymentAuthorized: this._onPaymentAuthorized,
           // onPaymentDataChanged: onPaymentDataChanged,
-        },
+        };
+      }
+      this._paymentsClient = new window.google.payments.api.PaymentsClient({
+        environment: this._config.environment,
+        merchantInfo: this._getRegistredMerchantInfo(this._config.customerkey),
+        paymentDataCallbacks,
       });
     }
     return this._paymentsClient;
@@ -280,18 +257,11 @@ export class GooglePay extends LitElement {
 
   _addGooglePayButton = () => {
     const paymentsClient = this._getGooglePaymentsClient();
-    /*
-    const button = paymentsClient.createButton({
-      onClick: this._onGooglePaymentButtonClicked,
-    });
 
-    this._button = paymentsClient.createButton();
-    if (this._tokenizationSpecification.parameters.publicKey) {
-      this._addButtonClickEvent();
-    }
-    */
     const button = paymentsClient.createButton({
       onClick: this._onGooglePaymentButtonClicked,
+      buttonColor: this._config.buttonColor,
+      buttonLocale: this._config.buttonLocale,
     });
 
     const el = this.shadowRoot?.getElementById('google-pay');
@@ -302,14 +272,13 @@ export class GooglePay extends LitElement {
 
   _onGooglePaymentButtonClicked = () => {
     const paymentDataRequest = this._getGooglePaymentDataRequest();
-    paymentDataRequest.transactionInfo = this._getGoogleTransactionInfo();
+    paymentDataRequest.transactionInfo = this._transactionData;
 
     const paymentsClient = this._getGooglePaymentsClient();
     paymentsClient
       .loadPaymentData(paymentDataRequest)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .then((val: any) => {
-        console.log('--loadPaymentData called--');
+      .then((paymentData: any) => {
+        this.dispatchEvent(eventObj('gpay-success', paymentData));
       })
       .catch((err: Error) => {
         this._errorHandler({
@@ -323,110 +292,22 @@ export class GooglePay extends LitElement {
   _getGooglePaymentDataRequest = () => {
     const paymentDataRequest: any = { ...this._baseRequest };
     paymentDataRequest.allowedPaymentMethods = [this._cardPaymentMethod];
-    paymentDataRequest.transactionInfo = this._getGoogleTransactionInfo();
-    paymentDataRequest.merchantInfo = this._googleMerchantInfo;
-    paymentDataRequest.callbackIntents = ['PAYMENT_AUTHORIZATION'];
+    paymentDataRequest.transactionInfo = this._transactionData;
+    paymentDataRequest.merchantInfo = this._getRegistredMerchantInfo(
+      this._config.customerkey
+    );
+    if (this._config.type === 'PAYMENT') {
+      paymentDataRequest.callbackIntents = ['PAYMENT_AUTHORIZATION'];
+    }
 
     return paymentDataRequest;
   };
-
-  _getGoogleTransactionInfo = () => this.transactionData;
-
-  _onPaymentAuthorized = (paymentData: any) =>
-    new Promise(resolve => {
-      // handle the response
-      this._processPayment(paymentData)
-        .then(payData => {
-          // Things to do after successfull transaction from gateway
-          this.dispatchEvent(
-            eventObj('payment-processed', {
-              paymentToken: payData,
-              staus: 'payment done, response from service wrapper.',
-            })
-          );
-          resolve({
-            transactionState: 'SUCCESS',
-          });
-        })
-        .catch((e: any) => {
-          const err = {
-            transactionState: 'ERROR',
-            error: {
-              intent: 'PAYMENT_AUTHORIZATION',
-              message: 'Insufficient funds',
-              reason: 'PAYMENT_DATA_INVALID',
-            },
-            detail: e,
-          };
-          resolve(err);
-          // Things to do after un-successfull transaction from gateway
-          this._errorHandler({
-            status: true,
-            msg: 'refer detail error',
-            detailError: err,
-          });
-        });
-    });
-
-  _processPayment(paymentData: any) {
-    return new Promise((resolve, reject) => {
-      // setTimeout(() => {
-      //   // show returned data in developer console for debugging
-      //   // console.log(paymentData);
-      //   // @todo pass payment token to your gateway to process payment
-      //   const paymentToken =
-      //     paymentData.paymentMethodData.tokenizationData.token;
-      //   const encryptedMessage = JSON.parse(
-      //     JSON.parse(paymentToken).signedMessage
-      //   ).encryptedMessage;
-      //   /* get payment responce from service wrapper
-      //    * or service handler.
-      //    */
-      //   console.log(paymentData, 'paymentData');
-      //   console.log(paymentToken, 'paymentToken');
-      //   console.log(JSON.parse(paymentToken).signedMessage, 'signedMessage');
-      //   console.log(encryptedMessage, 'encryptedMessage');
-      //   fakeRequest()
-      //     .then((res: any) => {
-      //       resolve(res);
-      //     })
-      //     .catch((e: any) => {
-      //       reject(e);
-      //     });
-      // }, 3000);
-
-      this._iframe.contentWindow.postMessage(
-        {
-          action: 'gpayload',
-          payload: {
-            paymentData,
-            transactionData: this.transactionData,
-          },
-        },
-        'http://localhost:8080/'
-      );
-
-      postRequest('http://localhost:5000/GPay', {
-        paymentData,
-        transactionData: this.transactionData,
-      })
-        .then((res: any) => {
-          if (res.status === 'FAIL') {
-            reject(res);
-          }
-          resolve(res);
-        })
-        .catch((e: any) => {
-          reject(e);
-        });
-    });
-  }
 
   _errorHandler = (err: GError) => {
     this._error = {
       ...err,
     };
-    this.dispatchEvent(eventObj('error', err));
+    this.dispatchEvent(eventObj('gpay-error', err));
   };
 
   _refreshButton = () => {
@@ -455,5 +336,5 @@ export class GooglePay extends LitElement {
     ${this._error.status ? null : null}
   `;
 
-  static styles = Styles;
+  static styles = styles;
 }

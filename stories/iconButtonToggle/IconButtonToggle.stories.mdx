@@ -1,0 +1,346 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/IconButtonToggle/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Icon Button Toggle `<ft-icon-button-toggle>`
+
+<p>
+  Toggle buttons can be used to group related options. To emphasize groups of
+  related toggle buttons, a group should share a common container.
+</p>
+
+<p>
+  Icons can be used as toggle buttons when they allow selection, or deselection,
+  of a single choice, such as marking an item as a favorite.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Usage
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-iconbuttontoggle--icon-button-toggle"
+    height="50px"
+  />
+</Canvas>
+
+### Standard
+
+`on = true` and `on = false`
+
+```html
+<ft-icon-button-toggle
+  onIcon="sentiment_very_satisfied"
+  offIcon="sentiment_very_dissatisfied"
+></ft-icon-button-toggle>
+```
+
+### SVG
+
+```html
+<ft-icon-button-toggle>
+  <svg
+    slot="onIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path
+      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+    />
+  </svg>
+  <svg
+    slot="offIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <path fill="none" d="M0 0h24v24H0V0zm0 0h24v24H0V0z" />
+    <path
+      d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+    />
+  </svg>
+</ft-icon-button-toggle>
+```
+
+### Image
+
+```html
+<ft-icon-button-toggle>
+  <img slot="onIcon" src="https://picsum.photos/id/28/24/24" />
+  <img slot="offIcon" src="https://picsum.photos/id/141/24/24?grayscale" />
+</ft-icon-button-toggle>
+```
+
+### Disabled
+
+```html
+<ft-icon-button-toggle
+  disabled
+  onIcon="sentiment_very_satisfied"
+  offIcon="sentiment_very_dissatisfied"
+></ft-icon-button-toggle>
+```
+
+### With toggled aria label
+
+```html
+<ft-icon-button-toggle
+  ariaLabelOn="Very satisfied"
+  ariaLabelOff="Very dissatisfied"
+  onIcon="sentiment_very_satisfied"
+  offIcon="sentiment_very_dissatisfied"
+></ft-icon-button-toggle>
+```
+
+## Custom Style
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+ft-icon-button-toggle { color: tomato; }
+```
+
+## Fonts
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+  rel="stylesheet"
+/>
+```
+
+<p>
+  This loads the <em>Material Icons</em> font, which is required to render
+  icons, and is
+  <em>not</em> loaded automatically. If you see plain text instead of an icon, then
+  the most likely cause is that the Material Icons font is not loaded.
+</p>
+
+<p>
+  To see all icons that are available in the Material Icons font, see
+  <a href="https://material.io/resources/icons/" rel="nofollow">
+    Material Icons
+  </a>.
+</p>
+
+<p>
+  For technical details about the Material Icons font, see the
+  <a href="https://google.github.io/material-design-icons/" rel="nofollow">
+    Material Icons Developer Guide
+  </a>.
+</p>
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>onIcon</code>
+      </td>
+      <td>
+        Optional <code>&lt;img&gt;</code> or <code>&lt;svg&gt;</code> to display
+        instead of using an icon font for the <code>onIcon</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>offIcon</code>
+      </td>
+      <td>
+        Optional <code>&lt;img&gt;</code> or <code>&lt;svg&gt;</code> to display
+        instead of using an icon font for the <code>offIcon</code> property.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>aria-label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>Accessible label for the button.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>on</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Whether the toggle is activated.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>onIcon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Icon to display when <code>on</code> is <code>true</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>offIcon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Icon to display when <code>on</code> is <code>false</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Disabled buttons cannot be interacted with and have no visual
+        interaction effect.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ariaLabelOn</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+      <td>
+        <code>aria-label</code> of the button when <code>on</code> is true. If
+        set, <code>ariaLabelOff</code> must also be set.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ariaLabelOff</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+      <td>
+        <code>aria-label</code> of the button when <code>on</code> is false. If
+        set, <code>ariaLabelOn</code> must also be set.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>icon-button-toggle-change</code>
+      </td>
+      <td>
+        <code>isOn: boolean</code>
+      </td>
+      <td>
+        Indicates the button has been toggled. <code>isOn</code> indicates the{' '}
+        <code>on</code> value of the toggle button.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Global custom properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>
+        Font that supports <em>ligatures</em> and determines which icons are
+        available (see <a href="#fonts">fonts</a> above).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-text-disabled-on-light</code>
+      </td>
+      <td>
+        Color of icon when <code>disabled</code> is <code>true</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>

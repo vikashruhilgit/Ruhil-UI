@@ -1,0 +1,821 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Menu/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Menu `<ft-menu>`
+
+<p>Menus display a list of choices on temporary surfaces.</p>
+
+<p>
+  Note, <code>ft-menu</code> internally uses
+  <code>ft-list</code>, so its main slot has the same interface as the main slot
+  of a <code>ft-list</code>.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Basic
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-menu--basic" height="300px" />
+</Canvas>
+
+```html
+<ft-menu id="menu">
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-menu>
+```
+
+### Activatable
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-menu--activatable" height="300px" />
+</Canvas>
+
+```html
+<ft-menu activatable id="menu">
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item selected activated>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-menu>
+```
+
+### Multi-selectable (activatable)
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-menu--multi-selectable-activatable"
+    height="300px"
+  />
+</Canvas>
+
+```html
+<ft-menu activatable multi id="menu">
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item selected activated>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item selected activated>Item 3</ft-list-item>
+</ft-menu>
+```
+
+### Absolute
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-menu--absolute" height="300px" />
+</Canvas>
+
+```html
+<ft-menu absolute x="50" y="100" id="menu">
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-menu>
+```
+
+### Fixed
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-menu--fixed" height="300px" />
+</Canvas>
+
+```html
+<ft-menu fixed id="menu">
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-menu>
+```
+
+### Selection Groups
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-menu--selection-groups" height="300px" />
+</Canvas>
+
+```html
+<style>
+  /* Hide the icon of unselected menu items that are in a group */
+  #menu > [ft-list-item][group]:not([selected]) [slot='graphic'] {
+    display: none;
+  }
+</style>
+<div style="position:relative;">
+  <ft-button id="button" raised label="Open Menu"></ft-button>
+
+  <ft-menu multi id="menu">
+    <ft-list-item group="a" graphic="icon">
+      <ft-icon slot="graphic">check</ft-icon>
+      <span>Item 0</span>
+    </ft-list-item>
+    <ft-list-item group="a" graphic="icon" selected>
+      <ft-icon slot="graphic">check</ft-icon>
+      <span>Item 1</span>
+    </ft-list-item>
+    <ft-list-item group="a" graphic="icon">
+      <ft-icon slot="graphic">check</ft-icon>
+      <span>Item 2</span>
+    </ft-list-item>
+    <li divider role="separator"></li>
+    <ft-list-item group="b" graphic="icon" selected>
+      <ft-icon slot="graphic">check</ft-icon>
+      <span>Item 3</span>
+    </ft-list-item>
+    <ft-list-item group="b" graphic="icon">
+      <ft-icon slot="graphic">check</ft-icon>
+      <span>Item 4</span>
+    </ft-list-item>
+  </ft-menu>
+</div>
+```
+
+### Styled
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-menu--styled" height="300px" />
+</Canvas>
+
+```html
+<style>
+  #menu {
+    --mdc-menu-min-width: 200px;
+    --mdc-menu-item-height: 30px;
+    --mdc-theme-surface: aliceblue;
+
+    /* inherits the styles of ft-list internally */
+    --mdc-theme-primary: blue;
+    --mdc-list-vertical-padding: 0px;
+    --mdc-list-side-padding: 30px;
+  }
+</style>
+<div style="position: relative;">
+  <ft-button id="button" raised label="Open Menu"></ft-button>
+  <ft-menu activatable multi id="menu">
+    <ft-list-item selected activated>Item 0</ft-list-item>
+    <ft-list-item selected activated>Item 1</ft-list-item>
+    <ft-list-item>Item 2</ft-list-item>
+    <ft-list-item>Item 3</ft-list-item>
+  </ft-menu>
+</div>
+```
+
+## API
+
+### Slot
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <em>default</em>
+      </td>
+      <td>
+        Content to display in the menus internal <code>&lt;ft-list&gt;</code>{' '}
+        element.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  <code>ft-menu</code> internally uses
+  <a href="https://github.com/material-components/material-web/tree/master/packages/list">
+    <code>ft-list</code>
+  </a>, so the default slot has the same interface as the default slot of <code>
+    ft-list
+  </code>.
+</p>
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>open</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Whether the menu should open and display.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>anchor</code>
+      </td>
+      <td>
+        <code>HTMLElement|null</code>
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+      <td>
+        Determines from which element the floating menu should calculate sizing
+        and position offsets. In the default case, both <code>ft-menu</code> and
+        the anchor should share a parent with <code>position:relative</code>.
+        Changing anchor typically requires <code>absolute</code> or{' '}
+        <code>fixed</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>corner</code>
+      </td>
+      <td>
+        <code>Corner</code>*
+      </td>
+      <td>
+        <code>"TOP_START"</code>
+      </td>
+      <td>Corner of the anchor from which the menu should position itself.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>menuCorner</code>
+      </td>
+      <td>
+        <code>MenuCorner</code>**
+      </td>
+      <td>
+        <code>"START"</code>
+      </td>
+      <td>
+        Horizontal corner of the menu from which the menu should position
+        itself. <strong>NOTE:</strong> Only horizontal corners are supported.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>quick</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Whether to skip the opening animation.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>absolute</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Makes the menu's position <code>absolute</code> which will be relative
+        to whichever ancestor has <code>position:relative</code>. Setting{' '}
+        <code>x</code> and <code>y</code> will modify the menu's{' '}
+        <code>left</code> and <code>top</code>. Setting <code>anchor</code> will
+        attempt to position the menu to the <code>anchor</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>fixed</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Makes the menu's position <code>fixed</code> which will be relative to
+        the window. Setting <code>x</code> and <code>y</code> will modify the
+        menu's <code>left</code> and <code>top</code>. Setting{' '}
+        <code>anchor</code> will attempt to position the menu to the{' '}
+        <code>anchor</code>'s immediate position before opening.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>x</code>
+      </td>
+      <td>
+        <code>number|null</code>
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+      <td>
+        Sets horizontal position when <code>absolute</code>. When given an{' '}
+        <code>anchor</code>, sets horizontal position relative to{' '}
+        <code>anchor</code> at given <code>corner</code>. Requires{' '}
+        <code>y</code> not to be null.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>y</code>
+      </td>
+      <td>
+        <code>number|null</code>
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+      <td>
+        Sets vertical position when <code>absolute</code>. When given an{' '}
+        <code>anchor</code>, sets vertical position relative to{' '}
+        <code>anchor</code> at given <code>corner</code>. Requires{' '}
+        <code>x</code> not to be null.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>forceGroupSelection</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Forces a menu group to have a selected item by preventing deselection of
+        menu items in menu groups via user interaction.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>defaultFocus</code>
+      </td>
+      <td>
+        <code>DefaultFocusState</code>***
+      </td>
+      <td>
+        <code>"LIST_ROOT"</code>
+      </td>
+      <td>Item to focus upon menu open.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>fullwidth</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Sets surface width to 100%.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>stayOpenOnBodyClick</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Prevents the menu from closing when clicking outside the menu.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>wrapFocus</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>wrapFocus</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>innerAriaLabel</code>
+      </td>
+      <td>
+        <code>string|null</code>
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>innerAriaLabel</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>innerRole</code>
+      </td>
+      <td>
+        <code>"menu"|"listbox"</code>
+      </td>
+      <td>
+        <code>"menu"</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>innerRole</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>multi</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>multi</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>activatable</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>activatable</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>items</code>
+      </td>
+      <td>
+        <code>ListItemBase[]</code> (readonly)
+      </td>
+      <td>
+        <code>[]</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>items</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>index</code>
+      </td>
+      <td>
+        <code>ftListIndex</code> (readonly)****
+      </td>
+      <td>
+        <code>-1</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>index</code> property.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>selected</code>
+      </td>
+      <td>
+        <code>SelectedType</code> (readonly)*****
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+      <td>
+        Proxies to{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/list#ft-list-1">
+          <code>ft-list</code>'s
+        </a>{' '}
+        <code>selected</code> property.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  * <code>Corner</code> is equivalent to type
+  <code>
+    "TOP_LEFT"|"TOP_RIGHT"|"BOTTOM_LEFT"|"BOTTOM_RIGHT"|"TOP_START"|"TOP_END"
+    |"BOTTOM_START"|"BOTTOM_END"
+  </code>
+</p>
+
+<p>
+  ** <code>Corner</code> is equivalent to type <code>"START"|"END"</code>
+</p>
+
+<p>
+  *** <code>DefaultFocusState</code> is equivalent to type
+  <code>"NONE"|"LIST_ROOT"|"FIRST_ITEM"|"LAST_ITEM"</code>
+</p>
+
+<p>
+  **** <code>ftListIndex</code> is equivalent to type{' '}
+  <code>number|Set&lt;number&gt;</code>.
+</p>
+
+<p>
+  ***** <code>SelectedType</code> is equivaalent to type{' '}
+  <code>ListItemBase|ListItemBase[]|null</code>.<code>ListItemBase</code> is the
+  base class of <code>ft-list-item</code> of which both
+  <code>ft-check-list-item</code> and <code>ft-radio-list-item</code> also inherit
+  from.
+</p>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>show() =&gt; void</code>
+      </td>
+      <td>
+        Sets <code>open</code> to true.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>close() =&gt; void</code>
+      </td>
+      <td>
+        Sets <code>open</code> to false.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>select(index: ftMenuIndex) =&gt; void</code>
+      </td>
+      <td>Selects the elements at the given index / indices.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>getFocusedItemIndex() =&gt; number</code>
+      </td>
+      <td>
+        Returns the index of the currently-focused item. <code>-1</code> if none
+        are focused.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>focusItemAtIndex(index) =&gt; void</code>
+      </td>
+      <td>
+        Focuses the item at the given index and manages tabindex on all other
+        items.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>layout(updateItems = true) =&gt; void</code>
+      </td>
+      <td>
+        Resets tabindex on all items and will update <code>items</code> model if
+        provided true. It may be required to call layout if selectability of an
+        element is dynamically changed. e.g. <code>[ft-list-item]</code>{' '}
+        attribute is removed from a list item or <code>noninteractive</code> is
+        dynamically set on a list item.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>opened</code>
+      </td>
+      <td>
+        <code>ft-menu-surface</code>
+      </td>
+      <td>none</td>
+      <td>Fired when opened.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>closing</code>
+      </td>
+      <td>
+        <code>ft-menu-surface</code>
+      </td>
+      <td>none</td>
+      <td>
+        Fired when closing but animation may not have completed yet. Use for
+        time-sensitive logic that must be run immediately upon close.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>closed</code>
+      </td>
+      <td>
+        <code>ft-menu-surface</code>
+      </td>
+      <td>none</td>
+      <td>Fired when closed.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>action</code>
+      </td>
+      <td>
+        <code>ft-list</code>
+      </td>
+      <td>
+        <code>ActionDetail</code>*
+      </td>
+      <td>
+        Fired when a selection has been made via click or keyboard aciton.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>selected</code>
+      </td>
+      <td>
+        <code>ft-list</code>
+      </td>
+      <td>
+        <code>SelectedDetail</code>*
+      </td>
+      <td>
+        Fired when a selection has been made. <code>index</code> is the selected
+        index (will be of type <code>Set&lt;number&gt;</code> if multi and{' '}
+        <code>number</code> if single), and <code>diff</code> (of type{' '}
+        <code>IndexDiff</code>**) represents the diff of added and removed
+        indices from previous selection.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<p>
+  <code>ft-menu</code> inherits from <code>ft-list</code>, so all custom
+  properties from <code>ft-list</code>
+  propagate through <code>ft-menu</code>.
+</p>
+
+[Go to the ft-list](?path=/docs/firstech-ui-component-list-doc--page)
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-menu-item-height</code>
+      </td>
+      <td>
+        <code>48px</code>
+      </td>
+      <td>Height of single-line list-items in the menu.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-menu-min-width</code>
+      </td>
+      <td>
+        <code>112px</code>
+      </td>
+      <td>Menu min-width.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-menu-max-width</code>
+      </td>
+      <td>
+        <code>calc(100vw - 32px)</code>
+      </td>
+      <td>Menu max-width.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-menu-max-height</code>
+      </td>
+      <td>
+        <code>calc(100vh - 32px)</code>
+      </td>
+      <td>Menu max-height.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-menu-z-index</code>
+      </td>
+      <td>
+        <code>8</code>
+      </td>
+      <td>Z-index of the popup menu surface.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-surface</code>
+      </td>
+      <td>Color of the menu surface.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-shape-medium</code>
+      </td>
+      <td>Border radius of the dropdown.</td>
+    </tr>
+  </tbody>
+</table>

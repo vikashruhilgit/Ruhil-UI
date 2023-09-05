@@ -1,0 +1,324 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Form Component/Radio/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Checkbox `<ft-checkbox>`
+
+<p>
+  Radio buttons allow the user to select one option from a set. Use radio
+  buttons when the user needs to see all available options.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-radio--standard" height="100px" />
+</Canvas>
+
+```html
+<ft-radio name="myGroup" value="value1"></ft-radio>
+<ft-radio name="myGroup" value="value2" checked></ft-radio>
+```
+
+### Custom color
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-radio--custom-color" height="100px" />
+</Canvas>
+
+```html
+<style>
+  ft-radio {
+    background-color: #363636;
+
+    --mdc-theme-secondary: #ff2929;
+    --mdc-radio-unchecked-color: white;
+  }
+</style>
+
+<ft-radio name="myGroup" checked></ft-radio>
+<ft-radio name="myGroup"></ft-radio>
+```
+
+### Disabled custom color
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-radio--disabled-custom-color"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<style>
+  ft-radio {
+    background-color: #363636;
+
+    --mdc-radio-disabled-color: #adadad;
+  }
+</style>
+
+<ft-radio disabled name="myGroup"></ft-radio>
+<ft-radio disabled name="myGroup" checked></ft-radio>
+```
+
+### With Form Field
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-radio--with-form-field"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<style>
+  ft-formfield {
+    display: block;
+  }
+</style>
+
+<ft-formfield label="Home">
+  <ft-radio name="location"></ft-radio>
+</ft-formfield>
+
+<ft-formfield label="Work">
+  <ft-radio name="location"></ft-radio>
+</ft-formfield>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Whether this radio button is the currently-selected one in its group.
+        Maps to the native{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#checked"
+          rel="nofollow"
+        >
+          <code>checked</code>
+        </a>{' '}
+        attribute.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        If <code>true</code>, this radio button cannot be selected or
+        de-selected. Maps to the native{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled"
+          rel="nofollow"
+        >
+          <code>disabled</code>
+        </a>{' '}
+        attribute.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>name</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Name of the input for form submission, and identifier for the selection
+        group. Only one radio button can be checked for a given selection group.
+        Maps to the native{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name"
+          rel="nofollow"
+        >
+          <code>name</code>
+        </a>{' '}
+        attribute.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Value of the input for form submission. Maps to the native{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#value"
+          rel="nofollow"
+        >
+          <code>value</code>
+        </a>{' '}
+        attribute.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>global</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        If <code>true</code>, this radio button will use a global,
+        document-level scope for its selection group rather than its local
+        shadow root.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>reducedTouchTarget</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, the radio removes touch target that extends
+        beyond visual boundary of the component. Set to <code>false</code> by
+        default to meet Material{' '}
+        <a
+          href="https://material.io/design/usability/accessibility.html"
+          rel="nofollow"
+        >
+          accessibility guidelines
+        </a>
+        .
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>change</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>
+        Fired when the user modifies the radio <code>checked</code> state from
+        an input device interaction on this radio. Note that, like
+          native <code>&lt;input&gt;</code>
+        , the <code>change</code> event is <em>not</em> fired when the <code>
+          checked
+        </code> property is set from JavaScript, nor is it fired when another radio
+        in the same group becomes <code>checked</code>.
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-radio-unchecked-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.54)</code>
+      </td>
+      <td>Color of the ring of an unchecked radio.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-radio-disabled-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.38)</code>
+      </td>
+      <td>Color of the ring and circle of a disabled radio.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>Color of the radio button.</td>
+    </tr>
+  </tbody>
+</table>

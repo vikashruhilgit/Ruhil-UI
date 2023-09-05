@@ -1,0 +1,606 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Tab/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Tabs `<ft-tab-bar>`
+
+<p>
+  Tabs organize content across different screens, data sets, and other
+  interactions.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Basic
+
+```html
+<ft-tab-bar>
+  <ft-tab label="Tab one"></ft-tab>
+  <ft-tab label="Tab two"></ft-tab>
+  <ft-tab label="Tab three"></ft-tab>
+</ft-tab-bar>
+```
+
+### Preselected
+
+```html
+<ft-tab-bar activeIndex="1">
+  <ft-tab label="Tab one"></ft-tab>
+  <ft-tab label="Tab two"></ft-tab>
+  <ft-tab label="Tab three"></ft-tab>
+</ft-tab-bar>
+```
+
+### Icons
+
+```html
+<ft-tab-bar>
+  <ft-tab label="Tab one" icon="accessibility"></ft-tab>
+  <ft-tab label="Tab two" icon="exit_to_app"></ft-tab>
+  <ft-tab label="Tab three" icon="camera"></ft-tab>
+</ft-tab-bar>
+```
+
+### Image / Slotted Icons
+
+```html
+<ft-tab-bar>
+  <ft-tab label="Tab one" hasImageIcon>
+    <!-- margin bottom is (24px - height) / 2 -->
+    <svg slot="icon" width="10px" height="10px" style="margin-bottom:7px;">
+      <circle r="5px" cx="5px" cy="5px" color="red"></circle>
+    </svg>
+  </ft-tab>
+  <ft-tab label="Tab two" hasImageIcon>
+    <svg slot="icon" width="10px" height="10px" style="margin-bottom:7px;">
+      <rect width="10px" height="10px" color="green"></rect>
+    </svg>
+  </ft-tab>
+  <ft-tab label="Tab three" hasImageIcon>
+    <svg
+      slot="icon"
+      width="14.143px"
+      height="14.143px"
+      style="margin-bottom:4.928px;"
+    >
+      <rect
+        width="10px"
+        height="10px"
+        color="blue"
+        y="2.071px"
+        x="2.071px"
+        style="transform:rotate(45deg);transform-origin:center;"
+      ></rect>
+    </svg>
+  </ft-tab>
+</ft-tab-bar>
+```
+
+### Stacked Icons
+
+```html
+<ft-tab-bar>
+  <ft-tab label="tab one" icon="accessibility" stacked></ft-tab>
+  <ft-tab label="tab two" icon="exit_to_app" stacked></ft-tab>
+  <ft-tab label="tab three" icon="camera" stacked></ft-tab>
+</ft-tab-bar>
+```
+
+### Min-width Indicator (w/ stacked icon)
+
+```html
+<mwc-tab-bar>
+  <mwc-tab label="tab one" icon="accessibility" stacked isMinWidthIndicator>
+  </mwc-tab>
+  <mwc-tab label="tab two" icon="exit_to_app" stacked isMinWidthIndicator>
+  </mwc-tab>
+  <mwc-tab label="tab three" icon="camera" stacked isMinWidthIndicator>
+  </mwc-tab>
+</mwc-tab-bar>
+```
+
+### Icon Indicator (w/ stacked icon)
+
+```html
+<mwc-tab-bar>
+  <mwc-tab
+      icon="camera"
+      indicatorIcon="donut_large">
+  </mwc-tab>
+  <mwc-tab
+      icon="accessibility"
+      indicatorIcon="donut_large">
+  </mwc-tab>
+  <mwc-tab
+      icon="exit_to_app"
+      indicatorIcon="donut_large">
+  </mwc-tab>
+</mwc-tab-bar>
+</mwc-tab-bar>
+```
+
+### Scrollable
+
+```html
+<style>
+  mwc-tab-bar {
+    border: solid black 1px;
+  }
+</style>
+<mwc-tab-bar>
+  <mwc-tab label="Tab one"></mwc-tab>
+  <mwc-tab label="Tab two"></mwc-tab>
+  <mwc-tab label="Tab three"></mwc-tab>
+  <mwc-tab label="Tab four"></mwc-tab>
+  <mwc-tab label="Tab five"></mwc-tab>
+  <mwc-tab label="Tab six"></mwc-tab>
+  <mwc-tab label="Tab seven"></mwc-tab>
+  <mwc-tab label="Tab eight"></mwc-tab>
+  <mwc-tab label="Tab nine"></mwc-tab>
+  <mwc-tab label="Tab ten"></mwc-tab>
+  <mwc-tab label="Tab eleven"></mwc-tab>
+  <mwc-tab label="Tab twelve"></mwc-tab>
+</mwc-tab-bar>
+```
+
+### Styled
+
+```html
+<style>
+  mwc-tab-bar {
+    --mdc-theme-primary: red;
+    --mdc-text-transform: none;
+    --mdc-tab-color-default: green;
+    --mdc-tab-text-label-color-default: green;
+    --mdc-tab-stacked-height: 100px;
+  }
+</style>
+<mwc-tab-bar>
+  <mwc-tab label="tab one" icon="accessibility" stacked isMinWidthIndicator>
+  </mwc-tab>
+  <mwc-tab label="tab two" icon="exit_to_app" stacked isMinWidthIndicator>
+  </mwc-tab>
+  <mwc-tab label="tab three" icon="camera" stacked isMinWidthIndicator>
+  </mwc-tab>
+</mwc-tab-bar>
+```
+
+## API
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>activeIndex</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Index of tab that is active.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>scrollIndexIntoView(index:number)</code>
+      </td>
+      <td>
+        For long, scrollable <code>tab-bar</code>s, scrolls the tab at the given
+        index into view.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>MDCTabBar:activated</code>
+      </td>
+      <td>
+        <code>mwc-tab-bar</code>
+      </td>
+      <td>
+        <code>index: number</code>
+      </td>
+      <td>Emitted when a tab selection has been made.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>Font to use for the icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>Background color of the FAB.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-secondary</code>
+      </td>
+      <td>Foreground color of the label and icon.</td>
+    </tr>
+  </tbody>
+</table>
+
+# for `<ft-tab>`
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        Slotted icon to display. Only available if <code>hasImageIcon</code> or{' '}
+        <code>icon</code> are defined.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>Text label to display in tab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Material design icon name to display (overridden by slotted icon).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>hasImageIcon</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Displays a slot to show an image icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>indicatorIcon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>Material design icon name to display as the indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>isFadingIndicator</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Indicator fades in and out instead of sliding.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>minWidth</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Shrinks tab as narrow as possible without causing text to wrap.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>isMinWidthIndicator</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Shrinks indicator to be the size of the content.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>stacked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Stacks icon on top of label text.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>active</code>
+      </td>
+      <td>
+        <code>boolean</code> (readonly)
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Indicates whether the tab's indicator is active.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>activate() => void</code>
+      </td>
+      <td>Activates the indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>deactivate() => void</code>
+      </td>
+      <td>Deactivates the indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>computeDimensions() => MDCTabDimensions</code>*
+      </td>
+      <td>Computes the dimensions of the content.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>computeIndicatorClientRect() => ClientRect</code>
+      </td>
+      <td>Computes the dimensions of the indicator.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>MDCTab:interacted</code>
+      </td>
+      <td>
+        <code>mwc-tab</code>
+      </td>
+      <td>
+        <code>tabId: string</code>
+      </td>
+      <td>
+        Emitted when the Tab is interacted with, regardless of its active state.
+        Used by parent components to know which Tab to activate.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-tab-height</code>
+      </td>
+      <td>
+        <code>48px</code>
+      </td>
+      <td>Height of the tab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-horizontal-padding</code>
+      </td>
+      <td>
+        <code>24px</code>
+      </td>
+      <td>Horizontal padding on either side of the tab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-stacked-height</code>
+      </td>
+      <td>
+        <code>72px</code>
+      </td>
+      <td>Height of the tab's stacked variant.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-text-label-color-default</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.6)</code>
+      </td>
+      <td>Color of an unactivated tab label.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-color-default</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.54)</code>
+      </td>
+      <td>Color of an unactivated icon.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Color of the activated tab's text, indicator, and ripple.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>Color of the indicator icon if defined.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>
+        Icon font to use for <code>icon</code> and <code>indicatorIcon</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-size</code>
+      </td>
+      <td>Size of the text icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-button-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the tab label.</td>
+    </tr>
+  </tbody>
+</table>

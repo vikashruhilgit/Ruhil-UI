@@ -1,0 +1,327 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Form Component/Checkbox/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Checkbox `<ft-checkbox>`
+
+<p>
+  Checkboxes allow the user to select one or more items from a set. Checkboxes
+  can be used to turn an option on or off.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-checkbox--standard" height="100px" />
+</Canvas>
+
+```html
+<ft-checkbox checked></ft-checkbox>
+<script>
+  const checkbox = document.body.querySelector('ft-checkbox');
+  checkbox.addEventListener('change', () => {
+    console.log(`checkbox changed to ${checkbox.checked}`);
+  });
+</script>
+```
+
+### Standard, disabled
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-checkbox--standard-disabled"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<div>
+  <ft-checkbox></ft-checkbox>
+  <ft-checkbox checked></ft-checkbox>
+  <ft-checkbox indeterminate></ft-checkbox>
+</div>
+
+<div>
+  <ft-checkbox disabled></ft-checkbox>
+  <ft-checkbox disabled checked></ft-checkbox>
+  <ft-checkbox disabled indeterminate></ft-checkbox>
+</div>
+```
+
+### Styled standard, disabled
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-checkbox--styled-standard-disabled"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-checkbox checked></ft-checkbox>
+<style>
+  body {
+    background-color: #363636;
+
+    --mdc-theme-secondary: #ff2929;
+    --mdc-checkbox-unchecked-color: white;
+    /* Required for unchecked focus ripple */
+    --mdc-theme-on-surface: white;
+    --mdc-checkbox-disabled-color: #adadad;
+    --mdc-checkbox-ink-color: #363636;
+  }
+</style>
+
+<div>
+  <ft-checkbox></ft-checkbox>
+  <ft-checkbox checked></ft-checkbox>
+  <ft-checkbox indeterminate></ft-checkbox>
+</div>
+
+<div>
+  <ft-checkbox disabled></ft-checkbox>
+  <ft-checkbox disabled checked></ft-checkbox>
+  <ft-checkbox disabled indeterminate></ft-checkbox>
+</div>
+```
+
+### With Form Field
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-checkbox--with-form-field"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<style>
+  ft-formfield {
+    display: block;
+  }
+  .child {
+    margin-left: 20px;
+  }
+</style>
+
+<ft-formfield label="Additions">
+  <ft-checkbox indeterminate></ft-checkbox>
+</ft-formfield>
+
+<ft-formfield label="Pickles">
+  <ft-checkbox class="child"></ft-checkbox>
+</ft-formfield>
+
+<ft-formfield label="Tomato">
+  <ft-checkbox class="child" checked></ft-checkbox>
+</ft-formfield>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Whether the checkbox is checked.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>indeterminate</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When a checkbox is the parent of a set of child checkboxes, the{' '}
+        <em>indeterminate</em> state is used on the parent to indicate that some
+        but not all of its children are checked.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, the checkbox cannot be interacted with, and
+        renders in muted colors.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>
+        The value that will be included if the checkbox is submitted in a form.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>reducedTouchTarget</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        When <code>true</code>, the checkbox remove padding for touchscreens and
+        increase density. Note, the checkbox will no longer meet accessibility
+        guidelines for touch.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>change</code>
+      </td>
+      <td>
+        <code>mwc-checkbox</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>
+        Fired when the user modifies the checkbox <code>checked</code> or
+        <code>indeterminate</code> states from an input device interaction. Note
+        that, like native <code>&lt;input&gt;</code>, the <code>change</code> event
+        is <em>not</em> fired when the <code>checked</code> or <code>
+          indeterminate
+        </code> properties are set from JavaScript.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-checkbox-ink-color</code>
+      </td>
+      <td>
+        <code>#fff</code>
+      </td>
+      <td>
+        Color of mark inside a <code>checked</code> or
+        <code>indeterminate</code> checkbox (enabled or disabled).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-checkbox-unchecked-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.54)</code>
+      </td>
+      <td>Color of the unchecked box.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-checkbox-disabled-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.38)</code>
+      </td>
+      <td>Color of the checkbox box and fill when disabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>
+        Background color when the checkbox is <code>checked</code> or
+        <code>indeterminate</code>, and the base color of the ripple effect and focus
+        halo.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-surface</code>
+      </td>
+      <td>
+        Color of mark inside a <code>checked</code> or
+        <code>indeterminate</code> checkbox (enabled or disabled).
+      </td>
+    </tr>
+  </tbody>
+</table>

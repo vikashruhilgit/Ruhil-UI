@@ -1,0 +1,1 @@
+{"version":3,"file":"Linear.js","sourceRoot":"","sources":["../../../../../src/component/progress-bar/linear/Linear.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,+BAA+B,CAAC;AAE/D,MAAM,OAAO,gBAAiB,SAAQ,cAAc;CAAG","sourcesContent":["import { LinearProgress } from '@material/mwc-linear-progress';\n\nexport class MyLinearProgress extends LinearProgress {}\n"]}

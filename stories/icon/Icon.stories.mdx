@@ -1,0 +1,156 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Icon/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Icon `<ft-icon>`
+
+Icon displays an icon with a chosen name from the `Material Icons` font, or from any font that supports ligatures.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+This need to be added in the page for Icons.
+
+```html
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+  rel="stylesheet"
+/>
+```
+
+### Basic
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-icon--icon" height="50px" />
+</Canvas>
+
+```html
+<ft-icon>sentiment_very_dissatisfied</ft-icon>
+<ft-icon>sentiment_dissatisfied</ft-icon>
+<ft-icon>sentiment_neutral</ft-icon>
+<ft-icon>sentiment_satisfied</ft-icon>
+<ft-icon>sentiment_very_satisfied</ft-icon>
+```
+
+### As a link
+
+```html
+<a href="index.html">
+  <ft-icon>arrow_back</ft-icon>
+</a>
+```
+
+### Styled
+
+```html
+<style>
+  .fancy {
+    color: #03a9f4;
+    --mdc-icon-size: 64px;
+  }
+</style>
+
+<ft-icon class="fancy">accessible_forward</ft-icon>
+```
+
+## Fonts
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+  rel="stylesheet"
+/>
+```
+
+<p>
+  This loads the <em>Material Icons</em> font, which is required to render
+  icons, and is
+  <em>not</em> loaded automatically. If you see plain text instead of an icon, then
+  the most likely cause is that the Material Icons font is not loaded.
+</p>
+
+<p>
+  To see all icons that are available in the Material Icons font, see
+  <a href="https://material.io/resources/icons/" rel="nofollow">
+    Material Icons
+  </a>.
+</p>
+
+<p>
+  For technical details about the Material Icons font, see the
+  <a href="https://google.github.io/material-design-icons/" rel="nofollow">
+    Material Icons Developer Guide
+  </a>.
+</p>
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <em>default</em>
+      </td>
+      <td>
+        The name of the icon to display (e.g. <code>shopping_cart</code>). See{' '}
+        <a href="https://material.io/resources/icons/" rel="nofollow">
+          Material Icons
+        </a>{' '}
+        for an index of all available icons.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>
+        <a href="https://material.io/resources/icons/" rel="nofollow">
+          <code>Material Icons</code>
+        </a>
+      </td>
+      <td>
+        Font that supports <em>ligatures</em> and determines which icons are
+        available (see <a href="#fonts">fonts</a> above).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-size</code>
+      </td>
+      <td>
+        <code>24px</code>
+      </td>
+      <td>Size of the icon.</td>
+    </tr>
+  </tbody>
+</table>

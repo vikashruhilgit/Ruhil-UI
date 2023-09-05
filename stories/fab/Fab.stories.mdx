@@ -1,0 +1,336 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Fab - Floating Action Button/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Floating Action Button `<ft-fab>`
+
+<p>A floating action button (FAB) represents the primary action of a screen.</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Usage
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-fab-floating-action-button--fab"
+    height="100px"
+  />
+</Canvas>
+
+### Standard
+
+```html
+<ft-fab icon="edit"></ft-fab>
+```
+
+### Standard - slotted
+
+```html
+<ft-fab label="edit">
+  <ft-icon slot="icon">edit</ft-icon>
+</ft-fab>
+```
+
+### Mini
+
+```html
+<ft-fab mini icon="add"></ft-fab>
+```
+
+### Extended
+
+```html
+<ft-fab extended icon="shopping_cart" label="Add to cart"></ft-fab>
+```
+
+### Customize colors
+
+```html
+ft-fab { --mdc-theme-secondary: white; --mdc-theme-on-secondary: black; }
+```
+
+## Fonts
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+  rel="stylesheet"
+/>
+```
+
+<p>
+  This loads the <em>Material Icons</em> font, which is required to render
+  icons, and is
+  <em>not</em> loaded automatically. If you see plain text instead of an icon, then
+  the most likely cause is that the Material Icons font is not loaded.
+</p>
+
+<p>
+  To see all icons that are available in the Material Icons font, see
+  <a href="https://material.io/resources/icons/" rel="nofollow">
+    Material Icons
+  </a>.
+</p>
+
+<p>
+  For technical details about the Material Icons font, see the
+  <a href="https://google.github.io/material-design-icons/" rel="nofollow">
+    Material Icons Developer Guide
+  </a>.
+</p>
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        An icon to be slotted into the fab. <em>Note:</em> the{' '}
+        <code>label</code> property should still be set for button
+        accessibility.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>The icon to display.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        The label to display when using the <code>extended</code> layout, and
+        the <code>aria-label</code> attribute in all layouts.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>mini</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Modifies the FAB to be a smaller size, for use on smaller screens.
+        Defaults to <code>false</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>reducedTouchTarget</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Sets the minimum touch target of the default-sized mini fab to
+        recommended 48x48px.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>extended</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Enable the <em>extended</em> layout which includes a text label.
+        Defaults to <code>false</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>showIconAtEnd</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        When in the <em>extended</em> layout, position the icon after the label,
+        instead of before. Defaults to <code>false</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-fab-box-shadow</code>
+      </td>
+      <td>mdc elevation 6, 8, 12</td>
+      <td>
+        Sets the box shadow of the fab. Elevation 6 when idle, 8 when focused or
+        hovered, and 12 when active.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-fab-extended-label-padding</code>
+      </td>
+      <td>
+        <code>20px</code>
+      </td>
+      <td>Sets the padding on either horizontal side of an extended fab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-fab-extended-icon-padding</code>
+      </td>
+      <td>
+        <code>12px</code>
+      </td>
+      <td>
+        Sets the padding between the icon and the label of an extended fab.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-fab-focus-outline-color</code>
+      </td>
+      <td>
+        <code>initial</code>
+      </td>
+      <td>The color of the focus outline ring (off by default).</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-fab-focus-outline-width</code>
+      </td>
+      <td>
+        <code>0px</code>
+      </td>
+      <td>Sets the width of the focus outline ring.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Elevation values
+
+<table>
+  <thead>
+    <tr>
+      <th>Elevation Level</th>
+      <th>CSS Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>6</code>
+      </td>
+      <td>
+        <code>
+          0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0,
+          0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>8</code>
+      </td>
+      <td>
+        <code>
+          0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0,
+          0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>12</code>
+      </td>
+      <td>
+        <code>
+          0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0,
+          0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)
+        </code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>Font to use for the icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>Background color of the FAB.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-secondary</code>
+      </td>
+      <td>Foreground color of the label and icon.</td>
+    </tr>
+  </tbody>
+</table>

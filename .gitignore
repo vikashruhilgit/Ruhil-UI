@@ -20,9 +20,7 @@
 /out-tsc/
 
 storybook-static
+custom-elements.json
 
-*firebase*
-
-.rollup*
 .backup
-
+*firebase*

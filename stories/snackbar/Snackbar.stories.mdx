@@ -1,0 +1,326 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Snackbar/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Snackbar `<ft-nackbar>`
+
+<p>
+  Snackbars provide brief messages about app processes at the bottom of the
+  screen.
+</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-snackbar--default" height="100px" />
+</Canvas>
+
+```html
+<ft-snackbar
+  id="photoErrorSnackbar"
+  labelText="Can't send photo. Retry in 5 seconds."
+>
+</ft-snackbar>
+```
+
+### Optional action and dismiss button
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-snackbar--optional-action-and-dismiss-button"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-snackbar labelText="Can't send photo. Retry in 5 seconds.">
+  <ft-button slot="action">RETRY</ft-button>
+  <ft-icon-button icon="close" slot="dismiss"></ft-icon-button>
+</ft-snackbar>
+```
+
+### Custom action button color
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-snackbar--custom-action-button-color"
+    height="100px"
+  />
+</Canvas>
+
+```css
+ft-snackbar {
+  --mdc-snackbar-action-color: #64dc17;
+}
+```
+
+### Variants
+
+#### Stacked
+
+<p>
+  Action buttons with long text should be positioned below the label instead of
+  alongside it. Set the <code>stacked</code> attribute or property to enable
+  this layout.
+</p>
+
+#### Leading
+
+<p>
+  By default, snackbars are centered horizontally within the viewport. On larger
+  screens, they can optionally be displayed on the leading edge of the screen
+  (the left side in LTR, or the right side in RTL). Set the <code>leading</code>
+  attribute or property to enable this layout.
+</p>
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>action</code>
+      </td>
+      <td>
+        Optional <code>&lt;mwc-button&gt;</code> which closes the snackbar with
+        reason <code>'action'</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>dismiss</code>
+      </td>
+      <td>
+        Optional <code>&lt;mwc-icon-button&gt;</code> which closes the snackbar
+        with reason <code>'dismiss'</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>open</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Whether the snackbar is currently open.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>timeoutMs</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        Automatic dismiss timeout in milliseconds. Value must be between{' '}
+        <code>4000</code> and <code>10000</code> (or <code>-1</code> to disable
+        the timeout completely) or an error will be thrown. Defaults to{' '}
+        <code>5000</code> (5 seconds).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>closeOnEscape</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Whether the snackbar closes when it is focused and the user presses the
+        ESC key. Defaults to <code>false</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>labelText</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>The text content of the label element.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>stacked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Enables the <em>stacked</em> layout (see above).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>leading</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        Enables the <em>leading</em> layout (see above).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>show() =&gt; void</code>
+      </td>
+      <td>Opens the snackbar.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>close(reason: string = '') =&gt; void</code>
+      </td>
+      <td>
+        Closes the snackbar, optionally with the specified reason indicating why
+        it was closed.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>MDCSnackbar:opening</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>Indicates when the snackbar begins its opening animation.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>MDCSnackbar:opened</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>Indicates when the snackbar finishes its opening animation.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>MDCSnackbar:closing</code>
+      </td>
+      <td>
+        <code>reason?: string</code>
+      </td>
+      <td>
+        Indicates when the snackbar begins its closing animation.{' '}
+        <code>reason</code> contains the reason why the snackbar closed (
+        <code>'dismiss'</code>, <code>'action'</code>, or a custom{' '}
+        <code>string</code> via the <code>close</code> method).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>MDCSnackbar:closed</code>
+      </td>
+      <td>
+        <code>reason?: string</code>
+      </td>
+      <td>
+        Indicates when the snackbar finishes its closing animation.{' '}
+        <code>reason</code> contains the reason why the snackbar closed (
+        <code>'dismiss'</code>, <code>'action'</code>, or a custom{' '}
+        <code>string</code> via the <code>close</code> method).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-snackbar-action-color</code>
+      </td>
+      <td>
+        <code>#bb86fc</code>
+      </td>
+      <td>Color of the action button text.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-typography-body2-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of a snackbar.</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,65 +1,117 @@
 {
-  "name": "firstech-ui",
-  "version": "1.0.0",
+  "name": "@ft/firstech-ui",
+  "version": "1.0.36",
   "description": "Webcomponent firstech-ui following open-wc recommendations",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/src/index.js",
+  "module": "dist/src/index.js",
+  "repository": "https://buseydev.visualstudio.com/Innovation/_git/payment-center",
+  "author": "Vikash Ruhil <Vikash.ruhil@busey.com>",
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./firstech-ui.js": "./dist/src/firstech-ui.js"
+  },
   "scripts": {
-    "start": "yarn build && concurrently -k -r \" webpack --watch --config webpack.dev.config.js\" \" wds \"",
-    "build": "yarn format && yarn clean && webpack --config webpack.dev.config.js",
-    "build:prod": "yarn format && clean && webpack --config webpack.prod.config.js",
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+    "build": "yarn clean && tsc && yarn analyze",
+    "build:cdn": "rm -rf cdn && webpack --config webpack.config.js",
+    "prepublish": "yarn clean && tsc && yarn analyze",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "test": "tsc && wtr --coverage",
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
-    "storybook": "start-storybook -p 6006",
-    "tsc": "tsc",
+    "analyze": "cem analyze --litelement --exclude \"storybook-static/\" \"cdn\"",
+    "analyze:dev": "cem analyze --litelement --dev --exclude \"storybook-static/\" \"cdn\"",
+    "sb": "start-storybook",
+    "sb:build": "yarn clean:sb && yarn analyze && build-storybook",
     "clean": "rm -rf dist",
-    "build-storybook": "build-storybook"
+    "clean:sb": "rm -rf storybook-static",
+    "deploy:fb": "yarn sb:build && firebase deploy --only hosting"
   },
   "dependencies": {
-    "@material/mwc-button": "^0.21.0",
-    "lit-element": "^2.5.1",
-    "lit-html": "^1.4.1",
+    "@material/mwc-button": "^0.26.1",
+    "@material/mwc-checkbox": "^0.26.1",
+    "@material/mwc-circular-progress": "^0.26.1",
+    "@material/mwc-circular-progress-four-color": "^0.26.1",
+    "@material/mwc-dialog": "^0.26.1",
+    "@material/mwc-drawer": "^0.26.1",
+    "@material/mwc-fab": "^0.26.1",
+    "@material/mwc-formfield": "^0.26.1",
+    "@material/mwc-icon": "^0.26.1",
+    "@material/mwc-icon-button": "^0.26.1",
+    "@material/mwc-icon-button-toggle": "^0.26.1",
+    "@material/mwc-linear-progress": "^0.26.1",
+    "@material/mwc-list": "^0.26.1",
+    "@material/mwc-menu": "^0.26.1",
+    "@material/mwc-radio": "^0.26.1",
+    "@material/mwc-ripple": "^0.26.1",
+    "@material/mwc-select": "^0.26.1",
+    "@material/mwc-slider": "^0.26.1",
+    "@material/mwc-snackbar": "^0.26.1",
+    "@material/mwc-switch": "^0.26.1",
+    "@material/mwc-tab": "^0.26.1",
+    "@material/mwc-tab-bar": "^0.26.1",
+    "@material/mwc-textarea": "^0.26.1",
+    "@material/mwc-textfield": "^0.26.1",
+    "@material/mwc-top-app-bar": "^0.26.1",
+    "@vaadin/grid": "^22.0.5",
+    "@vaadin/menu-bar": "^22.0.5",
+    "axios": "^0.27.2",
+    "lit": "^2.0.0-rc.3",
     "weightless": "^0.0.37"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@custom-elements-manifest/analyzer": "0.5.3",
     "@open-wc/eslint-config": "^4.3.0",
-    "@open-wc/testing": "^2.5.33",
-    "@storybook/addon-essentials": "^6.3.7",
-    "@storybook/addons": "^6.3.7",
-    "@storybook/builder-webpack5": "^6.2.9",
-    "@storybook/manager-webpack5": "^6.2.9",
-    "@storybook/web-components": "^6.3.7",
-    "@types/webpack": "^5.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.0",
-    "@typescript-eslint/parser": "^4.28.0",
-    "@web/dev-server": "^0.1.17",
-    "@web/dev-server-storybook": "^0.3.5",
-    "@web/test-runner": "^0.12.20",
+    "@open-wc/testing": "next",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/theming": "^6.3.8",
+    "@storybook/web-components": "^6.3.8",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "@web/dev-server": "^0.1.21",
+    "@web/test-runner": "^0.13.16",
     "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^5.3.0",
-    "css-loader": "^6.2.0",
-    "eslint": "^7.29.0",
-    "eslint-config-prettier": "^7.2.0",
-    "extract-loader": "^5.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
-    "lit": "^2.0.0-rc.2",
-    "lit-scss-loader": "^1.1.0",
-    "prettier": "^2.2.1",
-    "sass": "^1.38.0",
-    "sass-loader": "^12.1.0",
-    "style-loader": "^3.2.1",
+    "lit-html": "^1.4.1",
+    "prettier": "^2.3.2",
+    "react-syntax-highlighter": "^15.4.4",
     "ts-loader": "^9.2.5",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.5",
-    "webpack": "^5.51.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
   },
-  "license": "MIT",
-  "author": "Vikash Ruhil",
+  "customElements": "custom-elements.json",
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "@open-wc",
+      "prettier"
+    ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error"
+      ],
+      "import/no-unresolved": "off",
+      "import/extensions": [
+        0
+      ]
+    }
+  },
   "prettier": {
     "singleQuote": true,
     "arrowParens": "avoid"
@@ -71,7 +123,8 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn format"
+      "eslint --fix",
+      "prettier --write"
     ]
   }
 }

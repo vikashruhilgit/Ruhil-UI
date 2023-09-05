@@ -1,0 +1,1 @@
+{"version":3,"file":"Slider.js","sourceRoot":"","sources":["../../../../../src/component/form-component/slider/Slider.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,sBAAsB,CAAC;AAE9C,MAAM,OAAO,QAAS,SAAQ,MAAM;CAAG","sourcesContent":["import { Slider } from '@material/mwc-slider';\n\nexport class MySlider extends Slider {}\n"]}

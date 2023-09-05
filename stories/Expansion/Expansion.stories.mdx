@@ -1,0 +1,390 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/Expansion/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Expansion `<ft-expansion>`
+
+Provide an expandable details-summary view.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Basic
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-expansion--basic" height="50px" />
+</Canvas>
+
+```html
+<ft-expansion>
+  <span slot="title">Title</span>
+  <span slot="description">Description</span>
+  <p>Here's some content</p>
+</ft-expansion>
+```
+
+### Groups
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-expansion--groups" height="50px" />
+</Canvas>
+
+```html
+<ft-expansion name="group">
+  <span slot="title">Expansion 1</span>
+  <span slot="description">Description</span>
+  <p>Here's some content</p>
+</ft-expansion>
+
+<ft-expansion name="group">
+  <span slot="title">Expansion 2</span>
+  <span slot="description">Description</span>
+  <p>Here's some content</p>
+</ft-expansion>
+
+<ft-expansion name="group">
+  <span slot="title">Expansion 3</span>
+  <span slot="description">Description</span>
+  <p>Here's some content</p>
+</ft-expansion>
+```
+
+### Disabled
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-expansion--disabled" height="50px" />
+</Canvas>
+
+```html
+<wl-expansion name="group" disabled>
+  <span slot="title">Disabled Expansion</span>
+  <span slot="description">Description</span>
+  <p>Here's some content</p>
+</wl-expansion>
+```
+
+## API
+
+### Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>ariaChecked</code>
+      </td>
+      <td>
+        <code>aria-checked</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td></td>
+      <td>Aria expanded attribute.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>
+        <code>checked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>false</td>
+      <td>Opens the expansion.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>false</td>
+      <td>Disables the element.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>duration</code>
+      </td>
+      <td>
+        <code>duration</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>250</td>
+      <td>The duration of the animations.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string | undefined</code>
+      </td>
+      <td>"expand_more"</td>
+      <td>Icon name.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>name</code>
+      </td>
+      <td>
+        <code>name</code>
+      </td>
+      <td>
+        <code>string | undefined</code>
+      </td>
+      <td></td>
+      <td>Name of the native form element.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>noRipple</code>
+      </td>
+      <td>
+        <code>noRipple</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>false</td>
+      <td>Deactivates the ripple.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>readonly</code>
+      </td>
+      <td>
+        <code>readonly</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>false</td>
+      <td>Makes the element readonly (disabled but tabbable)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>
+        <code>required</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>false</td>
+      <td>Makes the element required in a form context.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>role</code>
+      </td>
+      <td>
+        <code>role</code>
+      </td>
+      <td>
+        <code>AriaRole</code>
+      </td>
+      <td>"radio"</td>
+      <td>Role of the radio behavior.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>""</td>
+      <td>Value of the form element.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>change</code>
+      </td>
+      <td>
+        Dispatched when the checked property changes due to a user interaction.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>Default content.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>description</code>
+      </td>
+      <td>Description to the left on the header.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>indicator</code>
+      </td>
+      <td>Content to the right on the header.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>title</code>
+      </td>
+      <td>Title to the left on the header.</td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--expansion-bg</code>
+      </td>
+      <td>Default background</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-color</code>
+      </td>
+      <td>Default color</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-content-padding</code>
+      </td>
+      <td>Padding of the content</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-elevation</code>
+      </td>
+      <td>Box shadow</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-elevation-open</code>
+      </td>
+      <td>Box shadow when open</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-bg-hover</code>
+      </td>
+      <td>Background of the header when :hover</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-description-color</code>
+      </td>
+      <td>Color of the description slot in the header</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-height</code>
+      </td>
+      <td>Height of the header</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-height-open</code>
+      </td>
+      <td>Height of the header when open</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-padding</code>
+      </td>
+      <td>Padding of the header</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-title-margin</code>
+      </td>
+      <td>Margin of the title slot in the header</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-header-transition</code>
+      </td>
+      <td>Transition of the header</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-icon-transition</code>
+      </td>
+      <td>Transition of the icon</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-margin-open</code>
+      </td>
+      <td>Margin when open</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--expansion-transition</code>
+      </td>
+      <td>Transition</td>
+    </tr>
+  </tbody>
+</table>

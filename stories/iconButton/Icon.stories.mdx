@@ -1,0 +1,268 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/IconButton/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Icon Button `<ft-icon-button>`
+
+Icon buttons allow users to take actions, and make choices, with a single tap.
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Usage
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-iconbutton--icon-button" height="50px" />
+</Canvas>
+
+```html
+<ft-icon-button .icon="${icon}"></ft-icon-button>
+<ft-icon-button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path
+      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+    />
+  </svg>
+</ft-icon-button>
+<ft-icon-button icon="code" .disabled="${disabled}"></ft-icon-button>
+<ft-icon-button icon="code" class="color"></ft-icon-button>
+```
+
+### Standard
+
+```html
+<ft-icon-button icon="code"></ft-icon-button>
+```
+
+### SVG or Image
+
+```html
+<ft-icon-button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path
+      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+    />
+  </svg>
+</ft-icon-button>
+```
+
+### Disabled
+
+```html
+<ft-icon-button icon="code" disabled></ft-icon-button>
+```
+
+## Custom Style
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+mwc-icon-button { color: tomato; --mdc-icon-size: 50px; }
+```
+
+## Fonts
+
+Most users should include the following in their application HTML when using icons:
+
+```html
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+  rel="stylesheet"
+/>
+```
+
+<p>
+  This loads the <em>Material Icons</em> font, which is required to render
+  icons, and is
+  <em>not</em> loaded automatically. If you see plain text instead of an icon, then
+  the most likely cause is that the Material Icons font is not loaded.
+</p>
+
+<p>
+  To see all icons that are available in the Material Icons font, see
+  <a href="https://material.io/resources/icons/" rel="nofollow">
+    Material Icons
+  </a>.
+</p>
+
+<p>
+  For technical details about the Material Icons font, see the
+  <a href="https://google.github.io/material-design-icons/" rel="nofollow">
+    Material Icons Developer Guide
+  </a>.
+</p>
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <em>default</em>
+      </td>
+      <td>
+        Optional <code>&lt;img&gt;</code> or <code>&lt;svg&gt;</code> to display
+        instead of using an icon font
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>aria-haspopup</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+      <td>
+        Indicates the availability and type of an interactive popup element,
+        such as menu or dialog, that can be triggered by the button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Icon to display, and <code>aria-label</code> value when{' '}
+        <code>label</code> is not defined.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Accessible label for the button, sets <code>aria-label</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>
+        Disabled buttons cannot be interacted with and have no visual
+        interaction effect.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-button-size</code>
+      </td>
+      <td>
+        <code>48px</code>
+      </td>
+      <td>Sets the size of the button wrapping the icon.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>
+        Font that supports <em>ligatures</em> and determines which icons are
+        available (see <a href="#fonts">fonts</a> above).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-size</code>
+      </td>
+      <td>Sets the size of the icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-text-disabled-on-light</code>
+      </td>
+      <td>
+        Color of icon when <code>disabled</code> is <code>true</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>

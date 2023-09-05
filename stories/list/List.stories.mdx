@@ -1,0 +1,766 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/List/Doc" />
+
+<style>{`
+
+`}</style>
+
+# List `<ft-list>`
+
+<p>Lists are continuous, vertical indexes of text or images.</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Basic
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--basic" height="200px" />
+</Canvas>
+
+```html
+<ft-list>
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-list>
+```
+
+### Activatable
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--activatable" height="200px" />
+</Canvas>
+
+```html
+<ft-list activatable>
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item selected activated>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-list>
+```
+
+### Multi-selectable (activatable)
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-component-list--multi-selectable-activatable"
+    height="200px"
+  />
+</Canvas>
+
+```html
+<ft-list activatable multi>
+  <ft-list-item>Item 0</ft-list-item>
+  <ft-list-item selected activated>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item selected activated>Item 3</ft-list-item>
+</ft-list>
+```
+
+### Leading Graphic
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--leading-graphic" height="250px" />
+</Canvas>
+
+```html
+<style>
+  /* invert icon color */
+  ft-icon {
+    background-color: gray;
+    color: white;
+  }
+</style>
+
+<ft-list>
+  <ft-list-item graphic="avatar">
+    <span>Avatar graphic</span>
+    <ft-icon slot="graphic">folder</ft-icon>
+  </ft-list-item>
+  <ft-list-item graphic="icon">
+    <span>Icon graphic</span>
+    <ft-icon slot="graphic">folder</ft-icon>
+  </ft-list-item>
+  <ft-list-item graphic="medium">
+    <span>medium graphic</span>
+    <ft-icon slot="graphic">folder</ft-icon>
+  </ft-list-item>
+  <ft-list-item graphic="large">
+    <span>large graphic</span>
+    <ft-icon slot="graphic">folder</ft-icon>
+  </ft-list-item>
+</ft-list>
+```
+
+### Meta Icon
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--meta-icon" height="200px" />
+</Canvas>
+
+```html
+<ft-list>
+  <ft-list-item hasMeta>
+    <span>Location A</span>
+    <ft-icon slot="meta">info</ft-icon>
+  </ft-list-item>
+  <ft-list-item hasMeta>
+    <span>Location B</span>
+    <ft-icon slot="meta">info</ft-icon>
+  </ft-list-item>
+  <ft-list-item hasMeta>
+    <span>Location C</span>
+    <ft-icon slot="meta">info</ft-icon>
+  </ft-list-item>
+  <ft-list-item hasMeta>
+    <span>Location D</span>
+    <ft-icon slot="meta">info</ft-icon>
+  </ft-list-item>
+</ft-list>
+```
+
+### Two-Line
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--two-line" height="200px" />
+</Canvas>
+
+```html
+<ft-list>
+  <ft-list-item twoline>
+    <span>Item 0</span>
+    <span slot="secondary">Secondary line</span>
+  </ft-list-item>
+  <ft-list-item twoline>
+    <span>Item 1</span>
+    <span slot="secondary">Secondary line</span>
+  </ft-list-item>
+  <ft-list-item twoline>
+    <span>Item 2</span>
+    <span slot="secondary">Secondary line</span>
+  </ft-list-item>
+  <ft-list-item twoline>
+    <span>Item 3</span>
+    <span slot="secondary">Secondary line</span>
+  </ft-list-item>
+</ft-list>
+```
+
+### Dividers
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--dividers" height="200px" />
+</Canvas>
+
+```html
+<ft-list>
+  <ft-list-item>Item 0</ft-list-item>
+  <li divider role="separator"></li>
+  <ft-list-item>Item 1</ft-list-item>
+  <li divider padded role="separator"></li>
+  <ft-list-item>Item 2</ft-list-item>
+  <li divider padded role="separator"></li>
+  <ft-list-item>Item 3</ft-list-item>
+  <li divider padded role="separator"></li>
+  <ft-list-item graphic="avatar">
+    <span>avatar item</span>
+    <ft-icon slot="graphic">folder</ft-icon>
+  </ft-list-item>
+  <li divider inset padded role="separator"></li>
+  <ft-list-item graphic="avatar">
+    <span>avatar item</span>
+    <ft-icon slot="graphic">folder</ft-icon>
+  </ft-list-item>
+</ft-list>
+```
+
+### Checklist
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--checklist" height="200px" />
+</Canvas>
+
+```html
+<ft-list multi>
+  <ft-check-list-item selected>Item 0</ft-check-list-item>
+  <ft-check-list-item selected>Item 1</ft-check-list-item>
+  <li divider role="separator" padded></li>
+  <ft-check-list-item left selected>Item 2 (left)</ft-check-list-item>
+  <ft-check-list-item left>Item 3 (left)</ft-check-list-item>
+</ft-list>
+```
+
+### Radio List
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--radio-list" height="200px" />
+</Canvas>
+
+```html
+<ft-list>
+  <ft-radio-list-item group="a" selected>Item 0</ft-radio-list-item>
+  <ft-radio-list-item group="a">Item 1</ft-radio-list-item>
+  <li divider padded role="separator"></li>
+  <ft-radio-list-item left group="a">Item 2 (left)</ft-radio-list-item>
+  <ft-radio-list-item left group="a">Item 3 (left)</ft-radio-list-item>
+</ft-list>
+```
+
+### Multi Radio List
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--multi-radio-list" height="200px" />
+</Canvas>
+
+```html
+<ft-list multi>
+  <ft-radio-list-item group="b">Item 0</ft-radio-list-item>
+  <ft-radio-list-item group="b" selected>Item 1</ft-radio-list-item>
+  <li divider role="separator"></li>
+  <ft-radio-list-item group="c" selected>Item 2</ft-radio-list-item>
+  <ft-radio-list-item group="c">Item 3</ft-radio-list-item>
+</ft-list>
+```
+
+### Item Noninteractive
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--items" height="200px" />
+</Canvas>
+
+```html
+<style>
+  .inverted {
+    background-color: gray;
+    color: white;
+  }
+</style>
+<ft-list>
+  <ft-list-item twoline graphic="avatar" noninteractive>
+    <span>User Name</span>
+    <span slot="secondary">user@domain.tld</span>
+    <ft-icon slot="graphic" class="inverted">tag_faces</ft-icon>
+  </ft-list-item>
+  <li divider role="separator"></li>
+  <ft-list-item graphic="icon">
+    <slot>FAQ</slot>
+    <ft-icon slot="graphic">help_outline</ft-icon>
+  </ft-list-item>
+  <ft-list-item graphic="icon">
+    <slot>Sign out</slot>
+    <ft-icon slot="graphic">exit_to_app</ft-icon>
+  </ft-list-item>
+</ft-list>
+```
+
+### Styled
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--basic" height="200px" />
+</Canvas>
+
+```html
+<style>
+  #styled {
+    --mdc-theme-primary: red;
+    --mdc-list-vertical-padding: 0px;
+    --mdc-list-side-padding: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+</style>
+<ft-list activatable id="styled">
+  <ft-list-item selected>Item 0</ft-list-item>
+  <ft-list-item>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-list>
+```
+
+### Styled No-ripple
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-list--basic" height="200px" />
+</Canvas>
+
+```html
+<style>
+  /* disable ripple */
+  #styledr {
+    --mdc-ripple-color: transparent;
+  }
+
+  #styledr > * {
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  #styledr [selected] {
+    background-color: rgb(33, 33, 33);
+    color: white;
+  }
+
+  #styledr [ft-list-item]:not([selected]):hover,
+  #styledr [ft-list-item]:not([selected]):focus {
+    background-color: rgba(33, 33, 33, 0.3);
+  }
+
+  #styledr [ft-list-item]:not([selected]):active {
+    background-color: rgba(33, 33, 33, 0.4);
+  }
+
+  #styledr [ft-list-item][selected]:hover,
+  #styledr [ft-list-item][selected]:focus {
+    background-color: rgba(33, 33, 33, 0.9);
+  }
+
+  #styledr [ft-list-item][selected]:active {
+    background-color: rgba(33, 33, 33, 0.8);
+  }
+</style>
+
+<ft-list id="styledr">
+  <ft-list-item selected>Item 0</ft-list-item>
+  <ft-list-item>Item 1</ft-list-item>
+  <ft-list-item>Item 2</ft-list-item>
+  <ft-list-item>Item 3</ft-list-item>
+</ft-list>
+```
+
+## API
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>activeIndex</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>
+        <code>0</code>
+      </td>
+      <td>Index of tab that is active.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>scrollIndexIntoView(index:number)</code>
+      </td>
+      <td>
+        For long, scrollable <code>tab-bar</code>s, scrolls the tab at the given
+        index into view.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>MDCTabBar:activated</code>
+      </td>
+      <td>
+        <code>ft-tab-bar</code>
+      </td>
+      <td>
+        <code>index: number</code>
+      </td>
+      <td>Emitted when a tab selection has been made.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>Font to use for the icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>Background color of the FAB.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-on-secondary</code>
+      </td>
+      <td>Foreground color of the label and icon.</td>
+    </tr>
+  </tbody>
+</table>
+
+# for `<ft-tab>`
+
+## API
+
+### Slots
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        Slotted icon to display. Only available if <code>hasImageIcon</code> or{' '}
+        <code>icon</code> are defined.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>Text label to display in tab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>
+        Material design icon name to display (overridden by slotted icon).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>hasImageIcon</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Displays a slot to show an image icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>indicatorIcon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>Material design icon name to display as the indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>isFadingIndicator</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Indicator fades in and out instead of sliding.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>minWidth</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Shrinks tab as narrow as possible without causing text to wrap.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>isMinWidthIndicator</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Shrinks indicator to be the size of the content.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>stacked</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Stacks icon on top of label text.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>active</code>
+      </td>
+      <td>
+        <code>boolean</code> (readonly)
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+      <td>Indicates whether the tab's indicator is active.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>activate() => void</code>
+      </td>
+      <td>Activates the indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>deactivate() => void</code>
+      </td>
+      <td>Deactivates the indicator.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>computeDimensions() => MDCTabDimensions</code>*
+      </td>
+      <td>Computes the dimensions of the content.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>computeIndicatorClientRect() => ClientRect</code>
+      </td>
+      <td>Computes the dimensions of the indicator.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Target</th>
+      <th>Detail</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>MDCTab:interacted</code>
+      </td>
+      <td>
+        <code>ft-tab</code>
+      </td>
+      <td>
+        <code>tabId: string</code>
+      </td>
+      <td>
+        Emitted when the Tab is interacted with, regardless of its active state.
+        Used by parent components to know which Tab to activate.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-tab-height</code>
+      </td>
+      <td>
+        <code>48px</code>
+      </td>
+      <td>Height of the tab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-horizontal-padding</code>
+      </td>
+      <td>
+        <code>24px</code>
+      </td>
+      <td>Horizontal padding on either side of the tab.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-stacked-height</code>
+      </td>
+      <td>
+        <code>72px</code>
+      </td>
+      <td>Height of the tab's stacked variant.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-text-label-color-default</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.6)</code>
+      </td>
+      <td>Color of an unactivated tab label.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-tab-color-default</code>
+      </td>
+      <td>
+        {' '}
+        <code>rgba(0, 0, 0, 0.54)</code>
+      </td>
+      <td>Color of an unactivated icon.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>Color of the activated tab's text, indicator, and ripple.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-secondary</code>
+      </td>
+      <td>Color of the indicator icon if defined.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-font</code>
+      </td>
+      <td>
+        Icon font to use for <code>icon</code> and <code>indicatorIcon</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-icon-size</code>
+      </td>
+      <td>Size of the text icon.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-button-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the tab label.</td>
+    </tr>
+  </tbody>
+</table>

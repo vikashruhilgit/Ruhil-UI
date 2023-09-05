@@ -1,0 +1,1 @@
+{"version":3,"file":"Expansion.js","sourceRoot":"","sources":["../../../../src/component/expansion/Expansion.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,sBAAsB,CAAC;AAEjD,MAAM,OAAO,WAAY,SAAQ,SAAS;CAAG","sourcesContent":["import { Expansion } from 'weightless/expansion';\n\nexport class MyExpansion extends Expansion {}\n"]}

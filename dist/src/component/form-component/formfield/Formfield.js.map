@@ -1,0 +1,1 @@
+{"version":3,"file":"Formfield.js","sourceRoot":"","sources":["../../../../../src/component/form-component/formfield/Formfield.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,yBAAyB,CAAC;AAEpD,MAAM,OAAO,WAAY,SAAQ,SAAS;CAAG","sourcesContent":["import { Formfield } from '@material/mwc-formfield';\n\nexport class MyFormfield extends Formfield {}\n"]}

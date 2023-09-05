@@ -1,0 +1,151 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Component/GPay/Doc" />
+
+<style>{`
+
+`}</style>
+
+# GPay `<ft-google-pay>`
+
+...
+
+## Example Usage
+
+...
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-component-gpay--gpay-button" height="100px" />
+</Canvas>
+
+```html
+<ft-google-pay></ft-google-pay>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>config</code>
+      </td>
+      <td>
+        <code>GPayConfig</code>
+      </td>
+      <td>
+        <code>""</code>
+      </td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>
+        <code>transactionData</code>
+      </td>
+      <td>
+        <code>TransactionData</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+
+## Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>gpay-error</code>
+      </td>
+      <td>
+        <code>GError</code>
+      </td>
+      <td>
+        <code>...</code>
+      </td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>
+        <code>gpay-success</code>
+      </td>
+      <td>
+        <code>PaymentProcessed</code>
+      </td>
+      <td>
+        <code>''</code>
+      </td>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+
+```js
+interface PaymentItem {
+  label: string;
+  type: string;
+  price: string;
+}
+interface TransactionData {
+  displayItems: PaymentItem[];
+  countryCode: string;
+  currencyCode: string;
+  totalPriceStatus: string;
+  totalPrice: string;
+  totalPriceLabel: string;
+}
+export interface GPayConfig {
+  publicKey: string;
+  customerkey: string;
+  environment?: 'TEST' | 'PRODUCTION';
+  buttonColor?: 'black' | 'white';
+  buttonLocale?: string;
+  type?: 'AUTH' | 'PAYMENT';
+}
+
+interface GError {
+  status: boolean;
+  msg: string;
+  detailError?: any;
+}
+interface PaymentProcessed {
+  paymentToken: any;
+  staus: string;
+}
+```
+
+<!-- The usage of this "Component" is intentional to enable react-syntax-highlighter's own highlighter
+
+export const Component = () => {
+  return <SyntaxHighlighter />;
+};
+-->
+
+<!-- [Go to specific documentation page](?path=/docs/firstech-ui-component-icon--icon)
+
+<Source id="firstech-ui-component-navigation--default"></Source> -->

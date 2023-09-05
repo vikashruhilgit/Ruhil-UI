@@ -1,0 +1,678 @@
+import { Meta, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs';
+import '../../src/firstech-ui';
+
+<Meta title="Firstech UI/Form Component/Text Area/Doc" />
+
+<style>{`
+
+`}</style>
+
+# Text Area `<ft-textarea>`
+
+<p>Text fields let users enter and edit text.</p>
+
+## Example Usage
+
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+
+### Standard
+
+<Canvas withToolbar>
+  <Story id="firstech-ui-form-component-text-area--standard" height="100px" />
+</Canvas>
+
+```html
+<ft-textarea label="My Textarea"></ft-textarea>
+```
+
+### Helper Text
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-text-area--helper-text"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-textarea label="My Textarea" helper="Helper Text"></ft-textarea>
+```
+
+### Primary Color
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-text-area--primary-color"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<style>
+  ft-textarea {
+    --mdc-theme-primary: green;
+  }
+</style>
+
+<ft-textarea label="My Textarea" required> </ft-textarea>
+```
+
+### Variants
+
+#### Outlined
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-text-area--variants-outlined"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<ft-textarea outlined label="My Textarea"> </ft-textarea>
+```
+
+#### Shaped
+
+<Canvas withToolbar>
+  <Story
+    id="firstech-ui-form-component-text-area--variant-shaped"
+    height="100px"
+  />
+</Canvas>
+
+```html
+<style>
+  ft-textarea.rounded {
+    --mdc-shape-small: 28px;
+  }
+</style>
+
+<ft-textarea class="rounded" label="My Textarea" outlined> </ft-textarea>
+```
+
+## API
+
+## Properties/Attributes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>rows</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>Sets number of visible text lines.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>cols</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>Sets the visible width of the textarea.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>The input control's value.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>type</code>
+      </td>
+      <td>
+        <code>TextFieldType*</code>
+      </td>
+      <td>A string specifying the type of control to render.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Sets floating label value.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>placeholder</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>Sets disappearing input placeholder.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>icon</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        Leading icon to display in input. See{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/icon">
+          <code>mwc-icon</code>
+        </a>
+        .
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>iconTrailing</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        Trailing icon to display in input. See{' '}
+        <a href="https://github.com/material-components/material-web/tree/master/packages/icon">
+          <code>mwc-icon</code>
+        </a>
+        .
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>disabled</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Whether or not the input should be disabled.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>charCounter</code>
+      </td>
+      <td>
+        <code>boolean</code>|<code>TextAreaCharCounter**</code>
+      </td>
+      <td>
+        <strong>
+          Note: requires <code>maxLength</code> to be set.
+        </strong>{' '}
+        Display character counter with max length. Textareas may display an{' '}
+        <code>"external"</code> or <code>"internal"</code>{' '}
+        <code>charCounter</code>. When <code>true</code>, textareas display an
+        external character counter by default.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>outlined</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Whether or not to show the material outlined variant.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>helper</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        Helper text to display below the input. Display default only when
+        focused.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>helperPersistent</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Always show the helper text despite focus.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>required</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Displays error state if value is empty and input is blurred.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>maxLength</code>
+      </td>
+      <td>
+        <code>number</code>
+      </td>
+      <td>Maximum length input to accept.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>validationMessage</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        Message to show in the error color when the textarea is invalid. (Helper
+        text will not be visible)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>validity</code>
+      </td>
+      <td>
+        <code>ValidityState</code> (readonly)
+      </td>
+      <td>
+        The{' '}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState"
+          rel="nofollow"
+        >
+          <code>ValidityState</code>
+        </a>{' '}
+        of the textfield.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>willValidate</code>
+      </td>
+      <td>
+        <code>boolean</code> (readonly)
+      </td>
+      <td>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#Properties"
+          rel="nofollow"
+        >
+          <code>HTMLInputElement.prototype.willValidate</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>validityTransform</code>
+      </td>
+      <td>
+        <code>ValidityTransform***</code>|<code>null</code>
+      </td>
+      <td>
+        Callback called before each validation check. See the{' '}
+        <a href="#Validation">validation section</a> for more details.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>validateOnInitialRender</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>Runs validation check on initial render.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>name</code>
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        Sets the <code>name</code> attribute on the internal textarea.***
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  * <code>TextFieldType</code> is exported by <code>ft-textarea</code>.
+</p>
+
+```js
+type TextFieldType =
+  | 'text'
+  | 'search'
+  | 'tel'
+  | 'url'
+  | 'email'
+  | 'password'
+  | 'date'
+  | 'month'
+  | 'week'
+  | 'time'
+  | 'datetime-local'
+  | 'number'
+  | 'color';
+```
+
+<p>
+  ** <code>TextAreaCharCounter</code> is exported by <code>mwc-textarea</code>.
+</p>
+
+```js
+type TextAreaCharCounter = 'external'|'internal';
+
+\*\*\* `ValidityTransform` is not exported. See the [validation section](#Validation) for more details.
+for ts
+type ValidityTransform = (value: string, nativeValidity: ValidityState) => Partial<ValidityState>
+
+```
+
+<p>
+  *** The <code>name</code> property should only be used for browser autofill as
+  webcomponent form participation does not currently consider the
+  <code>name</code> attribute. See
+  <a href="https://github.com/material-components/material-components-web-components/issues/289">
+    #289
+  </a>
+  .
+</p>
+
+### Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>checkValidity() =&gt; boolean</code>
+      </td>
+      <td>
+        Returns <code>true</code> if the textfield passes validity checks.
+        Returns <code>false</code> and fires an{' '}
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event">
+          <code>invalid</code>
+        </a>{' '}
+        event on the textfield otherwise.
+        <p></p>
+        <strong>NOTE:</strong> When accessing any property or function that checks
+        validity at textfield initial boot up, you may have to await <code>
+          &lt;ft-textfield&gt;.updateComplete
+        </code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>reportValidity() =&gt; boolean</code>
+      </td>
+      <td>
+        Runs <code>checkValidity()</code> method, and if it returns false, then
+        it reports to the user that the input is invalid.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>setCustomValidity(message:string) =&gt; void</code>
+      </td>
+      <td>
+        Sets a custom validity message (also overwrites{' '}
+        <code>validationMessage</code>). If this message is not the empty
+        string, then the element is suffering from a custom validity error and
+        does not validate.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>layout() =&gt; Promise&lt;void&gt;</code>
+      </td>
+      <td>
+        Re-calculate layout. If a textfield is styled with{' '}
+        <code>display:none</code> before it is first rendered, and it has a
+        label that is floating, then you must call <code>layout()</code> the
+        first time you remove <code>display:none</code>, or else the notch
+        surrounding the label will not render correctly.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### CSS Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-text-area-filled-border-radius</code>
+      </td>
+      <td>
+        <code>4px 4px 0 0</code>
+      </td>
+      <td>
+        Border radius of the standard / filled textarea's background filling.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-text-area-outlined-idle-border-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.38)</code>
+      </td>
+      <td>Color of the outlined textarea's outline when idle.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-text-area-outlined-hover-border-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.87)</code>
+      </td>
+      <td>Color of the outlined textarea's outline when hovering.</td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-text-area-outlined-disabled-border-color</code>
+      </td>
+      <td>
+        <code>rgba(0, 0, 0, 0.06)</code>
+      </td>
+      <td>Color of the outlined textarea's outline when disabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Global Custom Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>--mdc-theme-primary</code>
+      </td>
+      <td>
+        Color when active of the underline ripple, the outline, and the caret.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-theme-error</code>
+      </td>
+      <td>
+        Color when errored of the underline, the outline, the caret, and the
+        icons.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>--mdc-typography-subtitle1-&lt;PROPERTY&gt;</code>
+      </td>
+      <td>Styles the typography of the textfield.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Validation
+
+<p>
+  <code>&lt;ft-textfield&gt;</code> follows the basic <code>&lt;input&gt;</code>{' '}
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation"
+    rel="nofollow"
+  >
+    constraint validation model
+  </a>
+  . It exposes:
+</p>
+<ul>
+  <li>
+    <code>required</code>
+  </li>
+  <li>
+    <code>maxLength</code>
+  </li>
+  <li>
+    <code>pattern</code>
+  </li>
+  <li>
+    <code>min</code>
+  </li>
+  <li>
+    <code>max</code>
+  </li>
+  <li>
+    <code>step</code>
+  </li>
+  <li>
+    <code>validity</code>
+  </li>
+  <li>
+    <code>willValidate</code>
+  </li>
+  <li>
+    <code>checkValidity()</code>
+  </li>
+  <li>
+    <code>reportValidity()</code>
+  </li>
+  <li>
+    <code>setCustomValidity(message)</code>
+  </li>
+</ul>
+<p>Additionally, it implements more features such as:</p>
+<ul>
+  <li>
+    <code>validationMessage</code>
+  </li>
+  <li>
+    <code>validateOnInitialRender</code>
+  </li>
+  <li>
+    and <code>validityTransform</code>
+  </li>
+</ul>
+<p>
+  By default, <code>&lt;ft-textfield&gt;</code> will report validation on{' '}
+  <code>blur</code>.
+</p>
+
+#### Custom validation logic
+
+<p>
+  The <code>validityTransform</code> property is a function that can be set on{' '}
+  <code>&lt;ft-textfield&gt;</code> to implement custom validation logic that
+  transforms the <code>ValidityState</code> of the input control. The type of a{' '}
+  <code>ValidityTransform</code> is the following:
+</p>
+
+```js
+(value: string, nativeValidity: ValidityState) => Partial<ValidityState>
+```
+
+<p>
+  Where <code>value</code> is the new value in the textfield to be validated and
+  <code>nativeValidity</code> is an interface of
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState"
+    rel="nofollow"
+  >
+    <code>ValidityState</code>
+  </a>
+  of the native input control. For example:
+</p>
+
+```js
+<ft-textfield
+    id="my-textfield"
+    pattern="[0-9]+"
+    value="doggos">
+</ft-textfield>
+<script>
+  const textfield = document.querySelector('#my-textfield');
+  textfield.validityTransform = (newValue, nativeValidity) => {
+    if (!nativeValidity.valid) {
+      if (nativeValidity.patternMismatch) {
+        const hasDog = newValue.includes('dog');
+        // changes to make to the nativeValidity
+        return {
+          valid: hasDog,
+          patternMismatch: !hasDog;
+        };
+      } else {
+        // no changes
+        return {};
+      }
+    } else {
+      const isValid = someExpensiveOperation(newValue);
+      // changes to make to the native validity
+      return {
+        valid: isValid,
+        // or whatever type of ValidityState prop you would like to set (if any)
+        customError: !isValid,
+      };
+    }
+  }
+</script>
+```
+
+<p>
+  In this example we first check the native validity which is invalid due to the
+  pattern mismatching (the value is <code>doggos</code> which is not a number).
+  The value includes <code>dog</code>, thus we make it valid and undo the
+  pattern mismatch.
+</p>
+<p>
+  In this example, we also skip an expensive validity check by short-circuiting
+  the validation by checking the native validation.
+</p>
+<p>
+  <em>Note:</em> the UI will only update as valid / invalid by checking the{' '}
+  <code>valid</code>
+  property of the transformed <code>ValidityState</code>.
+</p>
