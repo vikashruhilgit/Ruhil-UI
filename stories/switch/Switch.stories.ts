@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Form Component/Switch',
+  title: 'Ruhil UI/Form Component/Switch',
   component: 'ft-switch',
   decorators: [
     (story: any) => html` <style>

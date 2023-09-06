@@ -4,7 +4,7 @@ import { TransactionData } from '../../src/component/gpay/GooglePay';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/GPay',
+  title: 'Ruhil UI/Component/GPay',
   component: 'ft-google-pay',
   argTypes: {
     clientId: { control: 'text' },

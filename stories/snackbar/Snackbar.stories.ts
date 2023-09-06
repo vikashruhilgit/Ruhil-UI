@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Snackbar',
+  title: 'Ruhil UI/Component/Snackbar',
   decorators: [
     (story: any) => html` <style>
         ft-icon-button {

@@ -3,7 +3,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Linear-Progress',
+  title: 'Ruhil UI/Component/Linear-Progress',
   decorators: [
     (story: any) => html` <style></style>
       <div class="my-container">${story()}</div>`,

@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Test',
+  title: 'Ruhil UI/Component/Test',
   component: 'ft-test',
   argTypes: {
     title: { control: 'text' },

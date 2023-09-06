@@ -2,10 +2,8 @@ import { create } from '@storybook/theming';
 
 export default create({
   base: 'light',
-  brandTitle: 'Firstech UI Library',
-  brandUrl: 'https://www.firstechpayments.com/',
-  brandImage:
-    'https://www.firstechpayments.com/wp-content/themes/firstech/images/FT-logo-black.svg',
+  brandTitle: 'Ruhil UI Library',
+  brandUrl: 'https://www.linkedin.com/in/vikash-ruhil/',
   colorSecondary: 'deepskyblue',
 });
 /*

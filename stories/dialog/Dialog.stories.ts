@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Dialog',
+  title: 'Ruhil UI/Component/Dialog',
   decorators: [
     (story: any) => html` <style>
         ft-button {

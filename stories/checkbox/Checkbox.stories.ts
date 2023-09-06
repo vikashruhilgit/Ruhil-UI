@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Form Component/Checkbox',
+  title: 'Ruhil UI/Form Component/Checkbox',
   component: 'ft-checkbox',
   decorators: [
     (story: any) => html` <style>

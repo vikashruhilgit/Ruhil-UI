@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/IconButton',
+  title: 'Ruhil UI/Component/IconButton',
   argTypes: {
     color: { control: 'color' },
   },

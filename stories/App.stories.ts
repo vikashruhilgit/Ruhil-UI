@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/App',
+  title: 'Ruhil UI/Component/App',
   component: 'ft-app',
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -32,5 +32,5 @@ const Template: Story<ArgTypes> = ({
 
 export const App = Template.bind({});
 App.args = {
-  title: 'Firstech UI',
+  title: 'Ruhil UI',
 };

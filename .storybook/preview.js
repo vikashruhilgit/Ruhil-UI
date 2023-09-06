@@ -10,7 +10,7 @@ export const parameters = {
     storySort: {
       method: '',
       order: [
-        'Firstech UI',
+        'Ruhil UI',
         [
           'Introduction',
           'Component',

@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Drawer',
+  title: 'Ruhil UI/Component/Drawer',
   component: 'ft-drawer',
   decorators: [
     (story: any) => html` <style>

@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Form Component/Slider',
+  title: 'Ruhil UI/Form Component/Slider',
   decorators: [
     (story: any) => html` <style>
         .my-container > * {

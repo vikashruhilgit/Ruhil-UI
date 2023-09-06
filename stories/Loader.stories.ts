@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Loader',
+  title: 'Ruhil UI/Component/Loader',
 };
 
 interface Story<T> {

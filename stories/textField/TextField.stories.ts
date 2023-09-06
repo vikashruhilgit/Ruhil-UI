@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Form Component/Text Field',
+  title: 'Ruhil UI/Form Component/Text Field',
   component: 'ft-textfield',
   decorators: [
     (story: any) => html` <style>

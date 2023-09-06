@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Tab',
+  title: 'Ruhil UI/Component/Tab',
   decorators: [
     (story: any) => html` <style></style>
       <div class="my-container">${story()}</div>`,

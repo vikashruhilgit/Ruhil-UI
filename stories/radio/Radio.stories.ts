@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Form Component/Radio',
+  title: 'Ruhil UI/Form Component/Radio',
   component: 'ft-radio',
   decorators: [
     (story: any) => html` <style>

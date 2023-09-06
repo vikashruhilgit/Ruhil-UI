@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import '../../src/ruhil-ui';
 
 export default {
-  title: 'Firstech UI/Component/Fab - Floating Action Button',
+  title: 'Ruhil UI/Component/Fab - Floating Action Button',
   component: 'ft-fab',
   decorators: [
     (story: any) => html` <style>
