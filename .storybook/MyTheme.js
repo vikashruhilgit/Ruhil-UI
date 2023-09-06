@@ -2,7 +2,7 @@ import { create } from '@storybook/theming';
 
 export default create({
   base: 'light',
-  brandTitle: 'Ruhil UI Library',
+  brandTitle: 'Ruhil UI',
   brandUrl: 'https://www.linkedin.com/in/vikash-ruhil/',
   colorSecondary: 'deepskyblue',
 });
