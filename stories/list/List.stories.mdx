@@ -7,13 +7,13 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# List `<ft-list>`
+# List `<ru-list>`
 
 <p>Lists are continuous, vertical indexes of text or images.</p>
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Basic
 
@@ -22,11 +22,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list>
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-list>
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-list>
 ```
 
@@ -37,11 +37,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list activatable>
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item selected activated>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-list activatable>
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item selected activated>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-list>
 ```
 
@@ -55,11 +55,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list activatable multi>
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item selected activated>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item selected activated>Item 3</ft-list-item>
+<ru-list activatable multi>
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item selected activated>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item selected activated>Item 3</ft-list-item>
 </ft-list>
 ```
 
@@ -78,22 +78,22 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-list>
-  <ft-list-item graphic="avatar">
+<ru-list>
+  <ru-list-item graphic="avatar">
     <span>Avatar graphic</span>
-    <ft-icon slot="graphic">folder</ft-icon>
+    <ru-icon slot="graphic">folder</ft-icon>
   </ft-list-item>
-  <ft-list-item graphic="icon">
+  <ru-list-item graphic="icon">
     <span>Icon graphic</span>
-    <ft-icon slot="graphic">folder</ft-icon>
+    <ru-icon slot="graphic">folder</ft-icon>
   </ft-list-item>
-  <ft-list-item graphic="medium">
+  <ru-list-item graphic="medium">
     <span>medium graphic</span>
-    <ft-icon slot="graphic">folder</ft-icon>
+    <ru-icon slot="graphic">folder</ft-icon>
   </ft-list-item>
-  <ft-list-item graphic="large">
+  <ru-list-item graphic="large">
     <span>large graphic</span>
-    <ft-icon slot="graphic">folder</ft-icon>
+    <ru-icon slot="graphic">folder</ft-icon>
   </ft-list-item>
 </ft-list>
 ```
@@ -105,22 +105,22 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list>
-  <ft-list-item hasMeta>
+<ru-list>
+  <ru-list-item hasMeta>
     <span>Location A</span>
-    <ft-icon slot="meta">info</ft-icon>
+    <ru-icon slot="meta">info</ft-icon>
   </ft-list-item>
-  <ft-list-item hasMeta>
+  <ru-list-item hasMeta>
     <span>Location B</span>
-    <ft-icon slot="meta">info</ft-icon>
+    <ru-icon slot="meta">info</ft-icon>
   </ft-list-item>
-  <ft-list-item hasMeta>
+  <ru-list-item hasMeta>
     <span>Location C</span>
-    <ft-icon slot="meta">info</ft-icon>
+    <ru-icon slot="meta">info</ft-icon>
   </ft-list-item>
-  <ft-list-item hasMeta>
+  <ru-list-item hasMeta>
     <span>Location D</span>
-    <ft-icon slot="meta">info</ft-icon>
+    <ru-icon slot="meta">info</ft-icon>
   </ft-list-item>
 </ft-list>
 ```
@@ -132,20 +132,20 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list>
-  <ft-list-item twoline>
+<ru-list>
+  <ru-list-item twoline>
     <span>Item 0</span>
     <span slot="secondary">Secondary line</span>
   </ft-list-item>
-  <ft-list-item twoline>
+  <ru-list-item twoline>
     <span>Item 1</span>
     <span slot="secondary">Secondary line</span>
   </ft-list-item>
-  <ft-list-item twoline>
+  <ru-list-item twoline>
     <span>Item 2</span>
     <span slot="secondary">Secondary line</span>
   </ft-list-item>
-  <ft-list-item twoline>
+  <ru-list-item twoline>
     <span>Item 3</span>
     <span slot="secondary">Secondary line</span>
   </ft-list-item>
@@ -159,23 +159,23 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list>
-  <ft-list-item>Item 0</ft-list-item>
+<ru-list>
+  <ru-list-item>Item 0</ft-list-item>
   <li divider role="separator"></li>
-  <ft-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
   <li divider padded role="separator"></li>
-  <ft-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
   <li divider padded role="separator"></li>
-  <ft-list-item>Item 3</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
   <li divider padded role="separator"></li>
-  <ft-list-item graphic="avatar">
+  <ru-list-item graphic="avatar">
     <span>avatar item</span>
-    <ft-icon slot="graphic">folder</ft-icon>
+    <ru-icon slot="graphic">folder</ft-icon>
   </ft-list-item>
   <li divider inset padded role="separator"></li>
-  <ft-list-item graphic="avatar">
+  <ru-list-item graphic="avatar">
     <span>avatar item</span>
-    <ft-icon slot="graphic">folder</ft-icon>
+    <ru-icon slot="graphic">folder</ft-icon>
   </ft-list-item>
 </ft-list>
 ```
@@ -187,12 +187,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list multi>
-  <ft-check-list-item selected>Item 0</ft-check-list-item>
-  <ft-check-list-item selected>Item 1</ft-check-list-item>
+<ru-list multi>
+  <ru-check-list-item selected>Item 0</ft-check-list-item>
+  <ru-check-list-item selected>Item 1</ft-check-list-item>
   <li divider role="separator" padded></li>
-  <ft-check-list-item left selected>Item 2 (left)</ft-check-list-item>
-  <ft-check-list-item left>Item 3 (left)</ft-check-list-item>
+  <ru-check-list-item left selected>Item 2 (left)</ft-check-list-item>
+  <ru-check-list-item left>Item 3 (left)</ft-check-list-item>
 </ft-list>
 ```
 
@@ -203,12 +203,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list>
-  <ft-radio-list-item group="a" selected>Item 0</ft-radio-list-item>
-  <ft-radio-list-item group="a">Item 1</ft-radio-list-item>
+<ru-list>
+  <ru-radio-list-item group="a" selected>Item 0</ft-radio-list-item>
+  <ru-radio-list-item group="a">Item 1</ft-radio-list-item>
   <li divider padded role="separator"></li>
-  <ft-radio-list-item left group="a">Item 2 (left)</ft-radio-list-item>
-  <ft-radio-list-item left group="a">Item 3 (left)</ft-radio-list-item>
+  <ru-radio-list-item left group="a">Item 2 (left)</ft-radio-list-item>
+  <ru-radio-list-item left group="a">Item 3 (left)</ft-radio-list-item>
 </ft-list>
 ```
 
@@ -219,12 +219,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-list multi>
-  <ft-radio-list-item group="b">Item 0</ft-radio-list-item>
-  <ft-radio-list-item group="b" selected>Item 1</ft-radio-list-item>
+<ru-list multi>
+  <ru-radio-list-item group="b">Item 0</ft-radio-list-item>
+  <ru-radio-list-item group="b" selected>Item 1</ft-radio-list-item>
   <li divider role="separator"></li>
-  <ft-radio-list-item group="c" selected>Item 2</ft-radio-list-item>
-  <ft-radio-list-item group="c">Item 3</ft-radio-list-item>
+  <ru-radio-list-item group="c" selected>Item 2</ft-radio-list-item>
+  <ru-radio-list-item group="c">Item 3</ft-radio-list-item>
 </ft-list>
 ```
 
@@ -241,20 +241,20 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
     color: white;
   }
 </style>
-<ft-list>
-  <ft-list-item twoline graphic="avatar" noninteractive>
+<ru-list>
+  <ru-list-item twoline graphic="avatar" noninteractive>
     <span>User Name</span>
     <span slot="secondary">user@domain.tld</span>
-    <ft-icon slot="graphic" class="inverted">tag_faces</ft-icon>
+    <ru-icon slot="graphic" class="inverted">tag_faces</ft-icon>
   </ft-list-item>
   <li divider role="separator"></li>
-  <ft-list-item graphic="icon">
+  <ru-list-item graphic="icon">
     <slot>FAQ</slot>
-    <ft-icon slot="graphic">help_outline</ft-icon>
+    <ru-icon slot="graphic">help_outline</ft-icon>
   </ft-list-item>
-  <ft-list-item graphic="icon">
+  <ru-list-item graphic="icon">
     <slot>Sign out</slot>
-    <ft-icon slot="graphic">exit_to_app</ft-icon>
+    <ru-icon slot="graphic">exit_to_app</ft-icon>
   </ft-list-item>
 </ft-list>
 ```
@@ -275,11 +275,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
     overflow: hidden;
   }
 </style>
-<ft-list activatable id="styled">
-  <ft-list-item selected>Item 0</ft-list-item>
-  <ft-list-item>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-list activatable id="styled">
+  <ru-list-item selected>Item 0</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-list>
 ```
 
@@ -324,11 +324,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-list id="styledr">
-  <ft-list-item selected>Item 0</ft-list-item>
-  <ft-list-item>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-list id="styledr">
+  <ru-list-item selected>Item 0</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-list>
 ```
 
@@ -441,7 +441,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   </tbody>
 </table>
 
-# for `<ft-tab>`
+# for `<ru-tab>`
 
 ## API
 

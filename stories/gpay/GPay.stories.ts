@@ -5,7 +5,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Component/GPay',
-  component: 'ft-google-pay',
+  component: 'ru-google-pay',
   argTypes: {
     clientId: { control: 'text' },
     transactionData: { control: 'data' },
@@ -49,12 +49,12 @@ const Template: Story<ArgTypes> = ({
     totalPriceLabel: 'Total',
   },
 }: ArgTypes) => html`
-  <ft-google-pay
+  <ru-google-pay
     @payment-processed=${printLog}
     @error=${printLog}
     .clientId=${clientId}
     .transactionData=${transactionData}
-  ></ft-google-pay>
+  ></ru-google-pay>
 `;
 
 export const GpayButton = Template.bind({});

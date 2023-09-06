@@ -7,13 +7,13 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Select `<ft-select>`
+# Select `<ru-select>`
 
 <p>Selects display a list of choices on temporary surfaces.</p>
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Basic (filled)
 
@@ -22,12 +22,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-select label="filled">
-  <ft-list-item></ft-list-item>
-  <ft-list-item value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+<ru-select label="filled">
+  <ru-list-item></ft-list-item>
+  <ru-list-item value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
 ```
 
@@ -38,12 +38,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-select outlined label="outlined">
-  <ft-list-item></ft-list-item>
-  <ft-list-item value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+<ru-select outlined label="outlined">
+  <ru-list-item></ft-list-item>
+  <ru-list-item value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
 ```
 
@@ -54,14 +54,14 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-select label="preselected">
-  <ft-list-item></ft-list-item>
-  <ft-list-item selected value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+<ru-select label="preselected">
+  <ru-list-item></ft-list-item>
+  <ru-list-item selected value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
-<ft-textarea label="My Textarea" required> </ft-textarea>
+<ru-textarea label="My Textarea" required> </ft-textarea>
 ```
 
 ### Icon
@@ -76,10 +76,10 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-select label="has icon" icon="event">
-  <ft-list-item graphic="icon" value="1">Option 1</ft-list-item>
-  <ft-list-item graphic="icon" value="2">Option 2</ft-list-item>
-  <ft-list-item graphic="icon" value="3">Option 3</ft-list-item>
+<ru-select label="has icon" icon="event">
+  <ru-list-item graphic="icon" value="1">Option 1</ft-list-item>
+  <ru-list-item graphic="icon" value="2">Option 2</ft-list-item>
+  <ru-list-item graphic="icon" value="3">Option 3</ft-list-item>
 </ft-select>
 ```
 
@@ -93,28 +93,28 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-select
+<ru-select
   required
   validationMessage="This Field is Required"
   label="required (error)"
 >
-  <ft-list-item selected></ft-list-item>
-  <ft-list-item value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+  <ru-list-item selected></ft-list-item>
+  <ru-list-item value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
-<ft-select
+<ru-select
   required
   validationMessage="This Field is Required"
   outlined
   label="required (error)"
 >
-  <ft-list-item selected></ft-list-item>
-  <ft-list-item value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+  <ru-list-item selected></ft-list-item>
+  <ru-list-item value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
 ```
 
@@ -128,12 +128,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-select label="has helper text" helper="Helper Text">
-  <ft-list-item></ft-list-item>
-  <ft-list-item selected value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+<ru-select label="has helper text" helper="Helper Text">
+  <ru-list-item></ft-list-item>
+  <ru-list-item selected value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
 ```
 
@@ -169,19 +169,19 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
     --mdc-list-side-padding: 30px;
   }
 </style>
-<ft-select helper="Helper Text" label="styled">
-  <ft-list-item></ft-list-item>
-  <ft-list-item selected value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+<ru-select helper="Helper Text" label="styled">
+  <ru-list-item></ft-list-item>
+  <ru-list-item selected value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
-<ft-select outlined helper="Helper Text" label="styled">
-  <ft-list-item></ft-list-item>
-  <ft-list-item selected value="0">Item 0</ft-list-item>
-  <ft-list-item value="1">Item 1</ft-list-item>
-  <ft-list-item value="2">Item 2</ft-list-item>
-  <ft-list-item value="3">Item 3</ft-list-item>
+<ru-select outlined helper="Helper Text" label="styled">
+  <ru-list-item></ft-list-item>
+  <ru-list-item selected value="0">Item 0</ft-list-item>
+  <ru-list-item value="1">Item 1</ft-list-item>
+  <ru-list-item value="2">Item 2</ft-list-item>
+  <ru-list-item value="3">Item 3</ft-list-item>
 </ft-select>
 ```
 

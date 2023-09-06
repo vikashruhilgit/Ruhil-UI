@@ -7,7 +7,7 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Menu `<ft-menu>`
+# Menu `<ru-menu>`
 
 <p>Menus display a list of choices on temporary surfaces.</p>
 
@@ -19,7 +19,7 @@ import '../../src/ruhil-ui';
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Basic
 
@@ -28,11 +28,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-menu id="menu">
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-menu id="menu">
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-menu>
 ```
 
@@ -43,11 +43,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-menu activatable id="menu">
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item selected activated>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-menu activatable id="menu">
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item selected activated>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-menu>
 ```
 
@@ -61,11 +61,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-menu activatable multi id="menu">
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item selected activated>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item selected activated>Item 3</ft-list-item>
+<ru-menu activatable multi id="menu">
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item selected activated>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item selected activated>Item 3</ft-list-item>
 </ft-menu>
 ```
 
@@ -76,11 +76,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-menu absolute x="50" y="100" id="menu">
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-menu absolute x="50" y="100" id="menu">
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-menu>
 ```
 
@@ -91,11 +91,11 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-menu fixed id="menu">
-  <ft-list-item>Item 0</ft-list-item>
-  <ft-list-item>Item 1</ft-list-item>
-  <ft-list-item>Item 2</ft-list-item>
-  <ft-list-item>Item 3</ft-list-item>
+<ru-menu fixed id="menu">
+  <ru-list-item>Item 0</ft-list-item>
+  <ru-list-item>Item 1</ft-list-item>
+  <ru-list-item>Item 2</ft-list-item>
+  <ru-list-item>Item 3</ft-list-item>
 </ft-menu>
 ```
 
@@ -113,28 +113,28 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 <div style="position:relative;">
-  <ft-button id="button" raised label="Open Menu"></ft-button>
+  <ru-button id="button" raised label="Open Menu"></ft-button>
 
-  <ft-menu multi id="menu">
-    <ft-list-item group="a" graphic="icon">
-      <ft-icon slot="graphic">check</ft-icon>
+  <ru-menu multi id="menu">
+    <ru-list-item group="a" graphic="icon">
+      <ru-icon slot="graphic">check</ft-icon>
       <span>Item 0</span>
     </ft-list-item>
-    <ft-list-item group="a" graphic="icon" selected>
-      <ft-icon slot="graphic">check</ft-icon>
+    <ru-list-item group="a" graphic="icon" selected>
+      <ru-icon slot="graphic">check</ft-icon>
       <span>Item 1</span>
     </ft-list-item>
-    <ft-list-item group="a" graphic="icon">
-      <ft-icon slot="graphic">check</ft-icon>
+    <ru-list-item group="a" graphic="icon">
+      <ru-icon slot="graphic">check</ft-icon>
       <span>Item 2</span>
     </ft-list-item>
     <li divider role="separator"></li>
-    <ft-list-item group="b" graphic="icon" selected>
-      <ft-icon slot="graphic">check</ft-icon>
+    <ru-list-item group="b" graphic="icon" selected>
+      <ru-icon slot="graphic">check</ft-icon>
       <span>Item 3</span>
     </ft-list-item>
-    <ft-list-item group="b" graphic="icon">
-      <ft-icon slot="graphic">check</ft-icon>
+    <ru-list-item group="b" graphic="icon">
+      <ru-icon slot="graphic">check</ft-icon>
       <span>Item 4</span>
     </ft-list-item>
   </ft-menu>
@@ -161,12 +161,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 <div style="position: relative;">
-  <ft-button id="button" raised label="Open Menu"></ft-button>
-  <ft-menu activatable multi id="menu">
-    <ft-list-item selected activated>Item 0</ft-list-item>
-    <ft-list-item selected activated>Item 1</ft-list-item>
-    <ft-list-item>Item 2</ft-list-item>
-    <ft-list-item>Item 3</ft-list-item>
+  <ru-button id="button" raised label="Open Menu"></ft-button>
+  <ru-menu activatable multi id="menu">
+    <ru-list-item selected activated>Item 0</ft-list-item>
+    <ru-list-item selected activated>Item 1</ft-list-item>
+    <ru-list-item>Item 2</ft-list-item>
+    <ru-list-item>Item 3</ft-list-item>
   </ft-menu>
 </div>
 ```

@@ -7,7 +7,7 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Checkbox `<ft-checkbox>`
+# Checkbox `<ru-checkbox>`
 
 <p>
   Checkboxes allow the user to select one or more items from a set. Checkboxes
@@ -16,7 +16,7 @@ import '../../src/ruhil-ui';
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Standard
 
@@ -25,7 +25,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-checkbox checked></ft-checkbox>
+<ru-checkbox checked></ft-checkbox>
 <script>
   const checkbox = document.body.querySelector('ft-checkbox');
   checkbox.addEventListener('change', () => {
@@ -45,15 +45,15 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 
 ```html
 <div>
-  <ft-checkbox></ft-checkbox>
-  <ft-checkbox checked></ft-checkbox>
-  <ft-checkbox indeterminate></ft-checkbox>
+  <ru-checkbox></ft-checkbox>
+  <ru-checkbox checked></ft-checkbox>
+  <ru-checkbox indeterminate></ft-checkbox>
 </div>
 
 <div>
-  <ft-checkbox disabled></ft-checkbox>
-  <ft-checkbox disabled checked></ft-checkbox>
-  <ft-checkbox disabled indeterminate></ft-checkbox>
+  <ru-checkbox disabled></ft-checkbox>
+  <ru-checkbox disabled checked></ft-checkbox>
+  <ru-checkbox disabled indeterminate></ft-checkbox>
 </div>
 ```
 
@@ -67,7 +67,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-checkbox checked></ft-checkbox>
+<ru-checkbox checked></ft-checkbox>
 <style>
   body {
     background-color: #363636;
@@ -82,15 +82,15 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </style>
 
 <div>
-  <ft-checkbox></ft-checkbox>
-  <ft-checkbox checked></ft-checkbox>
-  <ft-checkbox indeterminate></ft-checkbox>
+  <ru-checkbox></ft-checkbox>
+  <ru-checkbox checked></ft-checkbox>
+  <ru-checkbox indeterminate></ft-checkbox>
 </div>
 
 <div>
-  <ft-checkbox disabled></ft-checkbox>
-  <ft-checkbox disabled checked></ft-checkbox>
-  <ft-checkbox disabled indeterminate></ft-checkbox>
+  <ru-checkbox disabled></ft-checkbox>
+  <ru-checkbox disabled checked></ft-checkbox>
+  <ru-checkbox disabled indeterminate></ft-checkbox>
 </div>
 ```
 
@@ -113,16 +113,16 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-formfield label="Additions">
-  <ft-checkbox indeterminate></ft-checkbox>
+<ru-formfield label="Additions">
+  <ru-checkbox indeterminate></ft-checkbox>
 </ft-formfield>
 
-<ft-formfield label="Pickles">
-  <ft-checkbox class="child"></ft-checkbox>
+<ru-formfield label="Pickles">
+  <ru-checkbox class="child"></ft-checkbox>
 </ft-formfield>
 
-<ft-formfield label="Tomato">
-  <ft-checkbox class="child" checked></ft-checkbox>
+<ru-formfield label="Tomato">
+  <ru-checkbox class="child" checked></ft-checkbox>
 </ft-formfield>
 ```
 

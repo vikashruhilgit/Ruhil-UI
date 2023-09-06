@@ -1,1 +1,1 @@
-export const prefix = 'ft';
+export const prefix = 'ru';

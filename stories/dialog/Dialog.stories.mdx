@@ -7,13 +7,13 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Dialog `<ft-dialog>`
+# Dialog `<ru-dialog>`
 
 Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Uasge
 
@@ -24,10 +24,10 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### alert
 
 ```html
-<ft-dialog open>
+<ru-dialog open>
   <div>Discard draft?</div>
-  <ft-button slot="primaryAction" dialogAction="discard"> Discard </ft-button>
-  <ft-button slot="secondaryAction" dialogAction="cancel"> Cancel </ft-button>
+  <ru-button slot="primaryAction" dialogAction="discard"> Discard </ft-button>
+  <ru-button slot="secondaryAction" dialogAction="cancel"> Cancel </ft-button>
 </ft-dialog>
 ```
 
@@ -44,20 +44,20 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-dialog heading="Phone Ringtone" open>
+<ru-dialog heading="Phone Ringtone" open>
   <div>
-    <ft-formfield label="Never Gonna Give You Up">
-      <ft-radio id="a1" name="a" checked></ft-radio>
+    <ru-formfield label="Never Gonna Give You Up">
+      <ru-radio id="a1" name="a" checked></ft-radio>
     </ft-formfield>
-    <ft-formfield label="Hot Cross Buns">
-      <ft-radio name="a"></ft-radio>
+    <ru-formfield label="Hot Cross Buns">
+      <ru-radio name="a"></ft-radio>
     </ft-formfield>
-    <ft-formfield label="None">
-      <ft-radio name="a"></ft-radio>
+    <ru-formfield label="None">
+      <ru-radio name="a"></ft-radio>
     </ft-formfield>
   </div>
-  <ft-button dialogAction="ok" slot="primaryAction"> ok </ft-button>
-  <ft-button dialogAction="cancel" slot="secondaryAction"> cancel </ft-button>
+  <ru-button dialogAction="ok" slot="primaryAction"> ok </ft-button>
+  <ru-button dialogAction="cancel" slot="secondaryAction"> cancel </ft-button>
 </ft-dialog>
 ```
 
@@ -73,12 +73,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-dialog heading="Styled" class="styled" open>
+<ru-dialog heading="Styled" class="styled" open>
   <div>
     In this dialog we have changed the button color and removed the border
     radius.
   </div>
-  <ft-button slot="primaryAction" dialogAction="close">
+  <ru-button slot="primaryAction" dialogAction="close">
     This button is bluish!
   </ft-button>
 </ft-dialog>
@@ -87,35 +87,35 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### Stacked
 
 ```html
-<ft-dialog heading="Stacked" stacked>
+<ru-dialog heading="Stacked" stacked>
   <div>
     This is what happens when you set the stacked property on ft-dialog. Notice
     that the primary action is now on top.
   </div>
-  <ft-button slot="primaryAction" dialogAction="close"> Primary </ft-button>
-  <ft-button slot="secondaryAction" dialogAction="close"> Secondary </ft-button>
+  <ru-button slot="primaryAction" dialogAction="close"> Primary </ft-button>
+  <ru-button slot="secondaryAction" dialogAction="close"> Secondary </ft-button>
 </ft-dialog>
 ```
 
 ### Prevent Scrim Clicks
 
 ```html
-<ft-dialog scrimClickAction="">
+<ru-dialog scrimClickAction="">
   <div>
     This will prevent a click outside of the dialog from closing the dialog.
   </div>
-  <ft-button slot="primaryAction" dialogAction="close"> Discard </ft-button>
-  <ft-button slot="secondaryAction" dialogAction="close"> Cancel </ft-button>
+  <ru-button slot="primaryAction" dialogAction="close"> Discard </ft-button>
+  <ru-button slot="secondaryAction" dialogAction="close"> Cancel </ft-button>
 </ft-dialog>
 ```
 
 ### Prevent Escape Key Action
 
 ```html
-<ft-dialog escapeKeyAction="">
+<ru-dialog escapeKeyAction="">
   <div>This will prevent the escape key from closing the dialog.</div>
-  <ft-button slot="primaryAction" dialogAction="close"> Primary </ft-button>
-  <ft-button slot="secondaryAction" dialogAction="close"> Secondary </ft-button>
+  <ru-button slot="primaryAction" dialogAction="close"> Primary </ft-button>
+  <ru-button slot="secondaryAction" dialogAction="close"> Secondary </ft-button>
 </ft-dialog>
 ```
 
@@ -650,7 +650,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 #### Example
 
 ```html
-<ft-dialog open>
+<ru-dialog open>
   <div>
     <div>
       This is my content. Here is an actionable button:
@@ -661,8 +661,8 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
       <button disabled dialogAction="disabledContentButton">button 2</button>
     </div>
   </div>
-  <ft-button slot="primaryAction" dialogAction="ok">ok</ft-button>
-  <ft-button slot="secondaryAction">cancel</ft-button>
+  <ru-button slot="primaryAction" dialogAction="ok">ok</ft-button>
+  <ru-button slot="secondaryAction">cancel</ft-button>
 </ft-dialog>
 ```
 
@@ -673,7 +673,7 @@ In this example we have 3 actionable elements: `<button dialogAction="contentBut
 ```
 
 ```html
-<ft-button slot="primaryAction" dialogAction="ok">ok</ft-button>
+<ru-button slot="primaryAction" dialogAction="ok">ok</ft-button>
 ```
 
 <ul>

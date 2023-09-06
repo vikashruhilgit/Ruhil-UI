@@ -3,10 +3,10 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Component/Fab - Floating Action Button',
-  component: 'ft-fab',
+  component: 'ru-fab',
   decorators: [
     (story: any) => html` <style>
-        ft-fab {
+        ru-fab {
           margin-right: 50px;
         }
       </style>
@@ -49,14 +49,14 @@ const Template: Story<ArgTypes> = ({
       }
     </style>
     <main>
-      <ft-fab .icon=${icon}></ft-fab>
-      <ft-fab icon="add" ?mini=${mini}></ft-fab>
-      <ft-fab
+      <ru-fab .icon=${icon}></ru-fab>
+      <ru-fab icon="add" ?mini=${mini}></ru-fab>
+      <ru-fab
         icon="shopping_cart"
         ?extended=${extended}
         .label=${label}
-      ></ft-fab>
-      <ft-fab icon="share" class="blackAndWhite"></ft-fab>
+      ></ru-fab>
+      <ru-fab icon="share" class="blackAndWhite"></ru-fab>
     </main>
   `;
 

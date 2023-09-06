@@ -29,12 +29,12 @@ const Template: Story<ArgTypes> = ({
   if (square) classes.push('square');
   if (circle) classes.push('circle');
   if (small) classes.push('small');
-  return html` <ft-loader .classes=${classes} .count=${count}></ft-loader> `;
+  return html` <ru-loader .classes=${classes} .count=${count}></ru-loader> `;
 };
 
 const CustomTemplate: Story<ArgTypes> = ({ styleOverrides }: ArgTypes) =>
   html`
-    <ft-loader .count=${'5'} .styleOverrides=${styleOverrides}></ft-loader>
+    <ru-loader .count=${'5'} .styleOverrides=${styleOverrides}></ru-loader>
   `;
 
 export const Loader = Template.bind({});

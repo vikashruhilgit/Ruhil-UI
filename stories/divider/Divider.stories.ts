@@ -25,12 +25,12 @@ interface ArgTypes {
 
 const Template: Story<ArgTypes> = ({ color, size }: ArgTypes) =>
   html` <style>
-      ft-divider {
+      ru-divider {
         --divider-color: ${color};
         --divider-size: ${size};
       }
     </style>
-    <ft-divider></ft-divider>`;
+    <ru-divider></ru-divider>`;
 
 export const Divider = Template.bind({});
 Divider.args = {
@@ -40,7 +40,7 @@ Divider.args = {
 
 const VerticalTemplate: Story<ArgTypes> = ({ color, size }: ArgTypes) =>
   html` <style>
-      ft-divider {
+      ru-divider {
         --divider-color: ${color};
         --divider-size: ${size};
       }
@@ -48,7 +48,7 @@ const VerticalTemplate: Story<ArgTypes> = ({ color, size }: ArgTypes) =>
         height: 100px;
       }
     </style>
-    <ft-divider class="height" vertical></ft-divider>`;
+    <ru-divider class="height" vertical></ru-divider>`;
 
 export const Vertical = VerticalTemplate.bind({});
 Vertical.args = {

@@ -7,7 +7,7 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Icon Button Toggle `<ft-icon-button-toggle>`
+# Icon Button Toggle `<ru-icon-button-toggle>`
 
 <p>
   Toggle buttons can be used to group related options. To emphasize groups of
@@ -21,7 +21,7 @@ import '../../src/ruhil-ui';
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Usage
 
@@ -37,7 +37,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 `on = true` and `on = false`
 
 ```html
-<ft-icon-button-toggle
+<ru-icon-button-toggle
   onIcon="sentiment_very_satisfied"
   offIcon="sentiment_very_dissatisfied"
 ></ft-icon-button-toggle>
@@ -46,7 +46,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### SVG
 
 ```html
-<ft-icon-button-toggle>
+<ru-icon-button-toggle>
   <svg
     slot="onIcon"
     xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### Image
 
 ```html
-<ft-icon-button-toggle>
+<ru-icon-button-toggle>
   <img slot="onIcon" src="https://picsum.photos/id/28/24/24" />
   <img slot="offIcon" src="https://picsum.photos/id/141/24/24?grayscale" />
 </ft-icon-button-toggle>
@@ -86,7 +86,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### Disabled
 
 ```html
-<ft-icon-button-toggle
+<ru-icon-button-toggle
   disabled
   onIcon="sentiment_very_satisfied"
   offIcon="sentiment_very_dissatisfied"
@@ -96,7 +96,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### With toggled aria label
 
 ```html
-<ft-icon-button-toggle
+<ru-icon-button-toggle
   ariaLabelOn="Very satisfied"
   ariaLabelOff="Very dissatisfied"
   onIcon="sentiment_very_satisfied"

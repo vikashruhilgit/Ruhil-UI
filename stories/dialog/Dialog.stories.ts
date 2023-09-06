@@ -5,7 +5,7 @@ export default {
   title: 'Ruhil UI/Component/Dialog',
   decorators: [
     (story: any) => html` <style>
-        ft-button {
+        ru-button {
           margin: 10px;
         }
       </style>
@@ -34,7 +34,7 @@ const clickHandler = (e: Event) => {
 const actionHandler = (e: Event) => {
   if (e.target) {
     const el: any = e.target;
-    const dialog = el.closest('ft-dialog');
+    const dialog = el.closest('ru-dialog');
     if (dialog) dialog.hideActions = !dialog.hideActions;
   }
 };
@@ -42,34 +42,34 @@ const actionHandler = (e: Event) => {
 const Template: Story<ArgTypes> = () =>
   html`
     <main>
-      <ft-button @click=${clickHandler} data-num="1" raised>Basic</ft-button>
-      <ft-dialog id="dialog1" heading="Dialog header">
+      <ru-button @click=${clickHandler} data-num="1" raised>Basic</ru-button>
+      <ru-dialog id="dialog1" heading="Dialog header">
         Dialog body text
-        <ft-button slot="primaryAction" dialogAction="ok">Action 2</ft-button>
-        <ft-button slot="secondaryAction" dialogAction="cancel"
-          >Action 1</ft-button
+        <ru-button slot="primaryAction" dialogAction="ok">Action 2</ru-button>
+        <ru-button slot="secondaryAction" dialogAction="cancel"
+          >Action 1</ru-button
         >
-      </ft-dialog>
+      </ru-dialog>
 
-      <ft-button @click=${clickHandler} data-num="2" raised>Actions</ft-button>
-      <ft-dialog id="dialog2" heading="Actions">
+      <ru-button @click=${clickHandler} data-num="2" raised>Actions</ru-button>
+      <ru-dialog id="dialog2" heading="Actions">
         <p>
           By setting the dialogAction="my-action" attribute on any element
-          projected into ft-dialog, you can close the dialog by clicking on that
+          projected into ru-dialog, you can close the dialog by clicking on that
           element. The dialog will then fire a non-bubbling "closing" event and
           a non-bubbling "closed" event with an event detail of {action:
           "my-action"}
         </p>
-        <ft-button slot="primaryAction" dialogAction="customAction"
-          >This has action</ft-button
+        <ru-button slot="primaryAction" dialogAction="customAction"
+          >This has action</ru-button
         >
-        <ft-button slot="secondaryAction">this does not</ft-button>
-      </ft-dialog>
+        <ru-button slot="secondaryAction">this does not</ru-button>
+      </ru-dialog>
 
-      <ft-button @click=${clickHandler} data-num="3" raised
-        >Scrollable</ft-button
+      <ru-button @click=${clickHandler} data-num="3" raised
+        >Scrollable</ru-button
       >
-      <ft-dialog id="dialog3" heading="My Title">
+      <ru-dialog id="dialog3" heading="My Title">
         <p>
           Really long text will scroll. Really long text will scroll. Really
           long text will scroll. Really long text will scroll. Really long text
@@ -145,27 +145,27 @@ const Template: Story<ArgTypes> = () =>
           scroll. Really log text will scroll. Really log text will scroll.
           Really log text will scroll. Really log text will scroll.
         </p>
-        <ft-button slot="primaryAction" dialogAction="close"
-          >Close this!</ft-button
+        <ru-button slot="primaryAction" dialogAction="close"
+          >Close this!</ru-button
         >
-      </ft-dialog>
+      </ru-dialog>
 
-      <ft-button @click=${clickHandler} data-num="4" raised
-        >Hide Actions</ft-button
+      <ru-button @click=${clickHandler} data-num="4" raised
+        >Hide Actions</ru-button
       >
-      <ft-dialog id="dialog4" heading="Hide Actions">
+      <ru-dialog id="dialog4" heading="Hide Actions">
         <p>
           If you don't have actions, you may want to set the "hideActions"
           property. This property will remove extra whitespace at the bottom of
           this dialog. This button will toggle that whitespace:
         </p>
-        <ft-button @click=${actionHandler} raised id="toggleActions"
-          >Toggle hideActions</ft-button
+        <ru-button @click=${actionHandler} raised id="toggleActions"
+          >Toggle hideActions</ru-button
         >
-        <ft-button slot="primaryAction" dialogAction="close"
-          >Close this!</ft-button
+        <ru-button slot="primaryAction" dialogAction="close"
+          >Close this!</ru-button
         >
-      </ft-dialog>
+      </ru-dialog>
 
       <style>
         .styled {
@@ -184,8 +184,8 @@ const Template: Story<ArgTypes> = () =>
         }
       </style>
 
-      <ft-button @click=${clickHandler} data-num="5" raised>Styled</ft-button>
-      <ft-dialog id="dialog5" heading="Styled" class="styled">
+      <ru-button @click=${clickHandler} data-num="5" raised>Styled</ru-button>
+      <ru-dialog id="dialog5" heading="Styled" class="styled">
         <div>These are the current styles applied to this dialog</div>
         <pre>
 --mdc-theme-surface: #FFF;
@@ -202,81 +202,81 @@ const Template: Story<ArgTypes> = () =>
 --mdc-theme-primary: #344955;
         </pre
         >
-        <ft-button
+        <ru-button
           @click=${clickHandler}
           slot="primaryAction"
           dialogAction="close"
         >
           Too stylish for me!
-        </ft-button>
-      </ft-dialog>
+        </ru-button>
+      </ru-dialog>
 
-      <ft-button @click=${clickHandler} data-num="6" raised>Stacked</ft-button>
-      <ft-dialog id="dialog6" heading="Stacked" stacked>
+      <ru-button @click=${clickHandler} data-num="6" raised>Stacked</ru-button>
+      <ru-dialog id="dialog6" heading="Stacked" stacked>
         <div>
-          This is what happens when you set the stacked property on ft-dialog.
+          This is what happens when you set the stacked property on ru-dialog.
           Notice that the primary action is now on top.
         </div>
-        <ft-button slot="primaryAction" dialogAction="close">
+        <ru-button slot="primaryAction" dialogAction="close">
           Primary
-        </ft-button>
-        <ft-button slot="secondaryAction" dialogAction="close">
+        </ru-button>
+        <ru-button slot="secondaryAction" dialogAction="close">
           Secondary
-        </ft-button>
-      </ft-dialog>
+        </ru-button>
+      </ru-dialog>
 
-      <ft-button @click=${clickHandler} data-num="7" raised
-        >Initial Focus</ft-button
+      <ru-button @click=${clickHandler} data-num="7" raised
+        >Initial Focus</ru-button
       >
-      <ft-dialog id="dialog7" heading="Initial Focus">
+      <ru-dialog id="dialog7" heading="Initial Focus">
         <div>
-          In this example we set "dialogInitialFocus" on the ft-textfield. When
+          In this example we set "dialogInitialFocus" on the ru-textfield. When
           this dialog opens, it is auto-focused.
         </div>
-        <ft-textfield label="i am auto-focused" dialogInitialFocus>
-        </ft-textfield>
-        <ft-button slot="primaryAction" dialogAction="close">
+        <ru-textfield label="i am auto-focused" dialogInitialFocus>
+        </ru-textfield>
+        <ru-button slot="primaryAction" dialogAction="close">
           Primary
-        </ft-button>
-        <ft-button slot="secondaryAction" dialogAction="close">
+        </ru-button>
+        <ru-button slot="secondaryAction" dialogAction="close">
           Secondary
-        </ft-button>
-      </ft-dialog>
+        </ru-button>
+      </ru-dialog>
 
-      <ft-button @click=${clickHandler} data-num="8" raised
-        >Form Validation</ft-button
+      <ru-button @click=${clickHandler} data-num="8" raised
+        >Form Validation</ru-button
       >
-      <ft-dialog id="dialog8" heading="Form Validation">
+      <ru-dialog id="dialog8" heading="Form Validation">
         <p>This dialog can validate user input before closing.</p>
-        <ft-textfield
+        <ru-textfield
           id="dialog8-text-field"
           minlength="3"
           maxlength="64"
           placeholder="First name"
           required
         >
-        </ft-textfield>
-        <ft-button
+        </ru-textfield>
+        <ru-button
           @click=${clickHandler}
           id="dialog8-primary-action-button"
           slot="primaryAction"
         >
           Confirm
-        </ft-button>
-        <ft-button slot="secondaryAction" dialogAction="close">
+        </ru-button>
+        <ru-button slot="secondaryAction" dialogAction="close">
           Cancel
-        </ft-button>
-      </ft-dialog>
+        </ru-button>
+      </ru-dialog>
     </main>
   `;
 
-const AlertTemplate: Story<ArgTypes> = ({ open }: ArgTypes) => html` <ft-dialog
+const AlertTemplate: Story<ArgTypes> = ({ open }: ArgTypes) => html` <ru-dialog
   ?open=${open}
 >
   <div>Discard draft?</div>
-  <ft-button slot="primaryAction" dialogAction="discard"> Discard </ft-button>
-  <ft-button slot="secondaryAction" dialogAction="cancel"> Cancel </ft-button>
-</ft-dialog>`;
+  <ru-button slot="primaryAction" dialogAction="discard"> Discard </ru-button>
+  <ru-button slot="secondaryAction" dialogAction="cancel"> Cancel </ru-button>
+</ru-dialog>`;
 
 export const Alert = AlertTemplate.bind({});
 Alert.args = {
@@ -286,30 +286,30 @@ Alert.args = {
 const ConfirmationTemplate: Story<ArgTypes> = ({
   open,
 }: ArgTypes) => html` <style>
-    ft-dialog div {
+    ru-dialog div {
       flex-direction: column;
     }
-    ft-dialog div,
-    ft-radio {
+    ru-dialog div,
+    ru-radio {
       display: flex;
     }
   </style>
 
-  <ft-dialog heading="Phone Ringtone" ?open=${open}>
+  <ru-dialog heading="Phone Ringtone" ?open=${open}>
     <div>
-      <ft-formfield label="Never Gonna Give You Up">
-        <ft-radio id="a1" name="a" checked></ft-radio>
-      </ft-formfield>
-      <ft-formfield label="Hot Cross Buns">
-        <ft-radio name="a"></ft-radio>
-      </ft-formfield>
-      <ft-formfield label="None">
-        <ft-radio name="a"></ft-radio>
-      </ft-formfield>
+      <ru-formfield label="Never Gonna Give You Up">
+        <ru-radio id="a1" name="a" checked></ru-radio>
+      </ru-formfield>
+      <ru-formfield label="Hot Cross Buns">
+        <ru-radio name="a"></ru-radio>
+      </ru-formfield>
+      <ru-formfield label="None">
+        <ru-radio name="a"></ru-radio>
+      </ru-formfield>
     </div>
-    <ft-button dialogAction="ok" slot="primaryAction"> ok </ft-button>
-    <ft-button dialogAction="cancel" slot="secondaryAction"> cancel </ft-button>
-  </ft-dialog>`;
+    <ru-button dialogAction="ok" slot="primaryAction"> ok </ru-button>
+    <ru-button dialogAction="cancel" slot="secondaryAction"> cancel </ru-button>
+  </ru-dialog>`;
 
 export const Confirmation = ConfirmationTemplate.bind({});
 Confirmation.args = {
@@ -325,15 +325,15 @@ const StyledTemplate: Story<ArgTypes> = ({ open }: ArgTypes) => html` <style>
     }
   </style>
 
-  <ft-dialog heading="Styled" class="styled" ?open=${open}>
+  <ru-dialog heading="Styled" class="styled" ?open=${open}>
     <div>
       In this dialog we have changed the button color and removed the border
       radius.
     </div>
-    <ft-button slot="primaryAction" dialogAction="close">
+    <ru-button slot="primaryAction" dialogAction="close">
       This button is bluish!
-    </ft-button>
-  </ft-dialog>`;
+    </ru-button>
+  </ru-dialog>`;
 
 export const Styled = StyledTemplate.bind({});
 Styled.args = {
@@ -342,13 +342,13 @@ Styled.args = {
 
 const PreventScrimClicksTemplate: Story<ArgTypes> = ({
   open,
-}: ArgTypes) => html` <ft-dialog scrimClickAction="" ?open=${open}>
+}: ArgTypes) => html` <ru-dialog scrimClickAction="" ?open=${open}>
   <div>
     This will prevent a click outside of the dialog from closing the dialog.
   </div>
-  <ft-button slot="primaryAction" dialogAction="close"> Discard </ft-button>
-  <ft-button slot="secondaryAction" dialogAction="close"> Cancel </ft-button>
-</ft-dialog>`;
+  <ru-button slot="primaryAction" dialogAction="close"> Discard </ru-button>
+  <ru-button slot="secondaryAction" dialogAction="close"> Cancel </ru-button>
+</ru-dialog>`;
 
 export const PreventScrimClicks = PreventScrimClicksTemplate.bind({});
 PreventScrimClicks.args = {

@@ -29,7 +29,7 @@ const Template: Story<ArgTypes> = ({
 }: ArgTypes) =>
   html`
     <style>
-      ft-icon-button-toggle {
+      ru-icon-button-toggle {
         padding: 20px;
       }
       .color {
@@ -37,13 +37,13 @@ const Template: Story<ArgTypes> = ({
       }
     </style>
     <main>
-      <ft-icon-button-toggle
+      <ru-icon-button-toggle
         .on=${true}
         .onIcon=${onIcon}
         .offIcon=${offIcon}
-      ></ft-icon-button-toggle>
+      ></ru-icon-button-toggle>
 
-      <ft-icon-button-toggle>
+      <ru-icon-button-toggle>
         <svg
           slot="onIcon"
           xmlns="http://www.w3.org/2000/svg"
@@ -68,28 +68,28 @@ const Template: Story<ArgTypes> = ({
             d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
           />
         </svg>
-      </ft-icon-button-toggle>
+      </ru-icon-button-toggle>
 
-      <ft-icon-button-toggle>
+      <ru-icon-button-toggle>
         <img alt="" slot="onIcon" src="https://picsum.photos/id/28/24/24" />
         <img
           alt=""
           slot="offIcon"
           src="https://picsum.photos/id/141/24/24?grayscale"
         />
-      </ft-icon-button-toggle>
+      </ru-icon-button-toggle>
 
-      <ft-icon-button-toggle
+      <ru-icon-button-toggle
         ?disabled=${disabled}
         onIcon="sentiment_very_satisfied"
         offIcon="sentiment_very_dissatisfied"
-      ></ft-icon-button-toggle>
+      ></ru-icon-button-toggle>
 
-      <ft-icon-button-toggle
+      <ru-icon-button-toggle
         class="color"
         onIcon="sentiment_very_satisfied"
         offIcon="sentiment_very_dissatisfied"
-      ></ft-icon-button-toggle>
+      ></ru-icon-button-toggle>
     </main>
   `;
 

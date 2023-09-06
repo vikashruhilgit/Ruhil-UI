@@ -3,7 +3,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Component/Icon',
-  component: 'ft-icon',
+  component: 'ru-icon',
   decorators: [
     (story: any) => html` <style></style>
       <div class="my-container">${story()}</div>`,
@@ -34,11 +34,11 @@ const Template: Story<ArgTypes> = ({ color, size }: ArgTypes) =>
     </style>
     <main>
       <div class="demo-group color-size">
-        <ft-icon>sentiment_very_dissatisfied</ft-icon>
-        <ft-icon>sentiment_dissatisfied</ft-icon>
-        <ft-icon>sentiment_neutral</ft-icon>
-        <ft-icon>sentiment_satisfied</ft-icon>
-        <ft-icon>sentiment_very_satisfied</ft-icon>
+        <ru-icon>sentiment_very_dissatisfied</ru-icon>
+        <ru-icon>sentiment_dissatisfied</ru-icon>
+        <ru-icon>sentiment_neutral</ru-icon>
+        <ru-icon>sentiment_satisfied</ru-icon>
+        <ru-icon>sentiment_very_satisfied</ru-icon>
       </div>
     </main>
   `;
@@ -54,10 +54,10 @@ const FancyTemplate: Story<ArgTypes> = ({ color, size }: ArgTypes) =>
     <main>
       <h4>color and size</h4>
       <div class="demo-group ">
-        <ft-icon class="fancy">all_out</ft-icon>
-        <ft-icon class="fancy">accessibility</ft-icon>
-        <ft-icon class="fancy">exit_to_app</ft-icon>
-        <ft-icon class="fancy">camera</ft-icon>
+        <ru-icon class="fancy">all_out</ru-icon>
+        <ru-icon class="fancy">accessibility</ru-icon>
+        <ru-icon class="fancy">exit_to_app</ru-icon>
+        <ru-icon class="fancy">camera</ru-icon>
       </div>
     </main>
   `;

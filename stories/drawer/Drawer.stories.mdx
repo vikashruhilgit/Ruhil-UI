@@ -7,7 +7,7 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Drawer `<ft-drawer>`
+# Drawer `<ru-drawer>`
 
 <p>
   The Navigation Drawer is used to organize access to destinations and other
@@ -16,7 +16,7 @@ import '../../src/ruhil-ui';
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Standard
 
@@ -25,12 +25,12 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-drawer>
+<ru-drawer>
   <div>
     <p>Drawer Content!</p>
   </div>
   <div slot="appContent">
-    <ft-top-app-bar>
+    <ru-top-app-bar>
       <div slot="title">Title</div>
     </ft-top-app-bar>
     <div>
@@ -69,14 +69,14 @@ ft-drawer[open] top-app-bar {
 </Canvas>
 
 ```html
-<ft-drawer hasHeader>
+<ru-drawer hasHeader>
   <span slot="title">Drawer Title</span>
   <span slot="subtitle">subtitle</span>
   <div>
     <p>Drawer content!</p>
   </div>
   <div slot="appContent">
-    <ft-top-app-bar>
+    <ru-top-app-bar>
       <div slot="title">Title</div>
     </ft-top-app-bar>
     <div>
@@ -93,17 +93,17 @@ ft-drawer[open] top-app-bar {
 </Canvas>
 
 ```html
-<ft-drawer hasHeader type="dismissible">
+<ru-drawer hasHeader type="dismissible">
   <span slot="title">Drawer Title</span>
   <span slot="subtitle">subtitle</span>
   <div>
     <p>Drawer content!</p>
-    <ft-icon-button icon="gesture"></ft-icon-button>
-    <ft-icon-button icon="gavel"></ft-icon-button>
+    <ru-icon-button icon="gesture"></ft-icon-button>
+    <ru-icon-button icon="gavel"></ft-icon-button>
   </div>
   <div slot="appContent">
-    <ft-top-app-bar>
-      <ft-icon-button slot="navigationIcon" icon="menu"></ft-icon-button>
+    <ru-top-app-bar>
+      <ru-icon-button slot="navigationIcon" icon="menu"></ft-icon-button>
       <div slot="title">Title</div>
     </ft-top-app-bar>
     <div>
@@ -129,17 +129,17 @@ ft-drawer[open] top-app-bar {
 </Canvas>
 
 ```html
-<ft-drawer hasHeader type="modal">
+<ru-drawer hasHeader type="modal">
   <span slot="title">Drawer Title</span>
   <span slot="subtitle">subtitle</span>
   <div>
     <p>Drawer content!</p>
-    <ft-icon-button icon="gesture"></ft-icon-button>
-    <ft-icon-button icon="gavel"></ft-icon-button>
+    <ru-icon-button icon="gesture"></ft-icon-button>
+    <ru-icon-button icon="gavel"></ft-icon-button>
   </div>
   <div slot="appContent">
-    <ft-top-app-bar>
-      <ft-icon-button slot="navigationIcon" icon="menu"></ft-icon-button>
+    <ru-top-app-bar>
+      <ru-icon-button slot="navigationIcon" icon="menu"></ft-icon-button>
       <div slot="title">Title</div>
     </ft-top-app-bar>
     <div>

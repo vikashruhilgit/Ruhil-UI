@@ -3,7 +3,7 @@ import '../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Component/Test',
-  component: 'ft-test',
+  component: 'ru-test',
   argTypes: {
     title: { control: 'text' },
     counter: { control: 'number' },
@@ -30,13 +30,13 @@ const Template: Story<ArgTypes> = ({
   textColor,
   slot,
 }: ArgTypes) => html`
-  <ft-test
+  <ru-test
     style="--ruhil-ui-text-color: ${textColor || 'black'}"
     .title=${title}
     .counter=${counter}
   >
     ${slot}
-  </ft-test>
+  </ru-test>
 `;
 
 export const Regular = Template.bind({});

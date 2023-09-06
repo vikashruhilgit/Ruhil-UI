@@ -5,7 +5,7 @@ export default {
   title: 'Ruhil UI/Component/Snackbar',
   decorators: [
     (story: any) => html` <style>
-        ft-icon-button {
+        ru-icon-button {
           color: white;
         }
       </style>
@@ -31,21 +31,21 @@ const clickHandler = (e: Event) => {
 
 const Template: Story<ArgTypes> = () =>
   html`
-    <ft-button @click=${clickHandler} label="Click Me!" raised></ft-button>
-    <ft-snackbar
+    <ru-button @click=${clickHandler} label="Click Me!" raised></ru-button>
+    <ru-snackbar
       id="photoErrorSnackbar"
       labelText="Can't send photo. Retry in 5 seconds."
     >
-    </ft-snackbar>
+    </ru-snackbar>
   `;
 
 const OptionalActionAndDismissButtonTemplate: Story<ArgTypes> = () =>
   html`
-    <ft-button @click=${clickHandler} label="Click Me!" raised></ft-button>
-    <ft-snackbar labelText="Can't send photo. Retry in 5 seconds.">
-      <ft-button slot="action">RETRY</ft-button>
-      <ft-icon-button icon="close" slot="dismiss"></ft-icon-button>
-    </ft-snackbar>
+    <ru-button @click=${clickHandler} label="Click Me!" raised></ru-button>
+    <ru-snackbar labelText="Can't send photo. Retry in 5 seconds.">
+      <ru-button slot="action">RETRY</ru-button>
+      <ru-icon-button icon="close" slot="dismiss"></ru-icon-button>
+    </ru-snackbar>
   `;
 
 const CustomActionButtonColorTemplate = () =>
@@ -55,42 +55,42 @@ const CustomActionButtonColorTemplate = () =>
         --mdc-theme-primary: #64dc17;
       }
     </style>
-    <ft-button @click=${clickHandler} label="Click Me!" raised></ft-button>
-    <ft-snackbar
+    <ru-button @click=${clickHandler} label="Click Me!" raised></ru-button>
+    <ru-snackbar
       class="custom-color"
       timeoutMs="1000000"
       id="snackbar-id"
       labelText="Can't send photo. Retry in 5 seconds."
     >
-      <ft-button slot="action">RETRY</ft-button>
-      <ft-icon-button icon="close" slot="dismiss"></ft-icon-button>
-    </ft-snackbar>
+      <ru-button slot="action">RETRY</ru-button>
+      <ru-icon-button icon="close" slot="dismiss"></ru-icon-button>
+    </ru-snackbar>
   `;
 
 const VariantStackedTemplate = () =>
   html`
-    <ft-button @click=${clickHandler} label="Click Me!" raised></ft-button>
-    <ft-snackbar
+    <ru-button @click=${clickHandler} label="Click Me!" raised></ru-button>
+    <ru-snackbar
       stacked
       id="snackbar-id"
       labelText="Can't send photo. Retry in 5 seconds."
     >
-      <ft-button slot="action">RETRY</ft-button>
-      <ft-icon-button icon="close" slot="dismiss"></ft-icon-button>
-    </ft-snackbar>
+      <ru-button slot="action">RETRY</ru-button>
+      <ru-icon-button icon="close" slot="dismiss"></ru-icon-button>
+    </ru-snackbar>
   `;
 
 const VariantleadingTemplate = () =>
   html`
-    <ft-button @click=${clickHandler} label="Click Me!" raised></ft-button>
-    <ft-snackbar
+    <ru-button @click=${clickHandler} label="Click Me!" raised></ru-button>
+    <ru-snackbar
       leading
       id="snackbar-id"
       labelText="Can't send photo. Retry in 5 seconds."
     >
-      <ft-button slot="action">RETRY</ft-button>
-      <ft-icon-button icon="close" slot="dismiss"></ft-icon-button>
-    </ft-snackbar>
+      <ru-button slot="action">RETRY</ru-button>
+      <ru-icon-button icon="close" slot="dismiss"></ru-icon-button>
+    </ru-snackbar>
   `;
 export const Default = Template.bind({});
 

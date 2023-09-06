@@ -38,24 +38,24 @@ const Template: Story<ArgTypes> = ({
 }: ArgTypes) => html`
   ${useCustonColor
     ? html` <style>
-        ft-nav {
+        ru-nav {
           --mdc-theme-primary: ${themeColor};
           --mdc-theme-on-primary: ${onThemeColor};
         }
       </style>`
     : ``}
 
-  <ft-nav ?centerTitle=${centerTitle} ?dense=${dense} ?prominent=${prominent}>
-    <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
-    <ft-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
-    <div slot="title">Firstech</div>
-    <ft-icon-button icon="print" slot="actionItems"></ft-icon-button>
-    <ft-icon-button
+  <ru-nav ?centerTitle=${centerTitle} ?dense=${dense} ?prominent=${prominent}>
+    <ru-icon-button icon="menu" slot="navigationIcon"></ru-icon-button>
+    <ru-icon-button icon="file_download" slot="actionItems"></ru-icon-button>
+    <div slot="title">Ruhil UI</div>
+    <ru-icon-button icon="print" slot="actionItems"></ru-icon-button>
+    <ru-icon-button
       icon="favorite"
       slot="actionItems"
       disabled
-    ></ft-icon-button>
-  </ft-nav>
+    ></ru-icon-button>
+  </ru-nav>
 `;
 
 export const Navigation = Template.bind({});

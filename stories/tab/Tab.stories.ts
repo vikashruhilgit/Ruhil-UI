@@ -18,67 +18,67 @@ interface Story<T> {
 interface ArgTypes {}
 
 const Template: Story<ArgTypes> = () => html` <main>
-  <ft-tab-bar>
-    <ft-tab label="one"></ft-tab>
-    <ft-tab label="two"></ft-tab>
-    <ft-tab label="three"></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one"></ru-tab>
+    <ru-tab label="two"></ru-tab>
+    <ru-tab label="three"></ru-tab>
+  </ru-tab-bar>
 
   <h3>Fading indicator</h3>
-  <ft-tab-bar>
-    <ft-tab label="one" isFadingIndicator></ft-tab>
-    <ft-tab label="two" isFadingIndicator></ft-tab>
-    <ft-tab label="three" isFadingIndicator></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one" isFadingIndicator></ru-tab>
+    <ru-tab label="two" isFadingIndicator></ru-tab>
+    <ru-tab label="three" isFadingIndicator></ru-tab>
+  </ru-tab-bar>
 
   <h3>Min Width Tab</h3>
-  <ft-tab-bar>
-    <ft-tab label="one" minWidth></ft-tab>
-    <ft-tab label="two" minWidth></ft-tab>
-    <ft-tab label="three" minWidth></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one" minWidth></ru-tab>
+    <ru-tab label="two" minWidth></ru-tab>
+    <ru-tab label="three" minWidth></ru-tab>
+  </ru-tab-bar>
 
   <h3>Min Width Indicator</h3>
-  <ft-tab-bar>
-    <ft-tab label="one" isMinWidthIndicator></ft-tab>
-    <ft-tab label="two" isMinWidthIndicator></ft-tab>
-    <ft-tab label="three" isMinWidthIndicator></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one" isMinWidthIndicator></ru-tab>
+    <ru-tab label="two" isMinWidthIndicator></ru-tab>
+    <ru-tab label="three" isMinWidthIndicator></ru-tab>
+  </ru-tab-bar>
 
   <h3>Min Width Tab - Min Width Indicator</h3>
-  <ft-tab-bar>
-    <ft-tab label="one" minWidth isMinWidthIndicator></ft-tab>
-    <ft-tab label="two" minWidth isMinWidthIndicator></ft-tab>
-    <ft-tab label="three" minWidth isMinWidthIndicator></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one" minWidth isMinWidthIndicator></ru-tab>
+    <ru-tab label="two" minWidth isMinWidthIndicator></ru-tab>
+    <ru-tab label="three" minWidth isMinWidthIndicator></ru-tab>
+  </ru-tab-bar>
 
   <h3>With Icons</h3>
-  <ft-tab-bar activeIndex="2">
-    <ft-tab label="one" icon="accessibility"></ft-tab>
-    <ft-tab label="two" icon="exit_to_app"></ft-tab>
-    <ft-tab label="three" icon="camera"></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar activeIndex="2">
+    <ru-tab label="one" icon="accessibility"></ru-tab>
+    <ru-tab label="two" icon="exit_to_app"></ru-tab>
+    <ru-tab label="three" icon="camera"></ru-tab>
+  </ru-tab-bar>
 
   <h3>Only Icons</h3>
-  <ft-tab-bar activeIndex="2">
-    <ft-tab icon="accessibility"></ft-tab>
-    <ft-tab icon="exit_to_app"></ft-tab>
-    <ft-tab icon="camera"></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar activeIndex="2">
+    <ru-tab icon="accessibility"></ru-tab>
+    <ru-tab icon="exit_to_app"></ru-tab>
+    <ru-tab icon="camera"></ru-tab>
+  </ru-tab-bar>
 
   <h3>Image Icons</h3>
-  <ft-tab-bar activeIndex="2">
-    <ft-tab hasImageIcon>
+  <ru-tab-bar activeIndex="2">
+    <ru-tab hasImageIcon>
       <svg slot="icon" width="10px" height="10px">
         <circle r="5px" cx="5px" cy="5px" color="red"></circle>
       </svg>
-    </ft-tab>
-    <ft-tab hasImageIcon>
+    </ru-tab>
+    <ru-tab hasImageIcon>
       <svg slot="icon" width="10px" height="10px">
         <rect width="10px" height="10px" color="green"></rect>
       </svg>
-    </ft-tab>
-    <ft-tab hasImageIcon>
+    </ru-tab>
+    <ru-tab hasImageIcon>
       <svg slot="icon" width="14.143px" height="14.143px">
         <rect
           width="10px"
@@ -89,74 +89,74 @@ const Template: Story<ArgTypes> = () => html` <main>
           style="transform:rotate(45deg);transform-origin:center;"
         ></rect>
       </svg>
-    </ft-tab>
-  </ft-tab-bar>
+    </ru-tab>
+  </ru-tab-bar>
 
   <h3>With Icons - Stacked</h3>
-  <ft-tab-bar activeIndex="1">
-    <ft-tab label="one" icon="accessibility" stacked></ft-tab>
-    <ft-tab label="two" icon="exit_to_app" stacked></ft-tab>
-    <ft-tab label="three" icon="camera" stacked></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar activeIndex="1">
+    <ru-tab label="one" icon="accessibility" stacked></ru-tab>
+    <ru-tab label="two" icon="exit_to_app" stacked></ru-tab>
+    <ru-tab label="three" icon="camera" stacked></ru-tab>
+  </ru-tab-bar>
 
   <h3>With Icons - Stacked - Min Width Indicator</h3>
-  <ft-tab-bar>
-    <ft-tab
+  <ru-tab-bar>
+    <ru-tab
       label="one"
       icon="accessibility"
       stacked
       isMinWidthIndicator
-    ></ft-tab>
-    <ft-tab label="two" icon="exit_to_app" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="three" icon="camera" stacked isMinWidthIndicator></ft-tab>
-  </ft-tab-bar>
+    ></ru-tab>
+    <ru-tab label="two" icon="exit_to_app" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="three" icon="camera" stacked isMinWidthIndicator></ru-tab>
+  </ru-tab-bar>
 
   <h3>Scrolling</h3>
-  <ft-tab-bar>
-    <ft-tab label="one"></ft-tab>
-    <ft-tab label="two"></ft-tab>
-    <ft-tab label="three"></ft-tab>
-    <ft-tab label="four"></ft-tab>
-    <ft-tab label="five"></ft-tab>
-    <ft-tab label="six"></ft-tab>
-    <ft-tab label="seven"></ft-tab>
-    <ft-tab label="eight"></ft-tab>
-    <ft-tab label="nine"></ft-tab>
-    <ft-tab label="ten"></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one"></ru-tab>
+    <ru-tab label="two"></ru-tab>
+    <ru-tab label="three"></ru-tab>
+    <ru-tab label="four"></ru-tab>
+    <ru-tab label="five"></ru-tab>
+    <ru-tab label="six"></ru-tab>
+    <ru-tab label="seven"></ru-tab>
+    <ru-tab label="eight"></ru-tab>
+    <ru-tab label="nine"></ru-tab>
+    <ru-tab label="ten"></ru-tab>
+  </ru-tab-bar>
 
   <h3>Scrolling - Width Icons - Stacked - Min Width Indicator</h3>
-  <ft-tab-bar>
-    <ft-tab label="one" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="two" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="three" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="four" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="five" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="six" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="seven" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="eight" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="nine" icon="camera" stacked isMinWidthIndicator></ft-tab>
-    <ft-tab label="ten" icon="camera" stacked isMinWidthIndicator></ft-tab>
-  </ft-tab-bar>
+  <ru-tab-bar>
+    <ru-tab label="one" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="two" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="three" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="four" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="five" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="six" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="seven" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="eight" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="nine" icon="camera" stacked isMinWidthIndicator></ru-tab>
+    <ru-tab label="ten" icon="camera" stacked isMinWidthIndicator></ru-tab>
+  </ru-tab-bar>
 
   <h3>Icon indicator</h3>
-  <ft-tab-bar>
-    <ft-tab
+  <ru-tab-bar>
+    <ru-tab
       icon="camera"
       isFadingIndicator
       indicatorIcon="donut_large"
-    ></ft-tab>
-    <ft-tab
+    ></ru-tab>
+    <ru-tab
       icon="accessibility"
       isFadingIndicator
       indicatorIcon="donut_large"
-    ></ft-tab>
-    <ft-tab
+    ></ru-tab>
+    <ru-tab
       icon="exit_to_app"
       isFadingIndicator
       indicatorIcon="donut_large"
-    ></ft-tab>
-  </ft-tab-bar>
+    ></ru-tab>
+  </ru-tab-bar>
 </main>`;
 
 export const Tab = Template.bind({});

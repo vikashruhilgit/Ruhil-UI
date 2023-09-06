@@ -58,14 +58,14 @@ export class ScreenLoader extends LitElement {
 
   render() {
     return html`
-      <ft-dialog scrimClickAction="" class="wrapper" hideActions open>
+      <ru-dialog scrimClickAction="" class="wrapper" hideActions open>
         <div class="lds-ring">
           <div></div>
           <div></div>
           <div></div>
           <div></div>
         </div>
-      </ft-dialog>
+      </ru-dialog>
     `;
   }
 }

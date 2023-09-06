@@ -7,7 +7,7 @@ export class MyDrawer extends Drawer {
     ...Drawer.styles,
     css`
       .mdc-drawer {
-        border-right-style: var(--ft-drawer-top-border-right-style, solid);
+        border-right-style: var(--ru-drawer-top-border-right-style, solid);
       }
     `,
   ];

@@ -3,10 +3,10 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Form Component/Text Area',
-  component: 'ft-textarea',
+  component: 'ru-textarea',
   decorators: [
     (story: any) => html` <style>
-        ft-textarea {
+        ru-textarea {
           min-width: 250px;
         }
 
@@ -36,95 +36,95 @@ interface ArgTypes {}
 const Template: Story<ArgTypes> = () => html` <main>
   <h4>Textarea</h4>
   <div class="demo-group-spaced">
-    <ft-textarea label="Standard"></ft-textarea>
-    <ft-textarea outlined label="Standard"></ft-textarea>
+    <ru-textarea label="Standard"></ru-textarea>
+    <ru-textarea outlined label="Standard"></ru-textarea>
   </div>
 
   <h4>Textarea with Character Counter</h4>
   <div class="demo-group-spaced">
-    <ft-textarea label="Standard" maxlength="18" charCounter></ft-textarea>
-    <ft-textarea
+    <ru-textarea label="Standard" maxlength="18" charCounter></ru-textarea>
+    <ru-textarea
       outlined
       label="Standard"
       maxlength="18"
       charCounter
-    ></ft-textarea>
+    ></ru-textarea>
   </div>
 
   <h4>Textarea with Helper Text</h4>
   <div class="demo-group-spaced">
-    <ft-textarea
+    <ru-textarea
       label="Standard"
       helper="Helper Text"
       helperPersistent
-    ></ft-textarea>
-    <ft-textarea
+    ></ru-textarea>
+    <ru-textarea
       outlined
       label="Standard"
       helper="Helper Text"
       helperPersistent
-    ></ft-textarea>
+    ></ru-textarea>
   </div>
 
   <h4>End-aligned</h4>
   <div class="demo-group-spaced">
-    <ft-textarea label="Standard" value="End-aligned" endaligned></ft-textarea>
-    <ft-textarea
+    <ru-textarea label="Standard" value="End-aligned" endaligned></ru-textarea>
+    <ru-textarea
       outlined
       label="Standard"
       value="End-aligned"
       endaligned
-    ></ft-textarea>
+    ></ru-textarea>
   </div>
 
   <h4>Full Width Textarea</h4>
-  <ft-textarea
+  <ru-textarea
     fullwidth
     placeholder="Full width"
     helper="Helper Text"
     helperpersistent
-  ></ft-textarea>
-  <ft-textarea
+  ></ru-textarea>
+  <ru-textarea
     outlined
     fullwidth
     placeholder="Full width"
     helper="Helper Text"
     helperpersistent
-  ></ft-textarea>
+  ></ru-textarea>
 </main>`;
 
 export const TextArea = Template.bind({});
 
 const StandardAndFilledTemplate: Story<ArgTypes> = () =>
-  html` <ft-textarea label="My Textarea"></ft-textarea>`;
+  html` <ru-textarea label="My Textarea"></ru-textarea>`;
 export const Standard = StandardAndFilledTemplate.bind({});
 
 const HelperTextTemplate: Story<ArgTypes> = () =>
-  html`<ft-textarea label="My Textarea" helper="Helper Text"></ft-textarea>`;
+  html`<ru-textarea label="My Textarea" helper="Helper Text"></ru-textarea>`;
 export const HelperText = HelperTextTemplate.bind({});
 
 const PrimaryColorTemplate: Story<ArgTypes> = () => html` <style>
-    ft-textfield {
+    ru-textfield {
       --mdc-theme-primary: green;
     }
   </style>
 
-  <ft-textfield label="My Textfield" iconTrailing="delete" required>
-  </ft-textfield>`;
+  <ru-textfield label="My Textfield" iconTrailing="delete" required>
+  </ru-textfield>`;
 export const PrimaryColor = PrimaryColorTemplate.bind({});
 
-const VariantOutlinedTemplate: Story<ArgTypes> = () => html` <ft-textarea
+const VariantOutlinedTemplate: Story<ArgTypes> = () => html` <ru-textarea
   outlined
   label="My Textarea"
 >
-</ft-textarea>`;
+</ru-textarea>`;
 export const VariantsOutlined = VariantOutlinedTemplate.bind({});
 
 const VariantShapedTemplate: Story<ArgTypes> = () => html` <style>
-    ft-textarea.rounded {
+    ru-textarea.rounded {
       --mdc-shape-small: 28px;
     }
   </style>
 
-  <ft-textarea class="rounded" label="My Textarea" outlined> </ft-textarea>`;
+  <ru-textarea class="rounded" label="My Textarea" outlined> </ru-textarea>`;
 export const VariantShaped = VariantShapedTemplate.bind({});

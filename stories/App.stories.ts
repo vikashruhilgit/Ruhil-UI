@@ -3,7 +3,7 @@ import '../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Component/App',
-  component: 'ft-app',
+  component: 'ru-app',
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -24,10 +24,10 @@ const Template: Story<ArgTypes> = ({
   title,
   backgroundColor = 'white',
 }: ArgTypes) => html`
-  <ft-app
+  <ru-app
     style="--ruhil-ui-background-color: ${backgroundColor}"
     .title=${title || ''}
-  ></ft-app>
+  ></ru-app>
 `;
 
 export const App = Template.bind({});

@@ -50,10 +50,10 @@ export class DataTable extends LitElement {
   ) => {
     render(
       html`
-        <ft-table-menu-wrapper
+        <ru-table-menu-wrapper
           .actionItems="${this.actionItems}"
           .model=${model}
-        ></ft-table-menu-wrapper>
+        ></ru-table-menu-wrapper>
       `,
       root
     );
@@ -66,15 +66,15 @@ export class DataTable extends LitElement {
 
   private renderShareAndDownloadIcons = (model: GridItemModel<any>) => html`
     <div class="dt-share-download">
-      <ft-icon
+      <ru-icon
         @click=${() => this.iconClickHandler(model, 'share')}
         class="dt-share-icon"
-        >share</ft-icon
+        >share</ru-icon
       >
-      <ft-icon
+      <ru-icon
         @click=${() => this.iconClickHandler(model, 'download')}
         class="dt-download-icon"
-        >download</ft-icon
+        >download</ru-icon
       >
     </div>
   `;
@@ -110,8 +110,8 @@ export class DataTable extends LitElement {
       html`
         <div class="dt-expansion-download">
           ${model.detailsOpened
-            ? html` <ft-icon class="dt-less-icon">expand_less</ft-icon>`
-            : html` <ft-icon class="dt-more-icon">expand_more</ft-icon>`}
+            ? html` <ru-icon class="dt-less-icon">expand_less</ru-icon>`
+            : html` <ru-icon class="dt-more-icon">expand_more</ru-icon>`}
         </div>
       `,
       root
@@ -183,10 +183,10 @@ export class DataTable extends LitElement {
           ${this.renderShareAndDownloadIcons(model)}
         </div>
         <div class="dt-expansion-action">
-          <ft-table-menu-wrapper
+          <ru-table-menu-wrapper
             .actionItems="${this.actionItems}"
             .model=${model}
-          ></ft-table-menu-wrapper>
+          ></ru-table-menu-wrapper>
         </div>
       </div>
     </div>`;
@@ -197,7 +197,7 @@ export class DataTable extends LitElement {
       this.hideColumn = true;
     }
     return html`<vaadin-grid
-      class="ft-table-grid"
+      class="ru-table-grid"
       .detailsOpenedItems="${this.hideColumn ? this.detailsOpenedItem : null}"
       @active-item-changed="${this.hideColumn
         ? (e: GridActiveItemChangedEvent<any>) =>

@@ -7,13 +7,13 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Text Field `<ft-textfield>`
+# Text Field `<ru-textfield>`
 
 <p>Text fields let users enter and edit text.</p>
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Standard / Filled
 
@@ -25,7 +25,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-textfield label="My Textfield"></ft-textfield>
+<ru-textfield label="My Textfield"></ft-textfield>
 ```
 
 ### Icon - Leading
@@ -35,7 +35,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-textfield label="My Textfield" icon="event"></ft-textfield>
+<ru-textfield label="My Textfield" icon="event"></ft-textfield>
 ```
 
 ### Icon - Trailing
@@ -48,7 +48,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-textfield label="My Textfield" iconTrailing="delete"></ft-textfield>
+<ru-textfield label="My Textfield" iconTrailing="delete"></ft-textfield>
 ```
 
 ### Helper Text
@@ -58,7 +58,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-textfield label="My Textfield" helper="Helper Text"></ft-textfield>
+<ru-textfield label="My Textfield" helper="Helper Text"></ft-textfield>
 ```
 
 ### Primary Color
@@ -77,7 +77,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-textfield label="My Textfield" iconTrailing="delete" required>
+<ru-textfield label="My Textfield" iconTrailing="delete" required>
 </ft-textfield>
 ```
 
@@ -93,7 +93,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 </Canvas>
 
 ```html
-<ft-textfield outlined label="My Textfield" iconTrailing="delete">
+<ru-textfield outlined label="My Textfield" iconTrailing="delete">
 </ft-textfield>
 ```
 
@@ -113,7 +113,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   }
 </style>
 
-<ft-textfield class="rounded" label="My Textfield" outlined> </ft-textfield>
+<ru-textfield class="rounded" label="My Textfield" outlined> </ft-textfield>
 ```
 
 ## API
@@ -823,7 +823,7 @@ type ValidityTransform = (
 </p>
 
 ```js
-<ft-textfield
+<ru-textfield
     id="my-textfield"
     pattern="[0-9]+"
     value="doggos">

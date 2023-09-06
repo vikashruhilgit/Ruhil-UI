@@ -3,7 +3,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Form Component/Radio',
-  component: 'ft-radio',
+  component: 'ru-radio',
   decorators: [
     (story: any) => html` <style>
         .styled {
@@ -31,28 +31,28 @@ interface ArgTypes {}
 
 const Template: Story<ArgTypes> = () =>
   html`
-    <ft-radio id="a1" name="a" checked></ft-radio>
-    <ft-radio id="a2" name="a"></ft-radio>
-    <ft-radio id="a3" name="a" disabled></ft-radio>
+    <ru-radio id="a1" name="a" checked></ru-radio>
+    <ru-radio id="a2" name="a"></ru-radio>
+    <ru-radio id="a3" name="a" disabled></ru-radio>
     <div></div>
     <span class="styled">
-      <ft-radio id="b1" name="b"></ft-radio>
-      <ft-radio id="b2" name="b" checked></ft-radio>
-      <ft-radio id="b3" name="b" disabled></ft-radio>
+      <ru-radio id="b1" name="b"></ru-radio>
+      <ru-radio id="b2" name="b" checked></ru-radio>
+      <ru-radio id="b3" name="b" disabled></ru-radio>
     </span>
   `;
 
 export const ALL = Template.bind({});
 
-const StandardTemplate: Story<ArgTypes> = () => html` <ft-radio
+const StandardTemplate: Story<ArgTypes> = () => html` <ru-radio
     name="myGroup"
     value="value1"
-  ></ft-radio>
-  <ft-radio name="myGroup" value="value2" checked></ft-radio>`;
+  ></ru-radio>
+  <ru-radio name="myGroup" value="value2" checked></ru-radio>`;
 export const Standard = StandardTemplate.bind({});
 
 const CustomColorTemplate: Story<ArgTypes> = () => html` <style>
-    ft-radio {
+    ru-radio {
       background-color: #363636;
 
       --mdc-theme-secondary: #ff2929;
@@ -60,32 +60,32 @@ const CustomColorTemplate: Story<ArgTypes> = () => html` <style>
     }
   </style>
 
-  <ft-radio name="myGroup" checked></ft-radio>
-  <ft-radio name="myGroup"></ft-radio>`;
+  <ru-radio name="myGroup" checked></ru-radio>
+  <ru-radio name="myGroup"></ru-radio>`;
 export const CustomColor = CustomColorTemplate.bind({});
 
 const DisabledCustomColorTemplate: Story<ArgTypes> = () => html` <style>
-    ft-radio {
+    ru-radio {
       background-color: #363636;
       --mdc-radio-disabled-color: #adadad;
     }
   </style>
 
-  <ft-radio disabled name="myGroup"></ft-radio>
-  <ft-radio disabled name="myGroup" checked></ft-radio>`;
+  <ru-radio disabled name="myGroup"></ru-radio>
+  <ru-radio disabled name="myGroup" checked></ru-radio>`;
 export const DisabledCustomColor = DisabledCustomColorTemplate.bind({});
 
 const WithFormFieldTemplate: Story<ArgTypes> = () => html` <style>
-    ft-formfield {
+    ru-formfield {
       display: block;
     }
   </style>
 
-  <ft-formfield label="Home">
-    <ft-radio name="location"></ft-radio>
-  </ft-formfield>
+  <ru-formfield label="Home">
+    <ru-radio name="location"></ru-radio>
+  </ru-formfield>
 
-  <ft-formfield label="Work">
-    <ft-radio name="location"></ft-radio>
-  </ft-formfield>`;
+  <ru-formfield label="Work">
+    <ru-radio name="location"></ru-radio>
+  </ru-formfield>`;
 export const WithFormField = WithFormFieldTemplate.bind({});

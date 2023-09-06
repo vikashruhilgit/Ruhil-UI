@@ -3,7 +3,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Component/Drawer',
-  component: 'ft-drawer',
+  component: 'ru-drawer',
   decorators: [
     (story: any) => html` <style>
         .drawer-content {
@@ -30,14 +30,14 @@ interface ArgTypes {}
 const clickHandler = (e: Event) => {
   if (e.target) {
     const el: any = e.target;
-    const drawer = el.closest('ft-drawer');
+    const drawer = el.closest('ru-drawer');
     drawer.open = !drawer.open;
   }
 };
 
 const StandardTemplate: Story<ArgTypes> = () =>
   html`
-    <ft-drawer>
+    <ru-drawer>
       <div class="drawer-content">
         <p>Drawer content!</p>
         <p>With separate drawer scrolling.</p>
@@ -52,9 +52,9 @@ const StandardTemplate: Story<ArgTypes> = () =>
         </p>
       </div>
       <div slot="appContent">
-        <ft-nav>
+        <ru-nav>
           <div slot="title">Title</div>
-        </ft-nav>
+        </ru-nav>
         <div class="main-content">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -94,12 +94,12 @@ const StandardTemplate: Story<ArgTypes> = () =>
           </p>
         </div>
       </div>
-    </ft-drawer>
+    </ru-drawer>
   `;
 
 const StandardTemplateWithHeader: Story<ArgTypes> = () =>
   html`
-    <ft-drawer hasHeader>
+    <ru-drawer hasHeader>
       <span slot="title">Drawer Title</span>
       <span slot="subtitle">subtitle</span>
       <div class="drawer-content">
@@ -116,9 +116,9 @@ const StandardTemplateWithHeader: Story<ArgTypes> = () =>
         </p>
       </div>
       <div slot="appContent">
-        <ft-nav>
+        <ru-nav>
           <div slot="title">Title</div>
-        </ft-nav>
+        </ru-nav>
         <div class="main-content">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -158,10 +158,10 @@ const StandardTemplateWithHeader: Story<ArgTypes> = () =>
           </p>
         </div>
       </div>
-    </ft-drawer>
+    </ru-drawer>
   `;
 
-const DismissibleTemplate: Story<ArgTypes> = () => html`<ft-drawer
+const DismissibleTemplate: Story<ArgTypes> = () => html`<ru-drawer
   hasHeader
   type="dismissible"
 >
@@ -169,18 +169,18 @@ const DismissibleTemplate: Story<ArgTypes> = () => html`<ft-drawer
   <span slot="subtitle">subtitle</span>
   <div class="drawer-content">
     <p>Drawer content</p>
-    <ft-icon-button icon="gesture"></ft-icon-button>
-    <ft-icon-button icon="gavel"></ft-icon-button>
+    <ru-icon-button icon="gesture"></ru-icon-button>
+    <ru-icon-button icon="gavel"></ru-icon-button>
   </div>
   <div slot="appContent">
-    <ft-nav>
-      <ft-icon-button
+    <ru-nav>
+      <ru-icon-button
         @click=${clickHandler}
         slot="navigationIcon"
         icon="menu"
-      ></ft-icon-button>
+      ></ru-icon-button>
       <div slot="title">Title</div>
-    </ft-nav>
+    </ru-nav>
     <div class="main-content">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -220,9 +220,9 @@ const DismissibleTemplate: Story<ArgTypes> = () => html`<ft-drawer
       </p>
     </div>
   </div>
-</ft-drawer>`;
+</ru-drawer>`;
 
-const DismissibleTemplateWithModal: Story<ArgTypes> = () => html` <ft-drawer
+const DismissibleTemplateWithModal: Story<ArgTypes> = () => html` <ru-drawer
   hasHeader
   type="modal"
 >
@@ -230,20 +230,20 @@ const DismissibleTemplateWithModal: Story<ArgTypes> = () => html` <ft-drawer
   <span slot="subtitle">subtitle</span>
   <div class="drawer-content">
     <p>Drawer content</p>
-    <ft-icon-button icon="gesture"></ft-icon-button>
-    <ft-icon-button icon="gavel" id="gavel"></ft-icon-button>
+    <ru-icon-button icon="gesture"></ru-icon-button>
+    <ru-icon-button icon="gavel" id="gavel"></ru-icon-button>
   </div>
   <div slot="appContent">
-    <ft-nav>
-      <ft-icon-button
+    <ru-nav>
+      <ru-icon-button
         @click=${clickHandler}
         slot="navigationIcon"
         icon="menu"
-      ></ft-icon-button>
+      ></ru-icon-button>
       <div slot="title">Title</div>
-      <ft-icon-button slot="actionItems" icon="cast"></ft-icon-button>
-      <ft-icon-button slot="actionItems" icon="fingerprint"></ft-icon-button>
-    </ft-nav>
+      <ru-icon-button slot="actionItems" icon="cast"></ru-icon-button>
+      <ru-icon-button slot="actionItems" icon="fingerprint"></ru-icon-button>
+    </ru-nav>
     <div class="main-content">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -283,7 +283,7 @@ const DismissibleTemplateWithModal: Story<ArgTypes> = () => html` <ft-drawer
       </p>
     </div>
   </div>
-</ft-drawer>`;
+</ru-drawer>`;
 
 export const Standard = StandardTemplate.bind({});
 export const StandardWithHeader = StandardTemplateWithHeader.bind({});

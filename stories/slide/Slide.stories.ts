@@ -21,9 +21,9 @@ interface ArgTypes {
 
 const Template: Story<ArgTypes> = ({ open }: ArgTypes) =>
   html`
-    <ft-slide ?open=${open}>
-      <ft-button label="label" raised></ft-button>
-    </ft-slide>
+    <ru-slide ?open=${open}>
+      <ru-button label="label" raised></ru-button>
+    </ru-slide>
   `;
 
 export const Slide = Template.bind({});

@@ -7,7 +7,7 @@ import '../../src/ruhil-ui';
 
 `}</style>
 
-# Tabs `<ft-tab-bar>`
+# Tabs `<ru-tab-bar>`
 
 <p>
   Tabs organize content across different screens, data sets, and other
@@ -16,54 +16,54 @@ import '../../src/ruhil-ui';
 
 ## Example Usage
 
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ft-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ft-yourcomponent>` without `prop` attribute).
+Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. `<ru-yourcomponent prop>`) and `false` means not setting the attribute (e.g. `<ru-yourcomponent>` without `prop` attribute).
 
 ### Basic
 
 ```html
-<ft-tab-bar>
-  <ft-tab label="Tab one"></ft-tab>
-  <ft-tab label="Tab two"></ft-tab>
-  <ft-tab label="Tab three"></ft-tab>
+<ru-tab-bar>
+  <ru-tab label="Tab one"></ft-tab>
+  <ru-tab label="Tab two"></ft-tab>
+  <ru-tab label="Tab three"></ft-tab>
 </ft-tab-bar>
 ```
 
 ### Preselected
 
 ```html
-<ft-tab-bar activeIndex="1">
-  <ft-tab label="Tab one"></ft-tab>
-  <ft-tab label="Tab two"></ft-tab>
-  <ft-tab label="Tab three"></ft-tab>
+<ru-tab-bar activeIndex="1">
+  <ru-tab label="Tab one"></ft-tab>
+  <ru-tab label="Tab two"></ft-tab>
+  <ru-tab label="Tab three"></ft-tab>
 </ft-tab-bar>
 ```
 
 ### Icons
 
 ```html
-<ft-tab-bar>
-  <ft-tab label="Tab one" icon="accessibility"></ft-tab>
-  <ft-tab label="Tab two" icon="exit_to_app"></ft-tab>
-  <ft-tab label="Tab three" icon="camera"></ft-tab>
+<ru-tab-bar>
+  <ru-tab label="Tab one" icon="accessibility"></ft-tab>
+  <ru-tab label="Tab two" icon="exit_to_app"></ft-tab>
+  <ru-tab label="Tab three" icon="camera"></ft-tab>
 </ft-tab-bar>
 ```
 
 ### Image / Slotted Icons
 
 ```html
-<ft-tab-bar>
-  <ft-tab label="Tab one" hasImageIcon>
+<ru-tab-bar>
+  <ru-tab label="Tab one" hasImageIcon>
     <!-- margin bottom is (24px - height) / 2 -->
     <svg slot="icon" width="10px" height="10px" style="margin-bottom:7px;">
       <circle r="5px" cx="5px" cy="5px" color="red"></circle>
     </svg>
   </ft-tab>
-  <ft-tab label="Tab two" hasImageIcon>
+  <ru-tab label="Tab two" hasImageIcon>
     <svg slot="icon" width="10px" height="10px" style="margin-bottom:7px;">
       <rect width="10px" height="10px" color="green"></rect>
     </svg>
   </ft-tab>
-  <ft-tab label="Tab three" hasImageIcon>
+  <ru-tab label="Tab three" hasImageIcon>
     <svg
       slot="icon"
       width="14.143px"
@@ -86,10 +86,10 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
 ### Stacked Icons
 
 ```html
-<ft-tab-bar>
-  <ft-tab label="tab one" icon="accessibility" stacked></ft-tab>
-  <ft-tab label="tab two" icon="exit_to_app" stacked></ft-tab>
-  <ft-tab label="tab three" icon="camera" stacked></ft-tab>
+<ru-tab-bar>
+  <ru-tab label="tab one" icon="accessibility" stacked></ft-tab>
+  <ru-tab label="tab two" icon="exit_to_app" stacked></ft-tab>
+  <ru-tab label="tab three" icon="camera" stacked></ft-tab>
 </ft-tab-bar>
 ```
 
@@ -281,7 +281,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g. 
   </tbody>
 </table>
 
-# for `<ft-tab>`
+# for `<ru-tab>`
 
 ## API
 

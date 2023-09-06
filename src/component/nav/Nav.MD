@@ -1,4 +1,4 @@
-# `<ft-nav>`
+# `<ru-nav>`
 
 > IMPORTANT: The Web Components are a work in progress and subject to
 > major changes until 1.0 release.
@@ -7,7 +7,7 @@ Nav Bar is a container for items such as application title, navigation icon, and
 
 ![](../../../public/assets/standard.gif)
 
-For a fixed position version of this component, see [`<ft-nav-fixed>`](https://github.com/material-components/material-web/tree/master/packages/top-app-bar-fixed)
+For a fixed position version of this component, see [`<ru-nav-fixed>`](https://github.com/material-components/material-web/tree/master/packages/top-app-bar-fixed)
 
 [Design Guidelines: App Bars: Top](https://material.io/design/components/app-bars-top.html)
 
@@ -35,12 +35,12 @@ npm install @material/ft-nav
 <img src="../../../public/assetsstandard.png" height="56px">
 
 ```html
-<ft-nav>
-  <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
+<ru-nav>
+  <ru-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
   <div slot="title">Title</div>
-  <ft-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="print" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="print" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
   <div><!-- content --></div>
 </ft-nav>
 ```
@@ -50,10 +50,10 @@ npm install @material/ft-nav
 <img src="../../../public/assetscenter_title.png" height="56px">
 
 ```html
-<ft-nav centerTitle>
-  <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
+<ru-nav centerTitle>
+  <ru-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
   <div slot="title">Title</div>
-  <ft-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
   <div><!-- content --></div>
 </ft-nav>
 ```
@@ -63,12 +63,12 @@ npm install @material/ft-nav
 <img src="../../../public/assetsdense.png" height="48px">
 
 ```html
-<ft-nav dense>
-  <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
+<ru-nav dense>
+  <ru-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
   <div slot="title">Title</div>
-  <ft-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="print" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="print" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
   <div><!-- content --></div>
 </ft-nav>
 ```
@@ -78,12 +78,12 @@ npm install @material/ft-nav
 <img src="../../../public/assetsprominent.png" height="128px">
 
 ```html
-<ft-nav prominent>
-  <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
+<ru-nav prominent>
+  <ru-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
   <div slot="title">Title</div>
-  <ft-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="print" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="print" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
   <div><!-- content --></div>
 </ft-nav>
 ```
@@ -93,12 +93,12 @@ npm install @material/ft-nav
 <img src="../../../public/assetsprominent_and_dense.png" height="96px">
 
 ```html
-<ft-nav prominent dense>
-  <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
+<ru-nav prominent dense>
+  <ru-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
   <div slot="title">Title</div>
-  <ft-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="print" slot="actionItems"></ft-icon-button>
-  <ft-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="file_download" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="print" slot="actionItems"></ft-icon-button>
+  <ru-icon-button icon="favorite" slot="actionItems"></ft-icon-button>
   <div><!-- content --></div>
 </ft-nav>
 ```
@@ -120,8 +120,8 @@ ft-nav {
 
 | Name             | Description                                                                                                                                                                                                                                                     |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `actionItems`    | A number of `<ft-icon-button>` elements to use for action icons on the right side. _NOTE:_ If using with `ft-drawer`, please read note under [`Standard` drawer example](https://github.com/material-components/material-web/tree/master/packages/top-app-bar). |
-| `navigationIcon` | One `<ft-icon-button>` element to use for the left icon.                                                                                                                                                                                                        |
+| `actionItems`    | A number of `<ru-icon-button>` elements to use for action icons on the right side. _NOTE:_ If using with `ft-drawer`, please read note under [`Standard` drawer example](https://github.com/material-components/material-web/tree/master/packages/top-app-bar). |
+| `navigationIcon` | One `<ru-icon-button>` element to use for the left icon.                                                                                                                                                                                                        |
 | `title`          | A `<div>` or `<span>` that will be used as the title text.                                                                                                                                                                                                      |
 | _default_        | Scrollable content to display under the bar. This may be the entire application.                                                                                                                                                                                |
 

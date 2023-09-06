@@ -3,7 +3,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Form Component/Switch',
-  component: 'ft-switch',
+  component: 'ru-switch',
   decorators: [
     (story: any) => html` <style>
         .styled {
@@ -44,50 +44,50 @@ interface ArgTypes {}
 
 const Template: Story<ArgTypes> = () => html` <main>
   <div class="demo-group">
-    <ft-switch></ft-switch>
-    <ft-switch checked></ft-switch>
-    <ft-switch disabled></ft-switch>
-    <ft-switch disabled checked></ft-switch>
+    <ru-switch></ru-switch>
+    <ru-switch checked></ru-switch>
+    <ru-switch disabled></ru-switch>
+    <ru-switch disabled checked></ru-switch>
   </div>
   <div class="demo-group">
     <span class="styled demo-group-spaced">
-      <ft-switch></ft-switch>
-      <ft-switch checked></ft-switch>
-      <ft-switch disabled></ft-switch>
-      <ft-switch disabled checked></ft-switch>
+      <ru-switch></ru-switch>
+      <ru-switch checked></ru-switch>
+      <ru-switch disabled></ru-switch>
+      <ru-switch disabled checked></ru-switch>
     </span>
   </div>
 </main>`;
 
 export const ALL = Template.bind({});
 
-const StandardTemplate: Story<ArgTypes> = () => html` <ft-switch></ft-switch>`;
+const StandardTemplate: Story<ArgTypes> = () => html` <ru-switch></ru-switch>`;
 export const Standard = StandardTemplate.bind({});
 
 const SelectedByDefaultTemplate: Story<ArgTypes> = () =>
-  html`<ft-switch selected></ft-switch>`;
+  html`<ru-switch selected></ru-switch>`;
 export const SelectedByDefault = SelectedByDefaultTemplate.bind({});
 
-const DisabledTemplate: Story<ArgTypes> = () => html` <ft-switch
+const DisabledTemplate: Story<ArgTypes> = () => html` <ru-switch
     disabled
-  ></ft-switch>
-  <ft-switch selected disabled></ft-switch>`;
+  ></ru-switch>
+  <ru-switch selected disabled></ru-switch>`;
 export const Disabled = DisabledTemplate.bind({});
 
 const StyledTemplate: Story<ArgTypes> = () => html` <style>
-    ft-switch {
+    ru-switch {
       --mdc-theme-secondary: #942a1c;
       --mdc-theme-surface: #bdb21d;
       --mdc-theme-on-surface: #c0bea1;
     }
   </style>
-  <ft-switch></ft-switch>
-  <ft-switch selected></ft-switch>`;
+  <ru-switch></ru-switch>
+  <ru-switch selected></ru-switch>`;
 export const Styled = StyledTemplate.bind({});
 
-const WithFormFieldTemplate: Story<ArgTypes> = () => html`<ft-formfield
+const WithFormFieldTemplate: Story<ArgTypes> = () => html`<ru-formfield
   label="Airplane mode"
 >
-  <ft-switch selected></ft-switch>
-</ft-formfield>`;
+  <ru-switch selected></ru-switch>
+</ru-formfield>`;
 export const WithFormField = WithFormFieldTemplate.bind({});

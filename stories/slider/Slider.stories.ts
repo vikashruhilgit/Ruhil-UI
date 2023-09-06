@@ -8,7 +8,7 @@ export default {
         .my-container > * {
           width: 50%;
         }
-        ft-slider {
+        ru-slider {
           padding: 10px 20px;
         }
       </style>
@@ -26,9 +26,9 @@ interface ArgTypes {}
 
 const Template: Story<ArgTypes> = () =>
   html`
-    <ft-slider></ft-slider>
-    <ft-slider discrete withtickmarks max="50" value="10" step="5"></ft-slider>
-    <ft-slider disabled></ft-slider>
+    <ru-slider></ru-slider>
+    <ru-slider discrete withtickmarks max="50" value="10" step="5"></ru-slider>
+    <ru-slider disabled></ru-slider>
   `;
 
 export const Slider = Template.bind({});

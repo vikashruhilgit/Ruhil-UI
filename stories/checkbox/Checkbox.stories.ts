@@ -3,7 +3,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Form Component/Checkbox',
-  component: 'ft-checkbox',
+  component: 'ru-checkbox',
   decorators: [
     (story: any) => html` <style>
         .styled.demo-group {
@@ -38,38 +38,38 @@ const Template: Story<ArgTypes> = () =>
       }
     </style>
     <div class="demo-group">
-      <ft-checkbox></ft-checkbox>
-      <ft-checkbox checked></ft-checkbox>
-      <ft-checkbox indeterminate></ft-checkbox>
-      <ft-checkbox disabled></ft-checkbox>
+      <ru-checkbox></ru-checkbox>
+      <ru-checkbox checked></ru-checkbox>
+      <ru-checkbox indeterminate></ru-checkbox>
+      <ru-checkbox disabled></ru-checkbox>
     </div>
     <div>
       <span class="styled demo-group">
-        <ft-checkbox></ft-checkbox>
-        <ft-checkbox checked></ft-checkbox>
-        <ft-checkbox indeterminate></ft-checkbox>
-        <ft-checkbox disabled></ft-checkbox>
+        <ru-checkbox></ru-checkbox>
+        <ru-checkbox checked></ru-checkbox>
+        <ru-checkbox indeterminate></ru-checkbox>
+        <ru-checkbox disabled></ru-checkbox>
       </span>
     </div>
   `;
 
 export const ALL = Template.bind({});
 
-const StandardTemplate: Story<ArgTypes> = () => html` <ft-checkbox
+const StandardTemplate: Story<ArgTypes> = () => html` <ru-checkbox
   checked
-></ft-checkbox>`;
+></ru-checkbox>`;
 export const Standard = StandardTemplate.bind({});
 
 const StandardDisabledTemplate: Story<ArgTypes> = () => html` <div>
-    <ft-checkbox></ft-checkbox>
-    <ft-checkbox checked></ft-checkbox>
-    <ft-checkbox indeterminate></ft-checkbox>
+    <ru-checkbox></ru-checkbox>
+    <ru-checkbox checked></ru-checkbox>
+    <ru-checkbox indeterminate></ru-checkbox>
   </div>
 
   <div>
-    <ft-checkbox disabled></ft-checkbox>
-    <ft-checkbox disabled checked></ft-checkbox>
-    <ft-checkbox disabled indeterminate></ft-checkbox>
+    <ru-checkbox disabled></ru-checkbox>
+    <ru-checkbox disabled checked></ru-checkbox>
+    <ru-checkbox disabled indeterminate></ru-checkbox>
   </div>`;
 export const StandardDisabled = StandardDisabledTemplate.bind({});
 
@@ -87,20 +87,20 @@ const StyledStandardDisabledTemplate: Story<ArgTypes> = () => html` <style>
   </style>
 
   <div class="demo">
-    <ft-checkbox></ft-checkbox>
-    <ft-checkbox checked></ft-checkbox>
-    <ft-checkbox indeterminate></ft-checkbox>
+    <ru-checkbox></ru-checkbox>
+    <ru-checkbox checked></ru-checkbox>
+    <ru-checkbox indeterminate></ru-checkbox>
   </div>
 
   <div>
-    <ft-checkbox disabled></ft-checkbox>
-    <ft-checkbox disabled checked></ft-checkbox>
-    <ft-checkbox disabled indeterminate></ft-checkbox>
+    <ru-checkbox disabled></ru-checkbox>
+    <ru-checkbox disabled checked></ru-checkbox>
+    <ru-checkbox disabled indeterminate></ru-checkbox>
   </div>`;
 export const StyledStandardDisabled = StyledStandardDisabledTemplate.bind({});
 
 const WithFormFieldTemplate: Story<ArgTypes> = () => html` <style>
-    ft-formfield {
+    ru-formfield {
       display: block;
     }
     .child {
@@ -108,15 +108,15 @@ const WithFormFieldTemplate: Story<ArgTypes> = () => html` <style>
     }
   </style>
 
-  <ft-formfield label="Additions">
-    <ft-checkbox indeterminate></ft-checkbox>
-  </ft-formfield>
+  <ru-formfield label="Additions">
+    <ru-checkbox indeterminate></ru-checkbox>
+  </ru-formfield>
 
-  <ft-formfield label="Pickles">
-    <ft-checkbox class="child"></ft-checkbox>
-  </ft-formfield>
+  <ru-formfield label="Pickles">
+    <ru-checkbox class="child"></ru-checkbox>
+  </ru-formfield>
 
-  <ft-formfield label="Tomato">
-    <ft-checkbox class="child" checked></ft-checkbox>
-  </ft-formfield>`;
+  <ru-formfield label="Tomato">
+    <ru-checkbox class="child" checked></ru-checkbox>
+  </ru-formfield>`;
 export const WithFormField = WithFormFieldTemplate.bind({});

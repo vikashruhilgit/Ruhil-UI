@@ -3,7 +3,7 @@ import '../../src/ruhil-ui';
 
 export default {
   title: 'Ruhil UI/Form Component/Formfield',
-  component: 'ft-formfield',
+  component: 'ru-formfield',
   decorators: [
     (story: any) => html` <style></style>
       <div class="my-container">${story()}</div>`,
@@ -20,44 +20,44 @@ interface ArgTypes {}
 
 const Template: Story<ArgTypes> = () =>
   html`
-    <ft-formfield label="Tomato">
-      <ft-checkbox checked></ft-checkbox>
-    </ft-formfield>
+    <ru-formfield label="Tomato">
+      <ru-checkbox checked></ru-checkbox>
+    </ru-formfield>
 
     <h4>Align End</h4>
-    <ft-formfield alignEnd label="This is a checkbox.">
-      <ft-checkbox></ft-checkbox>
-    </ft-formfield>
+    <ru-formfield alignEnd label="This is a checkbox.">
+      <ru-checkbox></ru-checkbox>
+    </ru-formfield>
 
     <h4>Native Element</h4>
-    <ft-formfield alignEnd label="Enter a date.">
+    <ru-formfield alignEnd label="Enter a date.">
       <input type="date" />
-    </ft-formfield>
+    </ru-formfield>
 
     <h4>Switch</h4>
-    <ft-formfield label="This is a switch.">
-      <ft-switch></ft-switch>
-    </ft-formfield>
+    <ru-formfield label="This is a switch.">
+      <ru-switch></ru-switch>
+    </ru-formfield>
 
     <h4>Radio Button</h4>
-    <ft-formfield label="This is a radio.">
-      <ft-radio id="one" name="a"></ft-radio>
-    </ft-formfield>
-    <ft-formfield label="This is a radio.">
-      <ft-radio id="two" name="a" checked></ft-radio>
-    </ft-formfield>
-    <ft-formfield label="This is a radio.">
-      <ft-radio id="three" name="a"></ft-radio>
-    </ft-formfield>
+    <ru-formfield label="This is a radio.">
+      <ru-radio id="one" name="a"></ru-radio>
+    </ru-formfield>
+    <ru-formfield label="This is a radio.">
+      <ru-radio id="two" name="a" checked></ru-radio>
+    </ru-formfield>
+    <ru-formfield label="This is a radio.">
+      <ru-radio id="three" name="a"></ru-radio>
+    </ru-formfield>
   `;
 
 export const All = Template.bind({});
 
 const WithCheckboxTemplate: Story<ArgTypes> = () =>
   html`
-    <ft-formfield label="Tomato">
-      <ft-checkbox checked></ft-checkbox>
-    </ft-formfield>
+    <ru-formfield label="Tomato">
+      <ru-checkbox checked></ru-checkbox>
+    </ru-formfield>
   `;
 
 export const WithCheckbox = WithCheckboxTemplate.bind({});
@@ -65,38 +65,38 @@ export const WithCheckbox = WithCheckboxTemplate.bind({});
 const NowrapLabelWithCheckboxTemplate: Story<ArgTypes> = () =>
   html`
     <style>
-      ft-formfield[nowrap] {
+      ru-formfield[nowrap] {
         width: 150px;
       }
     </style>
-    <ft-formfield label="really really long label" nowrap>
-      <ft-checkbox></ft-checkbox>
-    </ft-formfield>
+    <ru-formfield label="really really long label" nowrap>
+      <ru-checkbox></ru-checkbox>
+    </ru-formfield>
   `;
 export const NowrapLabelWithCheckbox = NowrapLabelWithCheckboxTemplate.bind({});
 
 const WithRadioTemplate: Story<ArgTypes> = () =>
   html`
     <style>
-      ft-formfield {
+      ru-formfield {
         display: block;
       }
     </style>
 
-    <ft-formfield label="Home">
-      <ft-radio name="location" checked></ft-radio>
-    </ft-formfield>
+    <ru-formfield label="Home">
+      <ru-radio name="location" checked></ru-radio>
+    </ru-formfield>
 
-    <ft-formfield label="Work">
-      <ft-radio name="location"></ft-radio>
-    </ft-formfield>
+    <ru-formfield label="Work">
+      <ru-radio name="location"></ru-radio>
+    </ru-formfield>
   `;
 export const WithRadio = WithRadioTemplate.bind({});
 
 const WithSwitchTemplate: Story<ArgTypes> = () =>
   html`
-    <ft-formfield label="Airplane mode">
-      <ft-switch checked></ft-switch>
-    </ft-formfield>
+    <ru-formfield label="Airplane mode">
+      <ru-switch checked></ru-switch>
+    </ru-formfield>
   `;
 export const WithSwitch = WithSwitchTemplate.bind({});

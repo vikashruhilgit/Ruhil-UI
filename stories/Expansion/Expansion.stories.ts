@@ -17,42 +17,42 @@ interface Story<T> {
 
 interface ArgTypes {}
 
-const Template: Story<ArgTypes> = () => html` <ft-expansion>
+const Template: Story<ArgTypes> = () => html` <ru-expansion>
   <span slot="title">Title</span>
   <span slot="description">Description</span>
   <p>Here's some content</p>
-</ft-expansion>`;
+</ru-expansion>`;
 
 export const Basic = Template.bind({});
 Basic.args = {};
 
-const GroupsTemplate: Story<ArgTypes> = () => html` <ft-expansion name="group">
+const GroupsTemplate: Story<ArgTypes> = () => html` <ru-expansion name="group">
     <span slot="title">Expansion 1</span>
     <span slot="description">Description</span>
     <p>Here's some content</p>
-  </ft-expansion>
+  </ru-expansion>
 
-  <ft-expansion name="group">
+  <ru-expansion name="group">
     <span slot="title">Expansion 2</span>
     <span slot="description">Description</span>
     <p>Here's some content</p>
-  </ft-expansion>
+  </ru-expansion>
 
-  <ft-expansion name="group">
+  <ru-expansion name="group">
     <span slot="title">Expansion 3</span>
     <span slot="description">Description</span>
     <p>Here's some content</p>
-  </ft-expansion>`;
+  </ru-expansion>`;
 
 export const Groups = GroupsTemplate.bind({});
 
-const DisabledTemplate: Story<ArgTypes> = () => html` <ft-expansion
+const DisabledTemplate: Story<ArgTypes> = () => html` <ru-expansion
   name="group"
   disabled
 >
   <span slot="title">Disabled Expansion</span>
   <span slot="description">Description</span>
   <p>Here's some content</p>
-</ft-expansion>`;
+</ru-expansion>`;
 
 export const Disabled = DisabledTemplate.bind({});
