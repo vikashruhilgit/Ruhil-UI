@@ -13,7 +13,7 @@ export class App extends LitElement {
         <div class="logo">${openWcLogo}</div>
         <h1>${this.title}</h1>
 
-        <p>Edit <code>src/FirstechUi.ts</code> and save to reload.</p>
+        <p>Edit <code>src/ruhil-ui.ts</code> and save to reload.</p>
         <a
           class="app-link"
           href="https://open-wc.org/guides/developing-components/code-examples"
@@ -40,7 +40,7 @@ App.styles = css `
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      background-color: var(--firstech-ui-background-color);
+      background-color: var(--ruhil-ui-background-color);
     }
 
     main {

@@ -1,2 +1,2 @@
-export * from './firstech-ui';
+export * from './ruhil-ui';
 //# sourceMappingURL=index.js.map

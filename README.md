@@ -2,10 +2,12 @@
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
+working [DEMO](https://ui-lib-abd9d.firebaseapp.com/)
+
 ## Installation
 
 ```bash
-npm i ruhil-ui
+yarn i ruhil-ui
 ```
 
 ## Usage
@@ -23,13 +25,13 @@ npm i ruhil-ui
 To scan the project for linting and formatting errors, run
 
 ```bash
-npm run lint
+yarn run lint
 ```
 
 To automatically fix linting and formatting errors, run
 
 ```bash
-npm run format
+yarn run format
 ```
 
 ## Testing with Web Test Runner
@@ -37,13 +39,13 @@ npm run format
 To execute a single test run:
 
 ```bash
-npm run test
+yarn run test
 ```
 
 To run the tests in interactive watch mode run:
 
 ```bash
-npm run test:watch
+yarn run test:watch
 ```
 
 ## Demoing with Storybook
@@ -51,13 +53,13 @@ npm run test:watch
 To run a local instance of Storybook for your component, run
 
 ```bash
-npm run storybook
+yarn run sb
 ```
 
 To build a production version of Storybook, run
 
 ```bash
-npm run storybook:build
+yarn run sb:build
 ```
 
 ## Tooling configs
@@ -69,7 +71,7 @@ If you customize the configuration a lot, you can consider moving them to indivi
 ## Local Demo with `web-dev-server`
 
 ```bash
-npm start
+yarn start
 ```
 
 To run a local development server that serves the basic demo located in `demo/index.html`

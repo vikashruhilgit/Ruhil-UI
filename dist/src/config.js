@@ -1,2 +1,2 @@
-export const prefix = 'ft';
+export const prefix = 'ru';
 //# sourceMappingURL=config.js.map

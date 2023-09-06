@@ -14,7 +14,7 @@ export class TableMenuWrapper extends LitElement {
         };
         this.renderIcon = () => {
             const item = document.createElement('vaadin-context-menu-item');
-            const icon = document.createElement('ft-icon');
+            const icon = document.createElement('ru-icon');
             icon.innerHTML = 'more_horiz';
             item.appendChild(icon);
             return item;

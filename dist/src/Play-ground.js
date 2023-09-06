@@ -154,7 +154,7 @@ export class PlayGround extends LitElement {
     ]; */
     render() {
         return html `<div>
-      <ft-google-pay
+      <ru-google-pay
         @gpay-success=${this.printLog}
         @gpay-error=${this.printLog}
         .transactionData=${this.transactionData}
@@ -162,7 +162,7 @@ export class PlayGround extends LitElement {
             customerkey: 'Busey',
             publicKey: 'BNpvYANJS6oqUtOVokdm5pzJDGnQred/k66TUdlQs+lsZriZLIFxZZAFuIvoSefLgSZCvxhgn/sOP5Q10jUfip8=',
         }}
-      ></ft-google-pay>
+      ></ru-google-pay>
       <!--
           This is to play with newly created component
        -->
@@ -176,58 +176,58 @@ export class PlayGround extends LitElement {
 
       <mwc-button id="myButton" label="Click Me!" raised></mwc-button>
       <wl-divider></wl-divider>
-      <wl-title level="4">Firstech Component</wl-title> -->
+      <wl-title level="4">Ruhil's Component</wl-title> -->
       <!--  -->
 
-      <!-- <ft-button id="myButton" label="Click Me!" raised></ft-button>
+      <!-- <ru-button id="myButton" label="Click Me!" raised></ru-button>
 
-      <ft-loader .count=$/{'2'}></ft-loader>
-      <ft-slide heading="Phone Ringtone" open>
-        <ft-button
+      <ru-loader .count=$/{'2'}></ru-loader>
+      <ru-slide heading="Phone Ringtone" open>
+        <ru-button
           id="myButton"
           label="Hello i'm in Dialog box"
           raised
-        ></ft-button>
-        <ft-button
+        ></ru-button>
+        <ru-button
           id="myButton"
           label="Hello i'm in Dialog box"
           raised
-        ></ft-button>
-      </ft-slide>
+        ></ru-button>
+      </ru-slide>
       <wl-divider></wl-divider>
-      <ft-nav>
-        <ft-icon-button icon="menu" slot="navigationIcon"></ft-icon-button>
+      <ru-nav>
+        <ru-icon-button icon="menu" slot="navigationIcon"></ru-icon-button>
         <div slot="title">Title</div>
-        <ft-icon-button
+        <ru-icon-button
           icon="file_download"
           slot="actionItems"
-        ></ft-icon-button>
-        <ft-icon-button icon="print" slot="actionItems"></ft-icon-button>
-        <ft-icon-button
+        ></ru-icon-button>
+        <ru-icon-button icon="print" slot="actionItems"></ru-icon-button>
+        <ru-icon-button
           icon="favorite"
           slot="actionItems"
           disabled
-        ></ft-icon-button>
+        ></ru-icon-button>
         <div>Any content should come here</div>
-      </ft-nav>
-      <ft-snackbar labelText="Can't send photo. Retry in 5 seconds.">
-      </ft-snackbar>
+      </ru-nav>
+      <ru-snackbar labelText="Can't send photo. Retry in 5 seconds.">
+      </ru-snackbar>
       -->
-      <!--  <ft-left-drawer
+      <!--  <ru-leru-drawer
         @itemClicked=\${this.printLog}
         .items=\${this.items}
-      ></ft-left-drawer> -->
+      ></ru-leru-drawer> -->
 
-      <!-- <ft-table
+      <!-- <ru-table
         .tableData="\${this.abc}"
         .actionItems="\${this.actionItems}"
         .headData=\${this.headerObj}
         .enableExpansion=\${true}
       >
-      </ft-table> -->
+      </ru-table> -->
       Hellllo - What are you waiting for, Do your stuff. Play-ground is Working,
       start playing.
-      <ft-switch selected></ft-switch>
+      <ru-switch selected></ru-switch>
       <mwc-switch selected disabled></mwc-switch>
     </div>`;
     }

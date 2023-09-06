@@ -8,7 +8,7 @@ MyTab.styles = [
     ...Tab.styles,
     css `
       .mdc-tab--active .mdc-tab__text-label {
-        color: var(--ft-tab-active-label-color, var(--mdc-theme-primary));
+        color: var(--ru-tab-active-label-color, var(--mdc-theme-primary));
       }
     `,
 ];
