@@ -1,13 +1,12 @@
-import { css } from 'lit';
-export const styles = css `
-  form[id='payment-form'] {
+export const ePaymentstyles = `
+  form[id='payment-form']{
     grid-gap: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); 
   }
-  label[id^='tsep-label'] {
+  label[id^='tsep-label']{
     font-size: 0.75rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0,0,0,0.6);
     font-family: Roboto, sans-serif;
   }
   input[id^='tsep-'] {
@@ -29,15 +28,15 @@ export const styles = css `
     appearance: none;
     padding: 25px;
   }
-  input[id^='tsep-']:hover {
+  input[id^='tsep-']:hover{
     outline: none !important;
     border: 1.5px solid #385877;
   }
-  input[id^='tsep-']:focus {
+  input[id^='tsep-']:focus{
     outline: none !important;
     border: 2.5px solid #385877;
   }
-  span[id^='error_tsep-'] {
+  span[id^='error_tsep-']{
     color: red;
     font-family: Roboto, sans-serif;
     font-size: 0.75rem;

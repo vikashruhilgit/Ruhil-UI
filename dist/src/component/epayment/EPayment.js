@@ -1,8 +1,9 @@
 import { __decorate } from "tslib";
 import { html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { addJsFunction, addScript, JSTypes, } from '../../utility/dynamic-script-loader';
-import { styles } from './ePayment.css';
+// import { UUID } from 'uuid-generator-ts';
+import { addJsFunction, addScript, addStylesToHead, JSTypes, } from '../../utility/dynamic-script-loader';
+import { ePaymentstyles } from './ePayment.css';
 // These are left commented out on purpose. If needed, please uncomment them
 // for testing the payment service.
 /* interface Payment {
@@ -156,7 +157,7 @@ export class EPayment extends LitElement {
                 this._constructScriptTag();
                 addJsFunction(JSTypes.EPAYMENT);
                 this.loading = false;
-                // addStylesToHead(ePaymentstyles);
+                addStylesToHead(ePaymentstyles);
             })
                 .catch((e) => {
                 // eslint-disable-next-line no-console
@@ -205,7 +206,6 @@ export class EPayment extends LitElement {
     `;
     }
 }
-EPayment.styles = styles;
 __decorate([
     property({ type: String })
 ], EPayment.prototype, "serviceUrl", void 0);
