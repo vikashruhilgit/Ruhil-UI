@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit-html';
-import '../../src/firstech-ui';
+import '../../src/ruhil-ui';
 
 export default {
   title: 'Firstech UI/Form Component/Select',

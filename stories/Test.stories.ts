@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit-html';
-import '../src/firstech-ui';
+import '../src/ruhil-ui';
 
 export default {
   title: 'Firstech UI/Component/Test',
@@ -31,7 +31,7 @@ const Template: Story<ArgTypes> = ({
   slot,
 }: ArgTypes) => html`
   <ft-test
-    style="--firstech-ui-text-color: ${textColor || 'black'}"
+    style="--ruhil-ui-text-color: ${textColor || 'black'}"
     .title=${title}
     .counter=${counter}
   >

@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit-html';
 import { TransactionData } from '../../src/component/gpay/GooglePay';
 
-import '../../src/firstech-ui';
+import '../../src/ruhil-ui';
 
 export default {
   title: 'Firstech UI/Component/GPay',

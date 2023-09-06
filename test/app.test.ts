@@ -1,12 +1,12 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
 import { App } from '../src/App';
-import '../firstech-ui';
+import '../ruhil-ui';
 
 describe('App', () => {
   let element: App;
   beforeEach(async () => {
-    element = await fixture(html`<firstech-ui></firstech-ui>`);
+    element = await fixture(html`<ruhil-ui></ruhil-ui>`);
   });
 
   it('renders a h1', () => {

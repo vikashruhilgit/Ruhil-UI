@@ -17,7 +17,7 @@ export class App extends LitElement {
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      background-color: var(--firstech-ui-background-color);
+      background-color: var(--ruhil-ui-background-color);
     }
 
     main {

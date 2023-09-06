@@ -1,15 +1,15 @@
 {
-  "name": "@ft/firstech-ui",
-  "version": "1.0.36",
-  "description": "Webcomponent firstech-ui following open-wc recommendations",
+  "name": "ruhil-ui",
+  "version": "1.1.36",
+  "description": "Webcomponent ruhil-ui following open-wc recommendations",
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
-  "repository": "https://buseydev.visualstudio.com/Innovation/_git/payment-center",
-  "author": "Vikash Ruhil <Vikash.ruhil@busey.com>",
+  "repository": "https://github.com/vikashruhilgit/Ruhil-UI.git",
+  "author": "Vikash Ruhil <v_ruhil@yahoo.com>",
   "license": "MIT",
   "exports": {
     ".": "./dist/src/index.js",
-    "./firstech-ui.js": "./dist/src/firstech-ui.js"
+    "./ruhil-ui.js": "./dist/src/ruhil-ui.js"
   },
   "scripts": {
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",

@@ -11,7 +11,7 @@ For a fixed position version of this component, see [`<ft-nav-fixed>`](https://g
 
 [Design Guidelines: App Bars: Top](https://material.io/design/components/app-bars-top.html)
 
-[Demo](https://firstech-ui.web.app/?path=/story/firstech-ui-component-navigation--navigation)
+[Demo](https://ruhil-ui.web.app/?path=/story/ruhil-ui-component-navigation--navigation)
 
 <!-- ## Installation
 

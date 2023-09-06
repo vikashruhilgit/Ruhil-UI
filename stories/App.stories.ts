@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit-html';
-import '../src/firstech-ui';
+import '../src/ruhil-ui';
 
 export default {
   title: 'Firstech UI/Component/App',
@@ -25,7 +25,7 @@ const Template: Story<ArgTypes> = ({
   backgroundColor = 'white',
 }: ArgTypes) => html`
   <ft-app
-    style="--firstech-ui-background-color: ${backgroundColor}"
+    style="--ruhil-ui-background-color: ${backgroundColor}"
     .title=${title || ''}
   ></ft-app>
 `;
